@@ -50,12 +50,14 @@ test:
   password:
   template: template0
 
-production:
-  adapter:  postgresql
-  host:     localhost
+
   encoding: unicode
   database: ClassSearch_production
   pool:     5
   username: ClassSearch
   password:
   template: template0
+production:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
