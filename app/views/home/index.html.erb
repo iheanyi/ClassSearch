@@ -1,0 +1,68 @@
+
+
+<nav class="top-bar" data-topbar role="navigation">
+  <div class="container">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">Notre Dame Class Search</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="active"><a href="#">Blah</a></li>
+      <li class="has-dropdown">
+        <a href="#">Put Search Here</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+          <li class="active"><a href="#">Active link in dropdown</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a class="active" href="#">Courses</a></li>
+    </ul>
+  </section>
+  </div>
+</nav>
+
+<div class="row">
+  <h3>Home#index</h3>
+  <div class="app-container">
+
+    <div class="large-4 columns department-container">
+      <ul>
+          <% @departments.each do |dept| %>
+          <li>
+            <%= link_to "#{dept.tag} - #{dept.name}", '', class: "department-link", value: "#{dept.tag}" %>
+          </li>
+          <% end %>
+      </ul>
+    </div>
+
+    <div class="large-4 columns course-container">
+      <ul>
+          <% (0..100).each do |number| %>
+            <li><%= "Course #{number}" %></li>
+          <% end %>
+      </ul>
+    </div>
+
+    <div class="large-4 columns section-container">
+      <ul>
+      <% (0..100).each do |number| %>
+        <li><%= "Sections #{number}" %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <p>Maybe add some sub-navigation to this section?</p>
+</div>

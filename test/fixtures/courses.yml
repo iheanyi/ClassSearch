@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  course_num: MyString
+  department_id: 
+  credits: 1
+  crosslisted: false
+
+two:
+  title: MyString
+  course_num: MyString
+  department_id: 
+  credits: 1
+  crosslisted: false
