@@ -10,7 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
-gem 'bootstrap-sass'
+#gem 'bootstrap-sass'
 gem 'nokogiri'
 gem 'httparty'
 gem 'devise'
@@ -28,12 +28,21 @@ gem 'faraday'
 gem 'redis'
 gem 'foundation-rails'
 gem 'parallel'
+gem 'angularjs-rails'
+gem 'underscore-rails'
+gem 'angular-rails-templates'
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+gem 'knockoutjs-rails'
+gem 'vuejs-rails', :git => 'https://github.com/asip/vuejs-rails.git'
+gem "animate-rails"
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'foreman'
   gem 'hub', :require=>nil
   gem 'rails_layout'
+  gem 'bullet'
 end
 group :development, :test do
   gem 'pry-rails'

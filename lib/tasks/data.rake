@@ -42,6 +42,7 @@ namespace :data do
   desc "Fetch every single course in Notre Dame's class search database and map it to a department"
   task fetch_courses: :environment do
     Parallel.map(Department.all) do |dept|
+      #Department.reset_counters(dept.id, :courses)
       fetch_html_response(dept)
     end
   end
@@ -104,6 +105,18 @@ namespace :data do
 
 
       print course_number, " ",  course_section_number, " ", course_title, " ", course_credits, " ", course_open_seats, " ", course_max_seats, " ",  course_crosslisting, " ",  course_crn, " ", course_instructor, " ",course_timeslot, " ",  course_begin, " ", course_end, " ", course_location, "\n"
+
+      course = dept.courses.where(:course_num => course_number).first_or_initialize
+      if course.new_record?
+        puts "Creating new record"
+        course.credits = course_credits
+        course.title = course_title
+        course.crosslisted = course_crosslisting
+        course.save()
+      else
+        puts "Already exists within database."
+      end
+
       puts  "-"*50 + "\n"
     end
   end

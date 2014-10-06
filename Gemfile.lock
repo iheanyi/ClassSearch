@@ -1,3 +1,19 @@
+GIT
+  remote: git://github.com/reactjs/react-rails.git
+  revision: 9d9c41e07ac86a5e1324123af806842641b6e16e
+  specs:
+    react-rails (1.0.0.pre)
+      connection_pool
+      execjs
+      rails (>= 3.1)
+      react-source (= 0.11.1)
+
+GIT
+  remote: https://github.com/asip/vuejs-rails.git
+  revision: 020dde8ea44aad2a7c1e9525d7cfd4a69d98b70b
+  specs:
+    vuejs-rails (0.10.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -27,6 +43,13 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    angular-rails-templates (0.1.3)
+      railties (>= 3.1)
+      sprockets
+      tilt
+    angularjs-rails (1.2.25)
+    animate-rails (1.0.7)
+      rails
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     better_errors (2.0.0)
@@ -35,9 +58,10 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.2.0.2)
-      sass (~> 3.2)
     builder (3.2.2)
+    bullet (4.14.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (>= 1.6.0)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     coderay (1.1.0)
@@ -48,6 +72,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    connection_pool (2.0.0)
     debug_inspector (0.0.2)
     devise (3.3.0)
       bcrypt (~> 3.0)
@@ -112,6 +137,8 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     jwt (1.0.0)
+    knockoutjs-rails (3.2.0)
+      railties (>= 3.1, < 5)
     listen (2.7.9)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -191,6 +218,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.1.2)
       json (~> 1.4)
+    react-source (0.11.1)
     redis (3.1.0)
     redis-actionpack (4.0.0)
       actionpack (~> 4)
@@ -243,6 +271,8 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.7.0)
+    uniform_notifier (1.6.2)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -250,9 +280,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angular-rails-templates
+  angularjs-rails
+  animate-rails
   better_errors
   binding_of_caller
-  bootstrap-sass
+  bullet
   devise
   faraday
   foreman
@@ -267,6 +300,7 @@ DEPENDENCIES
   hub
   jbuilder (~> 2.0)
   jquery-rails
+  knockoutjs-rails
   nokogiri
   omniauth
   omniauth-google-oauth2
@@ -278,6 +312,7 @@ DEPENDENCIES
   rails (= 4.1.5)
   rails_12factor
   rails_layout
+  react-rails (~> 1.0.0.pre)!
   redis
   redis-rails
   sass-rails (~> 4.0.3)
@@ -285,3 +320,5 @@ DEPENDENCIES
   spring
   turbolinks
   uglifier (>= 1.3.0)
+  underscore-rails
+  vuejs-rails!

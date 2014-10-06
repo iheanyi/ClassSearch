@@ -3,9 +3,10 @@
 $(function() {
   console.log("LOADED");
   $('.department-link').click(function(event) {
-    console.log("Clicked!");
     event.preventDefault();
     var attribute = $(this).attr('value'); // Acquire the tag value from the clicked link. :)
+
+    var selected_tag = $(this).attr('value');
 
     alert("Clicked link! " + $(this).attr('value') );
   });

@@ -1,5 +1,4 @@
 
-
 <nav class="top-bar" data-topbar role="navigation">
   <div class="container">
   <ul class="title-area">
@@ -22,7 +21,6 @@
         </ul>
       </li>
     </ul>
-
     <!-- Left Nav Section -->
     <ul class="left">
       <li><a class="active" href="#">Courses</a></li>
@@ -31,8 +29,49 @@
   </div>
 </nav>
 
-<div class="row">
-  <h3>Home#index</h3>
+
+ <div class="row">
+  <h3>Class Search</h3>
+   <div id="app"class="app-container">
+     <div class="large-4 columns department-container">
+      <ul class="common-list dept-list">
+        <li v-transition class="dept-item" v-repeat="departments">
+          <a class="dept-link" href="#" v-on="click: loadCourses(this)" value="{{tag}}">{{tag}} - {{name}}</a>
+        </li>
+      </ul>
+     </div>
+
+     <div class="large-4 columns animated fadeInRightBig course-container">
+        <h5 v-show="courses.length == 0">
+          There are no courses to be shown, please select another department.
+        </h5>
+
+       <ul v-transition class="common-list course-list">
+         <li class="course-item" v-repeat="courses">
+            <span class="course-number">{{course_num}}</span><br>
+
+            <a class="course-link" v-on="click: loadSections(this)" href="#" value="{{course_num}}">
+            {{title}}</a>
+         </li>
+       </ul>
+     </div>
+
+     <div class="animated fadeInRight large-4 columns section-container">
+
+        <div class="row">
+          <h4>First Section</h4>
+        </div>
+        <div class="row">
+          <h4>Second Section</h4>
+          <ul v-repeat="sections">
+          </ul>
+        </div>
+     </div>
+   </div>
+ </div>
+
+<!--  <div class="row">
+  <h3>Class Search</h3>
   <div class="app-container">
 
     <div class="large-4 columns department-container">
@@ -61,7 +100,7 @@
       </ul>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="row">
   <p>Maybe add some sub-navigation to this section?</p>
