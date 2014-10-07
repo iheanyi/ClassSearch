@@ -61,10 +61,10 @@
         <div v-with="selected_course" class="row">
           <h4>{{selected_course_name}} ({{selected_course_credits}})</h4>
           {{selected_course.$data.title}}
-
-          <p v-text="selected_course.title"></p>
+          {{selected_course.title}}
           {{app.selected_course.title}}
           {{title}}
+
           {{selected_course_name}}
 
           <p>{{selected_course_description}}</p>

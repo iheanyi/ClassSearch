@@ -8,8 +8,8 @@ var app = new Vue({
 
   created: function() {
     self.courses = [];
-    self.selected_course = {}
-    self.selected_course.title = 'nohing';
+    self.selected_course = {};
+    self.selected_course.title = 'nothing';
     self.selected_course_name = 'Nothing';
     self.selected_course_credits = 3;
     //self.selected_course = null;
