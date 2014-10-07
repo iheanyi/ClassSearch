@@ -50,7 +50,7 @@
          <li class="course-item" v-repeat="courses">
             <span class="course-number">{{course_num}}</span><br>
 
-            <a class="course-link" v-on="click: loadSections(this)" href="#" value="{{course_num}}">
+            <a v-ref="selected_course" class="course-link" v-on="click: loadSections(this)" href="#" value="{{course_num}}">
             {{title}}</a>
          </li>
        </ul>
@@ -58,8 +58,17 @@
 
      <div class="animated fadeInRight large-4 columns section-container">
 
-        <div class="row">
-          <h4>First Section</h4>
+        <div v-with="selected_course" class="row">
+          <h4>{{selected_course_name}} ({{selected_course_credits}})</h4>
+          {{selected_course.$data.title}}
+
+          <p v-text="selected_course.title"></p>
+          {{app.selected_course.title}}
+          {{title}}
+          {{selected_course_name}}
+
+          <p>{{selected_course_description}}</p>
+
         </div>
         <div class="row">
           <h4>Second Section</h4>

@@ -41,10 +41,11 @@ namespace :data do
 
   desc "Fetch every single course in Notre Dame's class search database and map it to a department"
   task fetch_courses: :environment do
-    Parallel.map(Department.all) do |dept|
+    fetch_html_response(Department.where(tag: 'PSY').take)
+    #Parallel.map(Department.all) do |dept|
       #Department.reset_counters(dept.id, :courses)
-      fetch_html_response(dept)
-    end
+      #fetch_html_response(dept)
+    #end
   end
 
   desc "TODO"
@@ -87,6 +88,7 @@ namespace :data do
       course_number = course_section[0].strip
       course_section_number = course_section[1].strip.split[0].strip
 
+      course_status = cells[3].strip
       course_max_seats = cells[4].text.strip
       course_open_seats = cells[5].text.strip
       course_crosslist = cells[6].text.strip
@@ -98,6 +100,12 @@ namespace :data do
       #course_crosslist = "Y" ? true ? false
       course_crn = cells[7].text.strip
       course_instructor =  cells[9].text.strip
+
+      if course_instructor.include?  "\n"
+        instructors = puts course_instructor.split("\n")[0]
+        break
+      end
+
       course_timeslot = cells[10].text.strip
       course_begin = cells[11].text.strip
       course_end = cells[12].text.strip

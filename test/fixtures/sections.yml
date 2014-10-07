@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  crn: 1
+  open_seats: 1
+  max_seats: 1
+  days_of_week: MyString
+  start_time: 2014-10-07 10:02:01
+  end_time: 2014-10-07 10:02:01
+  location: MyString
+  section_num: 1
+
+two:
+  crn: 1
+  open_seats: 1
+  max_seats: 1
+  days_of_week: MyString
+  start_time: 2014-10-07 10:02:01
+  end_time: 2014-10-07 10:02:01
+  location: MyString
+  section_num: 1

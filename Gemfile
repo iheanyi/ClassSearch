@@ -35,6 +35,8 @@ gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 gem 'knockoutjs-rails'
 gem 'vuejs-rails', :git => 'https://github.com/asip/vuejs-rails.git'
 gem "animate-rails"
+gem 'rack-cors', :require => 'rack/cors'
+
 
 group :development do
   gem 'better_errors'
