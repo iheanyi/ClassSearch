@@ -12,12 +12,14 @@
 .course-container {
   height: 100%;
   overflow-y: scroll;
-  background: #fff; }
+  background: #fff;
+  display: none; }
 
 .section-container {
   height: 100%;
   overflow-y: scroll;
-  background: #fff; }
+  background: #fff;
+  display: none; }
 
 .container {
   width: 1200px;

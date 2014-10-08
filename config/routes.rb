@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   end
 
   scope "api" do
-    resources :departments
+    resources :departments do
+      resources :courses
+    end
+    resources :courses
   end
 
   get 'home/index'

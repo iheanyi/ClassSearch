@@ -1,4 +1,5 @@
 var apiURL = 'http://localhost:3000/api/departments.json'
+var courseURL = 'http://localhost:3000/api/departments'
 var app = new Vue({
   el: '#app',
 
@@ -19,6 +20,8 @@ var app = new Vue({
   data: {
     courses: [],
     departments: [],
+    custom_course: [],
+    sections: [],
     selected_course: {
       title: '',
     },
@@ -31,7 +34,7 @@ var app = new Vue({
   methods: {
     fetchDeptData: function() {
       var xhr = new XMLHttpRequest(),
-        self = this
+      self = this;
       xhr.open('GET', apiURL);
       xhr.onload = function() {
         app.departments = JSON.parse(xhr.responseText);
@@ -46,19 +49,34 @@ var app = new Vue({
       $('.dept-active').removeClass('dept-active');
       $(this).addClass('dept-active');
       console.log(dept);
+      console.log(dept.tag);
       app.courses = dept.courses;
+      this.fetchCourseData(dept.tag);
       $('.course-container').show();
+    },
+
+    fetchCourseData: function(tag) {
+      var xhr = new XMLHttpRequest();
+      self = this;
+      xhr.open('GET', courseURL + '/' + tag + '/courses.json');
+      xhr.onload = function() {
+        app.current_courses = JSON.parse(xhr.responseText);
+        app.courses = app.current_courses;
+        console.log(app.custom_courses);
+        console.log("Loaded");
+        console.log(app.courses);
+      }
+
+      xhr.send();
+
+
     },
 
     loadSections: function(course) {
       course.preventDefault;
-      console.log(course);
-      app.selected_course = course;
-      app.selected_course.title = course.title;
-      app.selected_course_name = course.title;
-      console.log(course.title);
-      console.log(app.selected_course.title);
-      console.log("selected");
+      console.log(course.$data);
+      app.selected_course = course.$data;
+      app.sections = course.sections;
       $('.section-container').show();
     }
   }

@@ -43,7 +43,7 @@ Rails.application.configure do
     Bullet.console = true
     Bullet.rails_logger = true
     Bullet.bugsnag = true
-    Bullet.airbrake = true
+    #Bullet.airbrake = true
     Bullet.add_footer = true
   end
 end
