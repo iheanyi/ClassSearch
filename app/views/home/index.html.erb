@@ -12,14 +12,17 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <li class="active"><a href="#">Blah</a></li>
-      <li class="has-dropdown">
-        <a href="#">Put Search Here</a>
-        <ul class="dropdown">
-          <li><a href="#">First link in dropdown</a></li>
-          <li class="active"><a href="#">Active link in dropdown</a></li>
-        </ul>
-      </li>
+       <li class="has-form">
+         <div class="row collapse">
+           <div class="large-8 small-9 columns">
+             <input v-model="searchText" type="text" placeholder="Filter names or departments">
+           </div>
+           <div class="large-4 small-3 columns">
+             <a href="#" class="alert button expand">Search</a>
+           </div>
+         </div>
+       </li>
+
     </ul>
     <!-- Left Nav Section -->
     <ul class="left">
@@ -32,10 +35,10 @@
 
  <div class="row">
   <h3>Class Search</h3>
-   <div id="app"class="app-container">
+   <div class="app-container">
      <div class="large-4 columns department-container">
       <ul class="common-list dept-list">
-        <li v-transition class="dept-item" v-repeat="departments">
+        <li v-transition class="dept-item" v-repeat="departments | filterBy searchText">
           <span class="dept-text">{{tag}}</span> <br>
           <a class="dept-link" href="#" v-on="click: loadCourses(this)" value="{{tag}}">{{name}}</a>
         </li>
@@ -48,9 +51,9 @@
         </h5>
 
        <ul v-transition class="common-list course-list">
-         <li class="course-item" v-repeat="courses">
+         <li class="course-item" v-repeat="courses | filterBy searchText">
             <span class="course-number">{{ course_num }}</span> <br>
-            <a v-ref="selected_course" class="course-link" v-on="click: loadSections(this)" href="#" value="{{course_num}}">
+            <a class="course-link" v-on="click: loadSections(this)" href="#" value="{{course_num}}">
             {{title}}</a> <span class="label round section-label" style="float: right;">{{sections_count}}</span>
          </li>
        </ul>
