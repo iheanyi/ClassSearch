@@ -1,6 +1,13 @@
 var apiURL = '/api/departments.json'
 var courseURL = '/api/departments'
 
+Vue.component('test-component', {
+  template: 'A custom component for here, yay!',
+  data: {
+    message: 'Hello'
+}
+
+});
 
 var app = new Vue({
   el: '#app',
@@ -8,7 +15,7 @@ var app = new Vue({
   filters: {
     timeFormat: function(date) {
       //formatted = moment(date, 'HH:mm A');
-      return moment(date).format("HH:mm A");
+      return moment(date).add(1, 'hours').format("hh:mmA");
     },
   },
 
@@ -33,7 +40,7 @@ var app = new Vue({
     selected_course_name: 'Nothing',
     selected_course_credits: 3,
     sections: [],
-    selected_course_description: 'This is just a boilerplate response for some description, this will be dynamically updated as I get more information and whatnot, so bear with me, this feature is still under construction, you know?',
+    selected_course_description: 'This is just a boilerplate response for some description, this will be dynamically updated as I get more information and whatnot, so bear with me, this feature is still under construction, you know? This is just a boilerplate response for some description, this will be dynamically updated as I get more information and whatnot, so bear with me, this feature is still under construction, you know? This is just a boilerplate response for some description, this will be dynamically updated as I get more information and whatnot, so bear with me, this feature is still under construction, you know? This is just a boilerplate response for some description, this will be dynamically updated as I get more information and whatnot, so bear with me, this feature is still under construction, you know? This is just a boilerplate response for some description, this will be dynamically updated as I get more information and whatnot, so bear with me, this feature is still under construction, you know?',
   },
 
   methods: {
@@ -52,8 +59,8 @@ var app = new Vue({
       //console.log(dept);
       //console.log(dept.courses);
       $('.dept-active').removeClass('dept-active');
-      $(this).addClass('dept-active');
-      console.log(dept);
+      $(dept.$el).addClass('dept-active');
+
       console.log(dept.tag);
       app.courses = dept.courses;
       this.fetchCourseData(dept.tag);
@@ -73,13 +80,13 @@ var app = new Vue({
       }
 
       xhr.send();
-
-
     },
 
     loadSections: function(course) {
       course.preventDefault;
       console.log(course.$data);
+      $('.course-active').removeClass('course-active');
+      $(course.$el).addClass('course-active');
       app.selected_course = course.$data;
       app.sections = course.sections;
       $('.section-container').show();

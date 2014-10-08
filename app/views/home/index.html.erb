@@ -36,27 +36,27 @@
      <div class="large-4 columns department-container">
       <ul class="common-list dept-list">
         <li v-transition class="dept-item" v-repeat="departments">
-          <a class="dept-link" href="#" v-on="click: loadCourses(this)" value="{{tag}}">{{tag}} - {{name}}</a>
+          <span class="dept-text">{{tag}}</span> <br>
+          <a class="dept-link" href="#" v-on="click: loadCourses(this)" value="{{tag}}">{{name}}</a>
         </li>
       </ul>
      </div>
 
-     <div class="large-4 columns animated fadeInRightBig course-container">
+     <div class="large-4 columns animated fadeInLeft course-container">
         <h5 v-show="courses.length == 0">
           There are no courses to be shown, please select another department.
         </h5>
 
        <ul v-transition class="common-list course-list">
          <li class="course-item" v-repeat="courses">
-            <span class="course-number">{{course_num}}</span><br>
-
+            <span class="course-number">{{ course_num }}</span> <br>
             <a v-ref="selected_course" class="course-link" v-on="click: loadSections(this)" href="#" value="{{course_num}}">
             {{title}}</a>
          </li>
        </ul>
      </div>
 
-     <div class="animated fadeInRight large-4 columns section-container">
+     <div class="animated fadeInLeft large-4 columns section-container">
 
         <div class="row description-section">
           <h4>{{selected_course.title}} ({{selected_course.credits}})</h4>
@@ -67,11 +67,16 @@
           <h5>Course Sections</h5>
           <ul class="common-list section-list">
             <li class="section-item" v-repeat="sections | orderBy 'section_num'">
-            <span>Section {{section_num}} &middot; {{days_of_week}} &middot; {{start_time | timeFormat }} - {{end_time | timeFormat}} &middot; {{professor.first_name}} {{professor.last_name}} &middot; {{location}}</span>
+              <div class="details">
+                <span class="details-text">Section {{section_num}} &middot; {{days_of_week}} {{start_time | timeFormat }} - {{end_time | timeFormat}} </span>  <br>
+
+                <span class="details-text">{{professor.first_name}} {{professor.last_name}} &middot; {{location}}</span>
+              </div>
 
 
-            <div class="progress small-5 alert round">
-              <span class="meter " style="width: {{((max_seats - open_seats) / max_seats) * 100}}%"></span>
+
+            <div class="seats-bar progress small-4 alert round">
+              <span class="meter" style="width: {{((max_seats - open_seats) / max_seats) * 100}}%"></span> <span class="seats-text"><span class="seats-numbers">{{open_seats}} / {{max_seats}}</span> seats left </span>
             </div>
 
             </li>
@@ -80,39 +85,7 @@
      </div>
    </div>
  </div>
-
-<!--  <div class="row">
-  <h3>Class Search</h3>
-  <div class="app-container">
-
-    <div class="large-4 columns department-container">
-      <ul>
-          <% @departments.each do |dept| %>
-          <li>
-            <%= link_to "#{dept.tag} - #{dept.name}", '', class: "department-link", value: "#{dept.tag}" %>
-          </li>
-          <% end %>
-      </ul>
-    </div>
-
-    <div class="large-4 columns course-container">
-      <ul>
-          <% (0..100).each do |number| %>
-            <li><%= "Course #{number}" %></li>
-          <% end %>
-      </ul>
-    </div>
-
-    <div class="large-4 columns section-container">
-      <ul>
-      <% (0..100).each do |number| %>
-        <li><%= "Sections #{number}" %></li>
-      <% end %>
-      </ul>
-    </div>
-  </div>
-</div> -->
-
 <div class="row">
   <p>Maybe add some sub-navigation to this section?</p>
+  <p v-component="test-component"></p>
 </div>

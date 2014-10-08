@@ -14,6 +14,7 @@ $row-width: rem-calc(1200);
   height: 100%;
   overflow-y: scroll;
   background: #fff;
+  z-index: 5;
 }
 
 .course-container {
@@ -21,6 +22,7 @@ $row-width: rem-calc(1200);
   overflow-y: scroll;
   background: #fff;
   display: none;
+  z-index: 4;
 }
 
 .section-container {
@@ -28,6 +30,7 @@ $row-width: rem-calc(1200);
   //overflow-y: scroll;
   background:#fff;
   display: none;
+  z-index: 3;
 }
 
 .container {
@@ -44,17 +47,23 @@ $row-width: rem-calc(1200);
 .dept-item, .course-item {
   padding-left: 0;
   margin-left: 0;
+  margin: 0;
+  padding: 0;
   border-bottom: 2px dashed #e5e5e5;
-  padding: 16px;
+  //padding: 16px;
   width: 100%;
 }
 
-.dept-link {
+.dept-link, .course-link {
+  display: inline-block;
+
+  padding: 16px;
 }
 
-.course-number {
+.course-numbers {
   font-variant: small-caps;
 }
+
 .description-section {
   border-bottom: 2px #e5e5e5 dashed;
 }
@@ -62,4 +71,43 @@ $row-width: rem-calc(1200);
 .description-section, .sections-area {
   height: 50%;
   overflow-y: scroll;
+  padding: 12px;
+}
+
+.section-item {
+  height: auto;
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.seats-bar {
+  display: inline-block;
+}
+
+.seats-text {
+  font-variant: small-caps;
+}
+
+.course-number {
+  font-weight: 300;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dept-text {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dept-active, .course-active {
+  background-color: blue;
+  z-index: 5;
+}
+.seats-numbers {
+  font-size: 12px;
+}
+
+.details-text {
+  font-size: 14px;
 }

@@ -3,6 +3,7 @@ require 'open-uri'
 require 'httparty'
 require 'http'
 require 'faraday'
+require 'chronic'
 
 namespace :data do
 
@@ -113,8 +114,8 @@ namespace :data do
         course_start_time = nil
         course_end_time = nil
       else
-        course_start_time = course_timeslot[1].strip + "M"
-        course_end_time = course_timeslot[2].strip + "M"
+        course_start_time = Chronic.parse(course_timeslot[1].strip + "M")
+        course_end_time = Chronic.parse(course_timeslot[2].strip + "M")
       end
 
       course_begin = cells[11].text.strip
@@ -157,6 +158,9 @@ namespace :data do
         section.location = course_location
       else
         section.days_of_week = course_days
+        section.start_time = course_start_time
+        section.end_time = course_end_time
+
         section.professor = professor_model
         section.location = course_location
         puts "Section already in database"

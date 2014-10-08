@@ -7,18 +7,21 @@
 .department-container {
   height: 100%;
   overflow-y: scroll;
-  background: #fff; }
+  background: #fff;
+  z-index: 5; }
 
 .course-container {
   height: 100%;
   overflow-y: scroll;
   background: #fff;
-  display: none; }
+  display: none;
+  z-index: 4; }
 
 .section-container {
   height: 100%;
   background: #fff;
-  display: none; }
+  display: none;
+  z-index: 3; }
 
 .container {
   width: 1200px;
@@ -32,11 +35,16 @@
 .dept-item, .course-item {
   padding-left: 0;
   margin-left: 0;
+  margin: 0;
+  padding: 0;
   border-bottom: 2px dashed #e5e5e5;
-  padding: 16px;
   width: 100%; }
 
-.course-number {
+.dept-link, .course-link {
+  display: inline-block;
+  padding: 16px; }
+
+.course-numbers {
   font-variant: small-caps; }
 
 .description-section {
@@ -44,4 +52,36 @@
 
 .description-section, .sections-area {
   height: 50%;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  padding: 12px; }
+
+.section-item {
+  height: auto;
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px; }
+
+.seats-bar {
+  display: inline-block; }
+
+.seats-text {
+  font-variant: small-caps; }
+
+.course-number {
+  font-weight: 300;
+  font-size: 12px;
+  font-weight: 700; }
+
+.dept-text {
+  font-size: 12px;
+  font-weight: 700; }
+
+.dept-active, .course-active {
+  background-color: blue;
+  z-index: 5; }
+
+.seats-numbers {
+  font-size: 12px; }
+
+.details-text {
+  font-size: 14px; }
