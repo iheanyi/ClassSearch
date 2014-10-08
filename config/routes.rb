@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'home/index'
   get '/departments/:tag/courses', to: 'departments#courses'
+  get '/courses', to: 'courses#fetch_all'
 
   #get '/departments', to: 'departments#index'
 

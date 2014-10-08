@@ -11,7 +11,6 @@ class DepartmentsController < ApplicationController
 
   def show
     respond_to do |format|
-
       format.json { render json: Department.find(params[:tag]) }
     end
   end

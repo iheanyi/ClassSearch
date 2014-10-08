@@ -44,7 +44,18 @@
   border-bottom: 1px dashed #e5e5e5;
   padding: 4px;
   padding-left: 12px;
+  padding-right: 12px;
   width: 100%; }
+
+.section-label {
+  text-align: center; }
+
+.link-item {
+  text-transform: uppercase; }
+
+.footer-text {
+  font-variant: small-caps;
+  margin-top: 18px; }
 
 .dept-link, .course-link {
   display: inline-block;

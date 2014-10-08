@@ -23,7 +23,7 @@
     </ul>
     <!-- Left Nav Section -->
     <ul class="left">
-      <li><a class="active" href="#">Courses</a></li>
+      <li><a class="active link-item" href="#">COURSES</a></li>
     </ul>
   </section>
   </div>
@@ -51,7 +51,7 @@
          <li class="course-item" v-repeat="courses">
             <span class="course-number">{{ course_num }}</span> <br>
             <a v-ref="selected_course" class="course-link" v-on="click: loadSections(this)" href="#" value="{{course_num}}">
-            {{title}}</a>
+            {{title}}</a> <span class="label round section-label" style="float: right;">{{sections_count}}</span>
          </li>
        </ul>
      </div>
@@ -85,7 +85,7 @@
      </div>
    </div>
  </div>
+
 <div class="row">
-  <p>Maybe add some sub-navigation to this section?</p>
-  <p v-component="test-component"></p>
+<p class="small-caps footer-text">developed and designed with &hearts; by <a href="http://iheanyi.com">iheanyi ekechukwu</a></p>
 </div>
