@@ -68,7 +68,7 @@
   font-variant: small-caps; }
 
 .description-section {
-  border-bottom: 2px #e5e5e5 dashed; }
+  border-bottom: 2px #e5e5e5 solid; }
 
 .description-section, .sections-area {
   height: 50%;
