@@ -15,6 +15,8 @@ $row-width: rem-calc(1200);
   overflow-y: scroll;
   background: #fff;
   z-index: 5;
+  padding: 0;
+  margin: 0;
 }
 
 .course-container {
@@ -22,6 +24,8 @@ $row-width: rem-calc(1200);
   overflow-y: scroll;
   background: #fff;
   display: none;
+  padding: 0;
+  margin: 0;
   z-index: 4;
 }
 
@@ -49,15 +53,18 @@ $row-width: rem-calc(1200);
   margin-left: 0;
   margin: 0;
   padding: 0;
-  border-bottom: 2px dashed #e5e5e5;
-  //padding: 16px;
+  border-bottom: 1px dashed #e5e5e5;
+  padding: 4px;
+  padding-left: 12px;
   width: 100%;
 }
 
 .dept-link, .course-link {
   display: inline-block;
-
   padding: 16px;
+  padding-left: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .course-numbers {
@@ -101,8 +108,16 @@ $row-width: rem-calc(1200);
 }
 
 .dept-active, .course-active {
-  background-color: blue;
+  background-color: #1F2D3C;
   z-index: 5;
+
+  span {
+    color: #fff;
+  }
+  a {
+    color: #fff;
+
+  }
 }
 .seats-numbers {
   font-size: 12px;

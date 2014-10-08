@@ -40,7 +40,7 @@ var app = new Vue({
     selected_course_name: 'Nothing',
     selected_course_credits: 3,
     sections: [],
-    selected_course_description: 'This is just a boilerplate response for some description, this will be dynamically updated as I get more information and whatnot, so bear with me, this feature is still under construction, you know? This is just a boilerplate response for some description, this will be dynamically updated as I get more information and whatnot, so bear with me, this feature is still under construction, you know? This is just a boilerplate response for some description, this will be dynamically updated as I get more information and whatnot, so bear with me, this feature is still under construction, you know? This is just a boilerplate response for some description, this will be dynamically updated as I get more information and whatnot, so bear with me, this feature is still under construction, you know? This is just a boilerplate response for some description, this will be dynamically updated as I get more information and whatnot, so bear with me, this feature is still under construction, you know?',
+    selected_course_description: 'Right now, this is just placeholder text until I finally write up a parser for extracting the course description for every single course. I promise that I will get to it eventually, just be patient, these things take time and I am a busy college student. :P',
   },
 
   methods: {

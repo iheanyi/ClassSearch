@@ -160,7 +160,6 @@ namespace :data do
         section.days_of_week = course_days
         section.start_time = course_start_time
         section.end_time = course_end_time
-
         section.professor = professor_model
         section.location = course_location
         puts "Section already in database"
