@@ -38,7 +38,7 @@
    <div class="app-container">
      <div class="large-4 columns department-container">
       <ul class="common-list dept-list">
-        <li v-transition class="dept-item" v-repeat="departments | filterBy searchText">
+        <li v-transition class="dept-item" v-repeat="departments">
           <span class="dept-text">{{tag}}</span> <br>
           <a class="dept-link" href="#" v-on="click: loadCourses(this)" value="{{tag}}">{{name}}</a>
         </li>
