@@ -5,5 +5,6 @@ class SectionsController < ApplicationController
 
       format.html
       format.json { render json: @sections.to_json(:include => :professor)}
+    end
   end
 end
