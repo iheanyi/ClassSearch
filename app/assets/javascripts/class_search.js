@@ -15,7 +15,7 @@ var app = new Vue({
   filters: {
     timeFormat: function(date) {
       //formatted = moment(date, 'HH:mm A');
-      return moment(date).add(1, 'hours').format("hh:mmA");
+      return moment(date).add(1, 'hours').format("h:mmA");
     },
   },
 
