@@ -1,10 +1,15 @@
-var apiURL = 'http://localhost:3000/api/departments.json'
-var courseURL = 'http://localhost:3000/api/departments'
+var apiURL = '/api/departments.json'
+var courseURL = '/api/departments'
+
+
 var app = new Vue({
   el: '#app',
 
   filters: {
-
+    timeFormat: function(date) {
+      //formatted = moment(date, 'HH:mm A');
+      return moment(date).format("HH:mm A");
+    },
   },
 
   created: function() {

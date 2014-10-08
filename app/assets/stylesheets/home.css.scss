@@ -25,7 +25,7 @@ $row-width: rem-calc(1200);
 
 .section-container {
   height: 100%;
-  overflow-y: scroll;
+  //overflow-y: scroll;
   background:#fff;
   display: none;
 }
@@ -54,4 +54,12 @@ $row-width: rem-calc(1200);
 
 .course-number {
   font-variant: small-caps;
+}
+.description-section {
+  border-bottom: 2px #e5e5e5 dashed;
+}
+
+.description-section, .sections-area {
+  height: 50%;
+  overflow-y: scroll;
 }

@@ -63,11 +63,11 @@
           <p>{{selected_course_description}}</p>
 
         </div>
-        <div class="row section-area">
-          <h4>Sections</h4>
+        <div class="row sections-area">
+          <h5>Course Sections</h5>
           <ul class="common-list section-list">
-            <li class="section-item" v-repeat="sections">
-            <span>Section {{section_num}} x {{days_of_week}} x {{start_time}} - {{end_time}} {{professor.first_name}} {{professor.last_name}}</span>
+            <li class="section-item" v-repeat="sections | orderBy 'section_num'">
+            <span>Section {{section_num}} &middot; {{days_of_week}} &middot; {{start_time | timeFormat }} - {{end_time | timeFormat}} &middot; {{professor.first_name}} {{professor.last_name}} &middot; {{location}}</span>
 
 
             <div class="progress small-5 alert round">

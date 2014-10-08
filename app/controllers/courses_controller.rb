@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   def index
-    @courses = Department.where(:tag => params[:department_id]).first.courses.includes(sections: [:professor])
+    @courses = Department.where(:tag => params[:department_id]).first.courses.includes(sections: [:professor]) || Course.all
     respond_to do |format|
       format.html
       #format.json { render json: Department.where(:tag => params[:department_id]).first.courses }

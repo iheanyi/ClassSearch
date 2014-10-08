@@ -15,5 +15,6 @@
 //= require underscore
 //= require foundation
 //= require vue
+//= require moment
 //= require_tree .
 
