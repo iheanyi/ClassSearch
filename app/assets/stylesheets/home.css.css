@@ -1,8 +1,12 @@
+.app {
+  padding-top: 40px; }
+
 .app-container {
   height: 550px;
   overflow: hidden;
   border: 1px dashed #f5f5f5;
-  background-color: #e5e5e5; }
+  background-color: #e5e5e5;
+  margin-top: 24px; }
 
 .department-container {
   height: 100%;
@@ -106,6 +110,9 @@
 
 .seats-numbers {
   font-size: 12px; }
+
+.meter {
+  z-index: 5; }
 
 .details-text {
   font-size: 14px; }

@@ -90,6 +90,8 @@ var app = new Vue({
       app.selected_course = course.$data;
       app.sections = course.sections;
       $('.section-container').show();
+      $('.meter').removeClass('animated').addClass('animated');
+      $('.meter').hide().show();
     }
   }
 });
