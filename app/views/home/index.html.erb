@@ -52,7 +52,7 @@
 
        <ul v-transition class="common-list course-list">
          <li v-on="click: loadSections(this)" class="course-item" v-repeat="courses | filterBy searchText">
-            <span class="course-number">{{ course_num }}</span> <br>
+            <span class="course-number">{{ course_num }} ({{credits}})</span> <br>
             <a class="course-link" href="#" value="{{course_num}}">
             {{title}}</a> <span class="label round section-label" style="float: right;">{{sections_count}}</span>
          </li>
