@@ -16,5 +16,6 @@
 //= require foundation
 //= require vue
 //= require moment
+//= require analytics
 //= require_tree .
 
