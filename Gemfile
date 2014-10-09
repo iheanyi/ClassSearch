@@ -38,6 +38,7 @@ gem "animate-rails"
 gem 'rack-cors', :require => 'rack/cors'
 gem 'momentjs-rails'
 gem 'chronic'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'better_errors'
