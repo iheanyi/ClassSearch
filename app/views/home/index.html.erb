@@ -96,15 +96,14 @@
                 <span class="details-text">{{professor.first_name}} {{professor.last_name}} &middot; {{location}}</span>
               </div>
 
-              <div class="large-3">
-              <a href="#" v-on="click: addFavoriteSection(this)">Add</a>
-              </div>
-
-
-
             <div class="seats-bar progress small-4 alert round">
               <span v-transition class="meter animated" style="width: {{((max_seats - open_seats) / max_seats) * 100}}%"></span> <span class="seats-text"><span class="seats-numbers">{{open_seats}} / {{max_seats}}</span> seats left</span>
             </div>
+
+              <div class="large-6">
+                <a class="small-caps" href="#" v-on="click: addFavoriteSection(this)">+ add to favorites</a>
+              </div>
+
 
             </li>
           </ul>
@@ -112,6 +111,7 @@
      </div>
    </div>
  </div>
+
 
 <div class="row">
 <p class="small-caps footer-text"><span class="left">developed and designed with &hearts; by <a href="http://iheanyi.com">iheanyi ekechukwu</a>.</span> <span class="right">feel free to <a href="mailto:hello@iheanyi.com">e-mail me</a> with any feedback or suggestions. :)  </span></p>

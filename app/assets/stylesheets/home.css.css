@@ -25,6 +25,10 @@
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s; }
 
+a.small-caps {
+  font-variant: small-caps;
+  border-bottom: 1px dotted; }
+
 .course-container {
   height: 100%;
   overflow-y: scroll;
