@@ -44,8 +44,6 @@ namespace :data do
   task fetch_courses: :environment do
     #fetch_html_response(Department.where(tag: 'PSY').take)
     Parallel.map(Department.all) do |dept|
-    #Department.all.each do |dept|
-      #Department.reset_counters(dept.id, :courses)
       fetch_html_response(dept)
     end
   end
@@ -54,6 +52,41 @@ namespace :data do
   task update_course_attributes: :environment do
   end
 
+  desc "Fetch Descriptions for each course"
+  task fetch_course_description: :environment do
+    Parallel.map(Course.all) do |course|
+      fetch_course_description(course)
+    end
+  end
+
+
+  def fetch_course_description(course)
+    course_section = course.sections.first
+    if(course_section != nil && course.course_description == nil)
+      response = @conn.get '', {:CRN => course_section.crn, :TERM => "201410", }
+      content = response.body.strip
+
+      document = Nokogiri::HTML(content)
+
+      basic_info = document.css('#basicInfo').first
+      data_table = basic_info.css('.datadisplaytable').first
+
+      table_data = data_table.css('tr')
+
+      alt_table = document.xpath('//table[@class="datadisplaytable"]').first
+
+      # Has a second data display table nested within
+      #
+
+      course_description = alt_table.xpath('./tr[2]/td/text()[3]').text.strip
+
+      puts course_description
+
+      course.course_description = course_description
+
+      course.save()
+    end
+  end
   def fetch_html_response(dept)
     response = @conn.post '', {
       :TERM => @term_field,

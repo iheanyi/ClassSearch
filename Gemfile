@@ -6,7 +6,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 #gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'turbolinks'
+#gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
@@ -28,17 +28,15 @@ gem 'faraday'
 gem 'redis'
 gem 'foundation-rails'
 gem 'parallel'
-gem 'angularjs-rails'
 gem 'underscore-rails'
-gem 'angular-rails-templates'
-gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
-gem 'knockoutjs-rails'
 gem 'vuejs-rails', :git => 'https://github.com/asip/vuejs-rails.git'
 gem "animate-rails"
 gem 'rack-cors', :require => 'rack/cors'
 gem 'momentjs-rails'
 gem 'chronic'
 gem 'newrelic_rpm'
+gem "browserify-rails", "~> 0.4"
+gem "rack-timeout"
 
 group :development do
   gem 'better_errors'
@@ -51,6 +49,7 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
+  gem 'dotenv-rails'
 end
 group :production do
   gem 'rails_12factor'

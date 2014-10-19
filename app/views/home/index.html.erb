@@ -12,8 +12,22 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
+
+      <li class="has-dropdown">
+         <a href="#">{{modelToFilter}}</a>
+
+         <!-- <ul class="dropdown">
+           <li><a v-model="modelToFilter" href="#">First link in dropdown</a></li>
+           <li class="active"><a href="#">Active link in dropdown</a></li>
+         </ul> -->
+       </li>
        <li class="has-form">
          <div class="row collapse">
+         <select v-model="modelToFilter" name="modelToFilter" id="" class="dropdown">
+           <option value="departments">Departments</option>
+           <option value="attributes">Attributes</option>
+           <option value="professors">Professors</option>
+         </select>
            <div class="large-8 small-9 columns">
              <input v-model="searchText" type="text" placeholder="Filter course names or departments">
            </div>
@@ -26,7 +40,7 @@
     </ul>
     <!-- Left Nav Section -->
     <ul class="left">
-      <li><a class="active link-item" href="#">COURSES</a></li>
+      <li><a class="active link-item" href="#">courses</a></li>
     </ul>
   </section>
   </div>
@@ -34,24 +48,30 @@
 
 
  <div class="row app">
-  <h3>Class Search</h3>
-   <div class="app-container">
+ <ul class="view-list">
+   <li><a v-on="click: setView('departments')" v-on="click: fetchDeptData()" href="#">Departments</a></li>
+   <li><a v-on="click: setView('professors')" href="#">Professors</a></li>
+   <li><a v-on="click: setView('attributes')" href="#">Attributes</a></li>
+ </ul>
+  <div class="app-container">
      <div class="large-4 columns department-container">
-      <ul class="common-list dept-list">
-        <li v-on="click: loadCourses(this)" v-transition class="dept-item" v-repeat="departments">
-          <span class="dept-text">{{tag}}</span> <br>
-          <a class="dept-link" href="#" value="{{tag}}">{{name}}</a>
-        </li>
-      </ul>
+
+        <div v-view="currentView"></div>
+
+<!--         <input v-show="departments.length != 0" v-model="deptFilterText" type="text" placeholder="Quick Filtering for Departments" class="dept-filter">
+
+        <ul v-show="departments.length != 0 && currentView == 'courses'" class="common-list dept-list">
+          <li v-show="courses_count > 0" v-on="click: loadCourses(this)" class="dept-item"  v-repeat="departments | filterBy deptFilterText">
+
+          <span class="dept-text">{{tag}}</span><br><a class="dept-link" href="#" value="{{tag}}">{{name}}</a>
+          </li>
+        </ul> -->
      </div>
 
      <div class="large-4 columns animated fadeInLeft course-container">
-        <h5 v-show="courses.length == 0">
-          There are no courses to be shown, please select another department.
-        </h5>
-
+     <input v-show="courses.length != 0" v-model="searchText" type="text" placeholder="Search within Courses" class="course-filter">
        <ul v-transition class="common-list course-list">
-         <li v-on="click: loadSections(this)" class="course-item" v-repeat="courses | filterBy searchText">
+         <li v-on="click: loadSections(this)" class="course-item" v-repeat="courses | orderBy 'course_num' | filterBy searchText ">
             <span class="course-number">{{ course_num }} ({{credits | formatCredits }})</span> <br>
             <a class="course-link" href="#" value="{{course_num}}">
             {{title}}</a> <span class="label round section-label" style="float: right;">{{sections_count}}</span>
@@ -63,23 +83,27 @@
 
         <div class="row description-section">
           <h4>{{selected_course.title}} ({{selected_course.credits | formatCredits}})</h4>
-          <p>{{selected_course_description}}</p>
+          <p>{{selected_course.course_description}}</p>
 
         </div>
         <div class="row sections-area">
           <h5>Course Sections</h5>
           <ul class="common-list section-list">
-            <li class="section-item" v-repeat="sections | orderBy 'section_num'">
-              <div class="details">
+            <li class="section-item" v-repeat="sections | orderBy 'section_num' | filterBy professor.first_name">
+              <div class="details large-9">
                 <span class="details-text">Section {{section_num}} &middot; {{days_of_week}} {{start_time | timeFormat }} - {{end_time | timeFormat}} </span>  <br>
 
                 <span class="details-text">{{professor.first_name}} {{professor.last_name}} &middot; {{location}}</span>
               </div>
 
+              <div class="large-3">
+              <a href="#" v-on="click: addFavoriteSection(this)">Add</a>
+              </div>
+
 
 
             <div class="seats-bar progress small-4 alert round">
-              <span class="meter animated" style="width: {{((max_seats - open_seats) / max_seats) * 100}}%"></span> <span class="seats-text"><span class="seats-numbers">{{open_seats}} / {{max_seats}}</span> seats left </span>
+              <span v-transition class="meter animated" style="width: {{((max_seats - open_seats) / max_seats) * 100}}%"></span> <span class="seats-text"><span class="seats-numbers">{{open_seats}} / {{max_seats}}</span> seats left</span>
             </div>
 
             </li>
@@ -92,3 +116,28 @@
 <div class="row">
 <p class="small-caps footer-text"><span class="left">developed and designed with &hearts; by <a href="http://iheanyi.com">iheanyi ekechukwu</a>.</span> <span class="right">feel free to <a href="mailto:hello@iheanyi.com">e-mail me</a> with any feedback or suggestions. :)  </span></p>
 </div>
+
+<script id="departments" type="x-template">
+<input v-show="departments.length != 0" v-model="deptFilterText" type="text" placeholder="Search within Departments" class="dept-filter">
+
+  <ul v-show="departments.length != 0" class="common-list dept-list">
+    <li v-on="click: loadAllCourses(this)" class="dept-item all-courses">
+      <span class="dept-text">ALL</span><br><a class="dept-link" href="#" value="">All Courses</a></li>
+    </li>
+    <li v-show="courses_count > 0" v-on="click: loadCourses(this)" class="dept-item"  v-repeat="departments | filterBy deptFilterText"><span class="dept-text">{{tag}}</span><br><a class="dept-link" href="#" value="{{tag}}">{{name}}</a></li>
+  </ul>
+</script>
+<script id="professor" type="x-template">
+
+  <div v-show="currentProfessors.length == 0" class="loading throbber">
+      Loading...
+  </div>
+
+  <input v-show="currentProfessors.length != 0" v-model="profFilterText" type="text" placeholder="Search within Professors" class="prof-filter">
+
+  <ul v-show="currentProfessors.length != 0" class="common-list prof-list">
+  <li v-on="click: loadProfessorCourses(this)" class="prof-item" v-repeat="currentProfessors | filterBy profFilterText"><a class="prof-link" href="#" value="">{{first_name}} {{last_name}}</a><br>
+  <span class="prof-text">teaching  {{sections_count}} {{sections_count | pluralize section }} in {{courses_count}} {{courses_count | pluralize course}}</span>
+  </li>
+  </ul>
+</script>

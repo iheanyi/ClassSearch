@@ -14,7 +14,12 @@ Rails.application.routes.draw do
     resources :departments do
       resources :courses
     end
-    resources :courses
+
+    resources :courses do
+      resources :sections
+    end
+
+    resources :professors
   end
 
   get 'home/index'
