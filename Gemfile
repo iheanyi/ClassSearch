@@ -35,7 +35,7 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'momentjs-rails'
 gem 'chronic'
 gem 'newrelic_rpm'
-gem "browserify-rails", "~> 0.4"
+#gem "browserify-rails", "~> 0.4"
 gem "rack-timeout"
 
 group :development do

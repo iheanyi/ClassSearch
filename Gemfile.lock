@@ -43,8 +43,6 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    browserify-rails (0.4.2)
-      sprockets (~> 2.0)
     builder (3.2.2)
     bullet (4.14.0)
       activesupport (>= 3.0.0)
@@ -265,7 +263,6 @@ DEPENDENCIES
   animate-rails
   better_errors
   binding_of_caller
-  browserify-rails (~> 0.4)
   bullet
   chronic
   devise
