@@ -30,6 +30,10 @@ var app = new Vue({
       //return moment(date).add(1, 'hours').format("h:mmA");
     },
 
+    formatFavorites: function(section) {
+      return _.contains(app.favorites, section) ? '- Remove from Favorites' : '+ Add to Favorites';
+    },
+
     formatCredits: function(credits) {
       return credits == -1 ? 'V' : credits;
     }
@@ -43,6 +47,7 @@ var app = new Vue({
     self.currenProfStartIndex = 0;
     self.currentProfEndIndex = 450;
     self.allCourses = [];
+    self.favorites = [];
     self.professor = {};
     self.selected_course = {};
     self.selected_course.title = 'nothing';
@@ -62,7 +67,9 @@ var app = new Vue({
     custom_course: [],
     allCourses: [],
     sections: [],
+    _: _,
     currentProfessors: [],
+    favorites: [],
     selected_course: {
       title: '',
     },
@@ -150,6 +157,20 @@ var app = new Vue({
       xhr.send();
     },
 
+    addFavoriteSection: function(favorite_section) {
+      favorite_section.preventDefault;
+      console.log(favorite_section.$data);
+      console.log(favorite_section);
+      app.favorites.push(favorite_section.$data);
+      console.log(_.contains(app.favorites, favorite_section));
+
+    },
+    removeFavoriteSection: function(favorite_section) {
+      favorite_section.preventDefault;
+      console.log("Clicked!");
+      app.favorites = _.reject(app.favorites,
+      function(section) { return section.crn == favorite_section.$data.crn });
+    },
     loadCourses: function(dept) {
       dept.preventDefault;
       //console.log(dept);
@@ -164,7 +185,7 @@ var app = new Vue({
       xhr.onload = function() {
         app.courses = JSON.parse(xhr.responseText);
       }
-      //app.courses = dept.courses;
+
       xhr.send();
       if(dept.tag == "ALL") {
 

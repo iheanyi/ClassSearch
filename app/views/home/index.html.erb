@@ -100,11 +100,9 @@
               <span v-transition class="meter animated" style="width: {{((max_seats - open_seats) / max_seats) * 100}}%"></span> <span class="seats-text"><span class="seats-numbers">{{open_seats}} / {{max_seats}}</span> seats left</span>
             </div>
 
-              <div class="large-6">
-                <a class="small-caps" href="#" v-on="click: addFavoriteSection(this)">+ add to favorites</a>
-              </div>
+                <a v-show="!(_.contains(_.pluck(favorites, 'crn'), this.$data.crn))" class="small-caps" v-on="click: addFavoriteSection(this)">+ add to favorites</a>
 
-
+                <a v-show="_.contains(_.pluck(favorites, 'crn'), this.$data.crn)" class="small-caps" v-on="click: removeFavoriteSection(this)">- remove from favorites</a>
             </li>
           </ul>
         </div>
@@ -117,6 +115,12 @@
 <p class="small-caps footer-text"><span class="left">developed and designed with &hearts; by <a href="http://iheanyi.com">iheanyi ekechukwu</a>.</span> <span class="right">feel free to <a href="mailto:hello@iheanyi.com">e-mail me</a> with any feedback or suggestions. :)  </span></p>
 </div>
 
+<ul>
+  <li v-repeat="favorites">
+    {{course.title}} - Section {{section_num}} {{this}}
+  </li>
+</ul>
+
 <script id="departments" type="x-template">
 
   <div v-show="departments.length == 0" class="loading throbber">
@@ -126,7 +130,7 @@
 <input v-show="departments.length != 0" v-model="deptFilterText" type="text" placeholder="Search Departments" class="dept-filter">
 
   <ul v-show="departments.length != 0" class="common-list dept-list">
-    <li v-on="click: loadAllCourses(this)" class="dept-item all-courses">
+    <li v-show="allCourses.length != 0 && deptFilterText == ''" v-on="click: loadAllCourses(this)" class="dept-item all-courses">
       <span class="dept-text">ALL</span><br><a class="dept-link" href="#" value="">All Courses</a></li>
     </li>
     <li v-show="courses_count > 0" v-on="click: loadCourses(this)" class="dept-item"  v-repeat="departments | filterBy deptFilterText"><span class="dept-text">{{tag}}</span><br><a class="dept-link" href="#" value="{{tag}}">{{name}}</a></li>

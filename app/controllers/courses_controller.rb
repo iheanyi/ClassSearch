@@ -14,7 +14,7 @@ class CoursesController < ApplicationController
   def show
     @course = Course.where(:id => params[:id]).includes(sections: [:professor]).first
     respond_to do |format|
-      format.json { render json: @course.to_json(:include => {:sections => { :include => :professor }}) }
+      format.json { render json: @course.to_json(:include => {:sections => { :include => [:professor, :course] }}) }
     end
   end
   def fetch_all
