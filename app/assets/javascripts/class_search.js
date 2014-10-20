@@ -158,11 +158,18 @@ var app = new Vue({
       $(dept.$el).addClass('dept-active');
 
       console.log(dept.tag);
-      app.courses = dept.courses;
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', baseURL + '/departments/' + dept.tag + '/courses.json');
+      xhr.onload = function() {
+        app.courses = JSON.parse(xhr.responseText);
+      }
+      //app.courses = dept.courses;
+      xhr.send();
       if(dept.tag == "ALL") {
 
       } else {
-        this.fetchCourseData(dept.tag);
+        //this.fetchCourseData(dept.tag);
       }
       $('.course-container').show();
     },
@@ -170,7 +177,7 @@ var app = new Vue({
     fetchCourseData: function(tag) {
       var xhr = new XMLHttpRequest();
       self = this;
-      xhr.open('GET', courseURL + '/' + tag + '/courses.json');
+      xhr.open('GET', baseURL + '/departments/' + tag + '/courses.json');
       xhr.onload = function() {
         app.current_courses = JSON.parse(xhr.responseText);
         app.courses = app.current_courses;
