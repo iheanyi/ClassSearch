@@ -11,7 +11,7 @@ Vue.component('departments', {
 })
 
 Vue.component('attributes', {
-  template: 'This is the attributes view'
+  template: 'This is the attributes view, will be implemented soon.'
 });
 
 Vue.component('professors', {

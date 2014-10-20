@@ -118,6 +118,11 @@
 </div>
 
 <script id="departments" type="x-template">
+
+  <div v-show="departments.length == 0" class="loading throbber">
+      Loading...
+  </div>
+
 <input v-show="departments.length != 0" v-model="deptFilterText" type="text" placeholder="Search within Departments" class="dept-filter">
 
   <ul v-show="departments.length != 0" class="common-list dept-list">
@@ -137,6 +142,7 @@
 
   <ul v-show="currentProfessors.length != 0" class="common-list prof-list">
   <li v-on="click: loadProfessorCourses(this)" class="prof-item" v-repeat="currentProfessors | filterBy profFilterText"><a class="prof-link" href="#" value="">{{first_name}} {{last_name}}</a><br>
+
   <span class="prof-text">teaching  {{sections_count}} {{sections_count | pluralize section }} in {{courses_count}} {{courses_count | pluralize course}}</span>
   </li>
   </ul>
