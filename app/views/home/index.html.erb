@@ -117,7 +117,7 @@
 
 <ul>
   <li v-repeat="favorites">
-    {{course.title}} - Section {{section_num}} {{this}}
+  {{course.title}} - Section {{section_num}} {{this}} <a v-on="click: removeFavoriteSection(this)" class="small-caps">X</a>
   </li>
 </ul>
 
@@ -136,18 +136,35 @@
     <li v-show="courses_count > 0" v-on="click: loadCourses(this)" class="dept-item"  v-repeat="departments | filterBy deptFilterText"><span class="dept-text">{{tag}}</span><br><a class="dept-link" href="#" value="{{tag}}">{{name}}</a></li>
   </ul>
 </script>
-<script id="professor" type="x-template">
+
+<script id="professors" type="x-template">
 
   <div v-show="currentProfessors.length == 0" class="loading throbber">
       Loading...
   </div>
 
-  <input v-show="currentProfessors.length != 0" v-model="profFilterText" type="text" placeholder="Search Professors" class="prof-filter">
+    <input v-show="currentProfessors.length != 0" v-model="profFilterText" type="text" placeholder="Search Professors" class="prof-filter">
 
-  <ul v-show="currentProfessors.length != 0" class="common-list prof-list">
-  <li v-on="click: loadProfessorCourses(this)" class="prof-item" v-repeat="currentProfessors | filterBy profFilterText | orderBy 'last_name'"><a class="prof-link" href="#" value="">{{first_name}} {{last_name}}</a><br>
+    <ul v-show="currentProfessors.length != 0" class="common-list prof-list">
+    <li v-on="click: loadProfessorCourses(this)" class="prof-item" v-repeat="currentProfessors | filterBy profFilterText | orderBy 'last_name'"><a class="prof-link" href="#" value="">{{first_name}} {{last_name}}</a><br>
 
-  <span class="prof-text">teaching  {{sections_count}} {{sections_count | pluralize section }} in {{courses_count}} {{courses_count | pluralize course}}</span>
-  </li>
+    <span class="prof-text">teaching  {{sections_count}} {{sections_count | pluralize section }} in {{courses_count}} {{courses_count | pluralize course}}</span>
+    </li>
+  </ul>
+</script>
+
+<script id="attributes" type="x-template">
+  <div v-show="attributes.length == 0" class="loading throbber">
+      Loading...
+  </div>
+
+  <input v-show="attributes.length != 0" type="text" v-model="attrFilterText" name="" placeholder="Search Attributes">
+
+  <ul v-show="attributes.length != 0" class="common-list attr-list">
+    <li v-on="click: loadAttributeCourses(this)" class="attr-item" v-repeat="attributes | filterBy attrFilterText" | orderBy 'name'>
+      {{tag}}
+      {{name}}
+    </li>
+
   </ul>
 </script>

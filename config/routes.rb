@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :sections
+  #resources :attributes
 
-  resources :professors
+  #resources :sections
+
+  #resources :professors
 
   root 'home#index'
 
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
     end
 
     resources :professors
+    resources :attributes
   end
 
   get 'home/index'

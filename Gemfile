@@ -37,6 +37,7 @@ gem 'chronic'
 gem 'newrelic_rpm'
 #gem "browserify-rails", "~> 0.4"
 gem "rack-timeout"
+gem "excon"
 
 group :development do
   gem 'better_errors'

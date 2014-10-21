@@ -11,11 +11,11 @@ Vue.component('departments', {
 })
 
 Vue.component('attributes', {
-  template: 'This is the attributes view, will be implemented soon.'
+  template: '#attributes'
 });
 
 Vue.component('professors', {
-  template: '#professor',
+  template: '#professors',
 });
 
 //Vue.config('debug', true);
@@ -57,6 +57,7 @@ var app = new Vue({
     this.fetchDeptData();
     this.fetchAllProfessors();
     this.fetchAllCourses();
+    this.fetchAllAttributes();
 
   },
 
@@ -67,6 +68,7 @@ var app = new Vue({
     custom_course: [],
     allCourses: [],
     sections: [],
+    attributes: [],
     _: _,
     currentProfessors: [],
     favorites: [],
@@ -106,7 +108,15 @@ var app = new Vue({
       }
       xhr.send();
     },
-
+    fetchAllAttributes: function() {
+      var xhr = new XMLHttpRequest();
+      self = this;
+      xhr.open('GET', baseURL + 'attributes.json');
+      xhr.onload = function() {
+        app.attributes = JSON.parse(xhr.responseText);
+      }
+      xhr.send();
+    },
     fetchAllProfessors: function() {
       var xhr = new XMLHttpRequest();
       self = this;
@@ -171,6 +181,7 @@ var app = new Vue({
       app.favorites = _.reject(app.favorites,
       function(section) { return section.crn == favorite_section.$data.crn });
     },
+
     loadCourses: function(dept) {
       dept.preventDefault;
       //console.log(dept);

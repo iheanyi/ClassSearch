@@ -11,7 +11,8 @@ namespace :data do
   @conn = Faraday.new(:url => class_url) do |faraday|
       faraday.request :url_encoded
       #faraday.response :logger
-      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+      #faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+      faraday.adapter :excon
   end
 
   @term_field = "201410"
@@ -59,7 +60,77 @@ namespace :data do
     end
   end
 
+  desc "Fetch every attribute"
+  task fetch_attributes: :environment do
+    #response = HTTParty.get(class_url)
+    response = @conn.get ''
+    #puts response
+    content = response.body.strip
 
+    document = Nokogiri::HTML(content)
+    attr_box = document.css('select[@name="ATTR"]')
+    attributes = attr_box.css('option').drop(1)
+    #attributes.shift
+    #puts attributes
+
+    attributes.each do |attribute|
+      attr_tag = attribute.attr('value').strip
+      if(attribute.text.include? "-")
+        attr_split = attribute.text.split("-")
+        if(attr_split.length > 2)
+          attr_name = attr_split[1].strip + "-" + attr_split[2].strip
+        else
+          attr_name = attr_split[1].strip
+        end
+      else
+        #puts attribute.text, attr_tag
+        attr_split = attribute.text.split(":")
+        attr_name = attr_split[1].strip + ": " + attr_split[2].strip
+        #puts attr_name
+      end
+      attr_model = Attribute.find_or_create_by(:tag => attr_tag, :name => attr_name)
+      puts attr_tag + " " + attr_name
+    end
+
+    depts =  Department.pluck(:tag)
+    attrs = Attribute.pluck(:tag)
+    mapping = depts.product(attrs)
+
+    #mapping.collect { |d, a| puts "Department: #{d}, Attribute: #{a}" }
+    puts depts.length
+    puts attrs.length
+    puts mapping.length
+    #puts depts.product(attrs).collect { |d, a| puts d, a }
+=begin
+    response = @conn.post '', {
+      :TERM => @term_field,
+      :SUBJ => "DESN",
+      #:SUBJ => "ARST",
+      :DIVS => @divs_field,
+      :CAMPUS => @campus_field,
+      :CREDIT => @credit_field,
+      :ATTR => "FNAR"
+    }
+=end
+
+
+  # Call Collect { |x, y| f(x, y) to get results}
+  end
+
+  def fetch_course_attributes(dept, attribute)
+    response = @conn.post '', {
+      :TERM => @term_field,
+      :SUBJ => "DESN",
+      #:SUBJ => "ARST",
+      :DIVS => @divs_field,
+      :CAMPUS => @campus_field,
+      :CREDIT => @credit_field,
+      :ATTR => attribute
+    }
+
+
+
+  end
   def fetch_course_description(course)
     course_section = course.sections.first
     if(course_section != nil && course.course_description == nil)
