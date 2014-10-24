@@ -40,23 +40,22 @@ a.small-caps {
   font-variant: small-caps;
   border-bottom: 1px dotted;
 }
+
 .course-container {
   height: 100%;
   overflow-y: scroll;
   background: #fff;
-  display: none;
+  //display: none;
   padding: 0;
   margin: 0;
   z-index: 4;
-  -webkit-animation-duration: 0.5s;
-  animation-duration: 0.5s;
 }
 
 .section-container {
   height: 100%;
   //overflow-y: scroll;
   background:#fff;
-  display: none;
+  //display: none;
   z-index: 3;
 }
 

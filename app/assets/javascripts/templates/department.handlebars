@@ -1,13 +1,14 @@
-<article id="#department-section" class="department">
-  <h1>{{model.tag}} - {{model.name}}</h1>
-  Has {{model.courses.length}} courses
-</article>
-
-
 {{!-- {{render "courses" model.courses}} --}}
 
+<div  class="large-4 columns course-container" id="courses-section">
 <h1>Courses</h1>
-{{#each course in model.courses}}
-  <li>{{#link-to 'course' course}}{{course.title}}{{/link-to}}</li>
-{{/each}}
+
+  <ul class="common-list course-list">
+  {{#each course in model.courses}}
+    <li>{{#link-to 'course' course}}{{course.courseNum}} - {{course.title}}
+    {{/link-to}}</li>
+  {{/each}}
+  </ul>
+</div>
+
 {{outlet}}

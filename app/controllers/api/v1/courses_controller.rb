@@ -7,7 +7,7 @@ class Api::V1::CoursesController < ApplicationController
 
   def show
     @course = Course.includes(:sections).find(params[:id])
-    respond_with course
+    render json: course #, serializer: CoursesSerializer
   end
 
   private

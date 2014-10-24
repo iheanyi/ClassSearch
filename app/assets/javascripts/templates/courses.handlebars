@@ -1,7 +1,14 @@
-<h1>Courses New</h1>
+<article id="courses-section">
+  <h1>Courses New</h1>
 
-{{#each course in controller}}
-  <li>{{#link-to 'course' course}}{{course.title}}{{/link-to}}</li>
-{{/each}}
+  {{#each course in controller}}
+    <li>{{#link-to 'course' course}}
+    {{course}}
+    {{course.course_num}} - {{course.title}}{{/link-to}}
+    {{course.courseDescription}}
+    </li>
+  {{/each}}
+</article>
+
 
 {{outlet}}

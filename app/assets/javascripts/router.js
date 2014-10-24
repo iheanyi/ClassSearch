@@ -7,8 +7,8 @@ App.Router.reopen({
 
 App.Router.map(function() {
   this.resource('departments', { path: '/' }, function() {
-    this.resource('department', { path: '/dept/:tag' }, function() {
-      this.resource('course', { path: '/:id' }, function() {
+    this.resource('department', { path: '/:tag/courses' }, function() {
+      this.resource('course', { path: '/:courseNum' }, function() {
         this.resource('sections', {path: '/sections' });
       });
 

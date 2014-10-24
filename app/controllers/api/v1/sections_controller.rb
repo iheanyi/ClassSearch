@@ -10,7 +10,7 @@ class Api::V1::SectionsController < ApplicationController
 
   private
     def section
-      Section.includes(:course).find(params[:id])
+      Section.includes(:professor).find(params[:id])
     end
 
     def section_params

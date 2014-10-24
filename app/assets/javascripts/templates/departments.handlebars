@@ -1,10 +1,10 @@
-<article id="departments-section">
+<div class="large-4 columns department-container" id="departments-section">
   <h1>Departments</h1>
-  <ul>
+  <ul class="common-list dept-list">
     {{#each department in controller}}
-      <li>  {{#link-to 'department' department}}{{department.name}}{{/link-to}}</li>
+      <li>  {{department.tag}} {{#link-to 'department' department}}{{department.name}}{{/link-to}}</li>
     {{/each}}
   </ul>
-</article>
+</div>
 
 {{outlet}}

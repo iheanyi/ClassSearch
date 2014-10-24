@@ -6,5 +6,6 @@ App.Course = DS.Model.extend({
   credits: DS.attr('number'),
   sectionsCount: DS.attr('number'),
   courseDescription: DS.attr('string'),
-  department: DS.belongsTo('department')
+  department: DS.belongsTo('department'),
+  sections: DS.hasMany('sections', {async: true})
 });
