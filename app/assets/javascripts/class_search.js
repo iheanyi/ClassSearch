@@ -1,6 +1,6 @@
-var apiURL = '/api/departments.json'
-var courseURL = '/api/departments'
-var baseURL = '/api/'
+var apiURL = '/api/v1/departments.json'
+var courseURL = '/api/v1/departments'
+var baseURL = '/api/v1/'
 
 Vue.component('department-component', {
   template: '<span class="dept-text">{{tag}}</span><br><a class="dept-link" href="#" value="{{tag}}">{{name}}</a>'

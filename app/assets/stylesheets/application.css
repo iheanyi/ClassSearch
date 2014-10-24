@@ -19,3 +19,9 @@
  *= require animate
 
  */
+
+
+#departments-section, #courses-section, #sections-section {
+  width: 30%;
+  float: left;
+}

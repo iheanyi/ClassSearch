@@ -33,6 +33,8 @@ Rails.application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+  config.ember.variant = :development
+  config.ember.app_name = "App"
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

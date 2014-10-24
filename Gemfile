@@ -38,6 +38,8 @@ gem 'newrelic_rpm'
 #gem "browserify-rails", "~> 0.4"
 gem "rack-timeout"
 gem "excon"
+gem 'ember-rails'
+gem 'ember-source'
 
 group :development do
   gem 'better_errors'
@@ -46,6 +48,8 @@ group :development do
   gem 'hub', :require=>nil
   gem 'rails_layout'
   gem 'bullet'
+  gem 'uniform_notifier'
+
 end
 group :development, :test do
   gem 'pry-rails'
