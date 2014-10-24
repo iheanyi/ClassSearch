@@ -1,0 +1,10 @@
+<article id="departments-section">
+  <h1>Departments</h1>
+  <ul>
+    {{#each department in controller}}
+      <li>  {{#link-to 'department' department}}{{department.name}}{{/link-to}}</li>
+    {{/each}}
+  </ul>
+</article>
+
+{{outlet}}

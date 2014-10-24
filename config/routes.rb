@@ -1,18 +1,8 @@
 Rails.application.routes.draw do
-  #resources :attributes
 
-  #resources :sections
-
-  #resources :professors
 
   root to: 'home#alternate'
   #root 'home#index'
-  #resources :courses
-=begin
-  resources :departments do
-    resources :courses
-  end
-=end
 
 
   namespace :api do
@@ -36,8 +26,6 @@ Rails.application.routes.draw do
       resources :attributes do
         resources :courses, shallow: true
       end
-
-      resources :courses
 
       #resources :sections
 

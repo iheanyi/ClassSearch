@@ -1,0 +1,7 @@
+<h1>Courses New</h1>
+
+{{#each course in controller}}
+  <li>{{#link-to 'course' course}}{{course.title}}{{/link-to}}</li>
+{{/each}}
+
+{{outlet}}

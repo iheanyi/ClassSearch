@@ -1,0 +1,13 @@
+<article id="#department-section" class="department">
+  <h1>{{model.tag}} - {{model.name}}</h1>
+  Has {{model.courses.length}} courses
+</article>
+
+
+{{!-- {{render "courses" model.courses}} --}}
+
+<h1>Courses</h1>
+{{#each course in model.courses}}
+  <li>{{#link-to 'course' course}}{{course.title}}{{/link-to}}</li>
+{{/each}}
+{{outlet}}

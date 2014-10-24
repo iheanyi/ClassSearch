@@ -1,0 +1,5644 @@
+BALW
+BAFI
+BAAC
+AL
+BAMG
+BA
+BUAD
+BAAL
+BASC
+BAUG
+CST
+CSC
+CBE
+CHEM
+EALC
+CE
+CSEM
+CA
+COMM
+CSD
+CAPP
+CPSC
+CNST
+DANC
+DESN
+DMA
+ESTM
+LLEA
+ECON
+EDU
+EDUC
+ESS
+EE
+ENER
+ESTS
+EGBA
+EGSC
+ENLT
+ELS
+ENWR
+ENVS
+FTT
+FIN
+FYC
+FYS
+BIO
+BIOS
+BACM
+ROFR
+GWS
+GSC
+GE
+ALPP
+ART
+ALHN
+ARCH
+CORE
+ASIA
+BAET
+GERO
+GH
+GLST
+GRED
+CLGR
+HESB
+HIST
+HPS
+HUST
+HUM
+IUSM
+IBMS
+ICS
+IDS
+IRLL
+IRST
+ROIT
+EALJ
+JUST
+EALK
+LAST
+CLLA
+ILS
+LAW
+AMST
+AME
+ACCT
+ACMS
+AFST
+BAEN
+BAEG
+CLAS
+CSE
+ECOE
+EG
+ENGL
+ENVG
+MEHE
+IIPS
+JED
+LIT
+MBCM
+MBET
+MBLW
+MBAC
+MBAE
+MBGR
+MBAL
+MGT
+MGTC
+MGTE
+MGTI
+MARK
+MBA
+MNA
+MSM
+MSBA
+MSB
+MSA
+MSF
+MSMG
+MATH
+MI
+MELC
+MSL
+MODL
+MUS
+NSCI
+CLST
+NURS
+PATC
+PATL
+PHIL
+PRL
+PE
+PHYS
+POLS
+POSC
+ROPO
+PS
+PCSE
+PLS
+PSY
+PSYC
+REG
+RLT
+RLST
+LLRO
+RU
+SC
+SCPP
+STV
+SDM
+SBCM
+SW
+SOC
+SPLL
+ROSP
+SMC
+SUS
+CLSS
+THTR
+THEO
+UB
+VHNR
+WOST
+WR
+AFAM
+AS
+ANTH
+ARST
+MEAR
+ARHI
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<HTML>
+<HEAD>
+<script type="text/javascript" src="jquery-1.7.1.js"></script>
+<script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="sorttable.js"></script>
+<script type="text/javascript">
+$(document).ready(
+	function() {
+	 	$("#resulttable").tablesorter({
+			textExtraction:function(s){
+		        	if($(s).find('img').length == 0) return $(s).text();
+				return $(s).find('img').attr('alt');
+			}
+		});
+	}
+);
+
+function createExcelSheet()
+{	
+	//var x=cflassSearchTable.rows
+	var x=document.getElementById("resulttable").rows;
+	var xls = new ActiveXObject("Excel.Application");
+	xls.visible = true;
+	xls.Workbooks.Add;
+	for (i = 0; i < x.length; i++)
+	{
+		var y = x[i].cells;
+		for (j = 0; j < y.length; j++)
+		{
+			xls.Cells( i+1, j+1).Value = y[j].innerText;
+		}
+	}
+}
+</script>
+
+
+
+
+
+
+
+
+
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META name="GENERATOR" content="IBM WebSphere Studio">
+<META http-equiv="Content-Style-Type" content="text/css">
+<LINK href="theme/classSearch.css" rel="stylesheet" type="text/css">
+<TITLE>Class Search 1.71</TITLE>
+
+<script>
+if (!document.layers&&!document.all)
+event="test"
+function showtip(current,e,text){
+
+if (document.all){
+thetitle=text.split('<br>')
+if (thetitle.length>1){
+thetitles=''
+for (i=0;i<thetitle.length;i++)
+thetitles+=thetitle[i]
+current.title=thetitles
+}
+else
+current.title=text
+}
+
+else if (document.layers){
+document.tooltip.document.write('<layer bgColor="white" style="border:1px solid black;font-size:12px;">'+text+'</layer>')
+document.tooltip.document.close()
+document.tooltip.left=e.pageX+5
+document.tooltip.top=e.pageY+5
+document.tooltip.visibility="show"
+}
+}
+function hidetip(){
+if (document.layers)
+document.tooltip.visibility="hidden"
+}
+
+
+</script>
+</HEAD>
+<BODY>
+
+<div id="tooltip" style="position:absolute;visibility:hidden"></div>
+<DIV class="headerwrapperdiv">
+<DIV class="pageheaderdiv1">
+
+<H1></H1></DIV><DIV class="headerlinksdiv">
+
+
+<DIV class="pagetitlediv">
+<TABLE  CLASS="plaintable" SUMMARY="This table displays title and static header displays."
+   WIDTH="100%">
+<TR>
+
+<TD CLASS="pldefault">
+<H2>Class Search</H2>
+</TD>
+
+<TD CLASS="pldefault">
+&nbsp;
+</TD>
+
+<TD CLASS="pldefault"><p class="rightaligntext">
+<DIV class="staticheaders">
+
+	Fall Semester 2014<br>
+
+</DIV>
+</TD>
+
+</TR>
+</TABLE>
+<hr>
+<a name="main_content"></a>
+</DIV>
+</DIV>
+<DIV class="pagebodydiv">
+</DIV>
+
+<FORM action="ClassSearchServlet" method="post" >
+<TABLE  border="0" cellspacing="0" cellpadding="0">
+<TR>
+<TD></TD> 
+<TD>Subject&nbsp;&nbsp;(CTRL/SHIFT to multi-select)</TD>
+<TD></TD>    <!--  Brandon: Requirement 2 (Search by Attribute) -->
+<TD></TD>
+</TR>
+
+					
+
+<TR>
+<TD>
+<table border=0><tr>
+<td>
+
+Term: </td><td><SELECT name="TERM">
+
+
+
+
+	
+		
+	
+		<option selected value="201410">Fall Semester 2014
+						
+
+	
+		
+	
+		<option value="201400">Summer Session 2014
+						
+
+	
+		
+	
+		<option value="201350">Year 2013-14
+						
+
+	
+		
+	
+		<option value="201320">Spring Semester 2014
+						
+
+	
+		
+	
+		<option value="201310">Fall Semester 2013
+						
+
+	
+		
+	
+		<option value="201300">Summer Session 2013
+						
+
+	
+		
+	
+		<option value="201250">Year 2012-13
+						
+
+	
+		
+	
+		<option value="201220">Spring Semester 2013
+						
+
+	
+		
+	
+		<option value="201210">Fall Semester 2012
+						
+
+	
+		
+	
+		<option value="201200">Summer Session 2012
+						
+
+	
+		
+	
+		<option value="201150">Year 2011-12
+						
+
+	
+		
+	
+		<option value="201120">Spring Semester 2012
+						
+
+	
+		
+	
+		<option value="201110">Fall Semester 2011
+						
+
+	
+		
+	
+		<option value="201100">Summer Session 2011
+						
+
+	
+		
+	
+		<option value="201050">Year 2010-11
+						
+
+	
+		
+	
+		<option value="201020">Spring Semester 2011
+						
+
+	
+		
+	
+		<option value="201010">Fall Semester 2010
+						
+
+	
+		
+	
+		<option value="201000">Summer Session 2010
+						
+
+	
+		
+	
+		<option value="200950">Year 2009-10
+						
+
+	
+		
+	
+		<option value="200920">Spring Semester 2010
+						
+
+	
+		
+	
+		<option value="200910">Fall Semester 2009
+						
+
+	
+		
+	
+		<option value="200900">Summer Session 2009
+						
+
+	
+		
+	
+		<option value="200850">Year 2008-09
+						
+
+	
+		
+	
+		<option value="200820">Spring Semester 2009
+						
+
+	
+		
+	
+		<option value="200810">Fall Semester 2008
+						
+
+	
+		
+	
+		<option value="200800">Summer Session 2008
+						
+
+	
+		
+	
+		<option value="200750">Year 2007-08
+						
+
+	
+		
+	
+		<option value="200720">Spring Semester 2008
+						
+
+	
+		
+	
+		<option value="200710">Fall Semester 2007
+						
+
+	
+		
+	
+		<option value="200700">Summer Session 2007
+						
+
+	
+		
+	
+		<option value="200650">Year 2006-07
+						
+
+	
+		
+	
+		<option value="200620">Spring Semester 2007
+						
+
+	
+		
+	
+		<option value="200610">Fall Semester 2006
+						
+
+	
+		
+	
+		<option value="200600">Summer Session 2006
+						
+
+	
+		
+	
+		<option value="200550">Year 2005-06
+						
+
+	
+		
+	
+		<option value="200520">Spring Semester 2006
+						
+
+	
+		
+	
+		<option value="200510">Fall Semester 2005
+						
+
+	
+		
+	
+		<option value="200500">Summer Session 2005
+						
+						
+</SELECT> &nbsp; &nbsp; </td></tr>
+<tr>
+<td>
+Division: </td><td><SELECT name="DIVS">
+
+
+
+
+	
+		
+	
+		<option selected value="A">All
+						
+
+	
+		
+	
+		<option value="GB">Graduate Business
+						
+
+	
+		
+	
+		<option value="GR">Graduate School
+						
+
+	
+		
+	
+		<option value="LW">Law School
+						
+
+	
+		
+	
+		<option value="SM">St. Mary's College
+						
+
+	
+		
+	
+		<option value="UG">Undergraduate
+						
+						
+</SELECT> &nbsp; &nbsp; </td></tr><tr>
+<td>Campus: </td><td><SELECT name="CAMPUS">
+
+
+
+
+
+	
+	
+	
+		<option value="AC">Alcoy, Spain
+	
+
+	
+	
+	
+		<option value="AJ">Amman, Jordan
+	
+
+	
+	
+	
+		<option value="AF">Angers, France
+	
+
+	
+	
+	
+		<option value="AG">Athens, Greece
+	
+
+	
+	
+	
+		<option value="AN">Auckland, New Zealand
+	
+
+	
+	
+	
+		<option value="BC">Beijing, China
+	
+
+	
+	
+	
+		<option value="BG">Berlin, Germany
+	
+
+	
+	
+	
+		<option value="BT">Bologna, Italy
+	
+
+	
+	
+	
+		<option value="CE">Cairo, Egypt
+	
+
+	
+	
+	
+		<option value="CM">Cambridge, England
+	
+
+	
+	
+	
+		<option value="CS">Cape Town, South Africa
+	
+
+	
+	
+	
+		<option value="CT">Catania, Sicily
+	
+
+	
+	
+	
+		<option value="CG">Chicago Graduate Business
+	
+
+	
+	
+	
+		<option value="CP">Chicago Patent Law Program
+	
+
+	
+	
+	
+		<option value="CL">Chicago, Illinois Law Program
+	
+
+	
+	
+	
+		<option value="CI">China Architecture Program
+	
+
+	
+	
+	
+		<option value="CC">China Culture Program
+	
+
+	
+	
+	
+		<option value="EC">China Engineering Program
+	
+
+	
+	
+	
+		<option value="IC">Co. Galway, Ireland
+	
+
+	
+	
+	
+		<option value="DS">Dakar, Senegal
+	
+
+	
+	
+	
+		<option value="DE">Distributed Education
+	
+
+	
+	
+	
+		<option value="IR">Dublin, Ireland
+	
+
+	
+	
+	
+		<option value="IS">Dublin, Ireland (Summer)
+	
+
+	
+	
+	
+		<option value="FW">Fort Wayne, IN (Theo. Prog)
+	
+
+	
+	
+	
+		<option value="FA">Fremantle, Australia (AL & BA)
+	
+
+	
+	
+	
+		<option value="SW">Geneva, Switzerland (CERN)
+	
+
+	
+	
+	
+		<option value="GN">Granada, Spain
+	
+
+	
+	
+	
+		<option value="CU">HKU Hong Kong (Undergrad)
+	
+
+	
+	
+	
+		<option value="HG">Heidelberg, Germany
+	
+
+	
+	
+	
+		<option value="HK">Hong Kong, China
+	
+
+	
+	
+	
+		<option value="HL">Hong Kong, China (Law)
+	
+
+	
+	
+	
+		<option value="IA">Innsbruck, Austria (Undergrad)
+	
+
+	
+	
+	
+		<option value="II">Ireland Inside Track
+	
+
+	
+	
+	
+		<option value="JE">Jerusalem, Israel
+	
+
+	
+	
+	
+		<option value="JS">Jerusalem, Israel (Summer)
+	
+
+	
+	
+	
+		<option value="KU">Kampala, Uganda
+	
+
+	
+	
+	
+		<option value="LB">Leuven, Belgium
+	
+
+	
+	
+	
+		<option value="LA">London, England (Fall/Spring)
+	
+
+	
+	
+	
+		<option value="LH">London, England (Heythrop)
+	
+
+	
+	
+	
+		<option value="LE">London, England (Law-JD)
+	
+
+	
+	
+	
+		<option value="LM">London, England (Law-LLM)
+	
+
+	
+	
+	
+		<option value="LI">London, England (Sum EG Imp)
+	
+
+	
+	
+	
+		<option value="LS">London, England (Summer AL)
+	
+
+	
+	
+	
+		<option value="LG">London, England (Summer EG)
+	
+
+	
+	
+	
+		<option selected value="M">Main
+	
+
+	
+	
+	
+		<option value="MM">Mexico City, Mexico
+	
+
+	
+	
+	
+		<option value="MI">Milan, Italy
+	
+
+	
+	
+	
+		<option value="ML">Milan, Italy  (Law)
+	
+
+	
+	
+	
+		<option value="MX">Monterrey, Mexico (EG & BA)
+	
+
+	
+	
+	
+		<option value="MC">Montreal, Canada
+	
+
+	
+	
+	
+		<option value="RU">Moscow, Russia
+	
+
+	
+	
+	
+		<option value="MZ">Mumbai, India
+	
+
+	
+	
+	
+		<option value="NJ">Nagoya, Japan
+	
+
+	
+	
+	
+		<option value="SI">National Univ. of Singapore
+	
+
+	
+	
+	
+		<option value="NU">Norwich,UK (Univ of E. Anglia)
+	
+
+	
+	
+	
+		<option value="OL">Online Learning
+	
+
+	
+	
+	
+		<option value="OX">Oxford in England
+	
+
+	
+	
+	
+		<option value="PI">Palermo, Italy (Architecture)
+	
+
+	
+	
+	
+		<option value="PD">Paris, France (Diderot)
+	
+
+	
+	
+	
+		<option value="PF">Paris, France (Sci Po)
+	
+
+	
+	
+	
+		<option value="PC">Peking Univ - Beijing, China
+	
+
+	
+	
+	
+		<option value="PA">Perth, Australia (SC & EG)
+	
+
+	
+	
+	
+		<option value="PM">Puebla, Mexico
+	
+
+	
+	
+	
+		<option value="RG">Regensburg, Germany
+	
+
+	
+	
+	
+		<option value="RB">Rio de Janeiro, Brazil
+	
+
+	
+	
+	
+		<option value="RT">Rome Summer Seminar
+	
+
+	
+	
+	
+		<option value="RI">Rome, Italy (Architecture)
+	
+
+	
+	
+	
+		<option value="RH">Rome, Italy (Summer EG)
+	
+
+	
+	
+	
+		<option value="RR">Rome, Italy (Summer)
+	
+
+	
+	
+	
+		<option value="RE">Rome, Italy (Undergrad - JCU)
+	
+
+	
+	
+	
+		<option value="RF">Rome, Italy (Undergrad)
+	
+
+	
+	
+	
+		<option value="BZ">Salvador da Bahia, Brazil
+	
+
+	
+	
+	
+		<option value="SL">Santiago, Chile (Law)
+	
+
+	
+	
+	
+		<option value="SO">Santiago, Chile (MBA)
+	
+
+	
+	
+	
+		<option value="SC">Santiago, Chile (Undergrad)
+	
+
+	
+	
+	
+		<option value="PB">Sao Paolo, Brazil
+	
+
+	
+	
+	
+		<option value="SK">Seoul, Korea
+	
+
+	
+	
+	
+		<option value="SH">Shanghai, China
+	
+
+	
+	
+	
+		<option value="SG">Shanghai, China (MBA)
+	
+
+	
+	
+	
+		<option value="AS">St. Andrews, Scotland
+	
+
+	
+	
+	
+		<option value="SM">St. Mary's College
+	
+
+	
+	
+	
+		<option value="RS">St. Petersburg, Russia
+	
+
+	
+	
+	
+		<option value="TT">Taipei, Taiwan
+	
+
+	
+	
+	
+		<option value="TK">Tokyo, Japan (Keio University)
+	
+
+	
+	
+	
+		<option value="TJ">Tokyo, Japan (Sophia Univ)
+	
+
+	
+	
+	
+		<option value="SP">Toledo, Spain
+	
+
+	
+	
+	
+		<option value="IT">Trinity College - Dublin
+	
+
+	
+	
+	
+		<option value="TL">Trinity Law - Dublin, Ireland
+	
+
+	
+	
+	
+		<option value="TB">Tsinghua Univ - Beijing, China
+	
+
+	
+	
+	
+		<option value="TI">Tuscany, Italy
+	
+
+	
+	
+	
+		<option value="EA">University of East Anglia, UK
+	
+
+	
+	
+	
+		<option value="VI">Vienna, Austria
+	
+
+	
+	
+	
+		<option value="RV">Vladimir, Russia
+	
+
+	
+	
+	
+		<option value="DC">Washington, D.C.
+	
+
+	
+	
+	
+		<option value="LW">Washington,DC Law Program (LW)
+	
+
+	
+	
+	
+		<option value="WL">West Lafayette, IN (Theo Prog)
+	
+	
+</SELECT>&nbsp; &nbsp;
+</td></tr></table>
+</TD>
+
+
+<TD>
+
+
+<SELECT MULTIPLE SIZE=4 NAME="SUBJ">
+
+
+
+	
+	
+	
+	
+	
+		<option value="ACCT">Accountancy
+		
+
+	
+	
+	
+	
+	
+		<option value="AME">Aerospace and Mechanical Engr.
+		
+
+	
+	
+	
+	
+	
+		<option value="AFAM">African & African-American Stu
+		
+
+	
+	
+	
+	
+	
+		<option value="AFST">Africana Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="AS">Air Force-Aerospace Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="AMST">American Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="ANTH">Anthropology
+		
+
+	
+	
+	
+	
+	
+		<option value="ACMS">Applied & Comp Math and Stats
+		
+
+	
+	
+	
+	
+	
+		<option value="MEAR">Arabic Language and Literature
+		
+
+	
+	
+	
+	
+	
+		<option value="ARCH">Architecture
+		
+
+	
+	
+	
+	
+	
+		<option value="ARHI">Art History
+		
+
+	
+	
+	
+	
+	
+		<option selected value="ARST">Art Studio
+		
+
+	
+	
+	
+	
+	
+		<option value="ART">Art,Art History,& Design (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="AL">Arts and Letters (Non-dept.)
+		
+
+	
+	
+	
+	
+	
+		<option value="CORE">Arts and Letters - Core
+		
+
+	
+	
+	
+	
+	
+		<option value="ALHN">Arts and Letters - Honors
+		
+
+	
+	
+	
+	
+	
+		<option value="ALPP">Arts and Letters Preprofessnal
+		
+
+	
+	
+	
+	
+	
+		<option value="ASIA">Asian Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="BIOS">Biological Sciences
+		
+
+	
+	
+	
+	
+	
+		<option value="BIO">Biology (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="BAAC">Bus Admin - Accounting/Bus Law
+		
+
+	
+	
+	
+	
+	
+		<option value="BALW">Bus Admin - Business Law
+		
+
+	
+	
+	
+	
+	
+		<option value="BACM">Bus Admin - Communication
+		
+
+	
+	
+	
+	
+	
+		<option value="BAEN">Bus Admin - Entrepreneurship
+		
+
+	
+	
+	
+	
+	
+		<option value="BAET">Bus Admin - Ethics
+		
+
+	
+	
+	
+	
+	
+		<option value="BAFI">Bus Admin - Finance
+		
+
+	
+	
+	
+	
+	
+		<option value="BAMG">Bus Admin - Management
+		
+
+	
+	
+	
+	
+	
+		<option value="BA">Business Administration
+		
+
+	
+	
+	
+	
+	
+		<option value="BUAD">Business Administration (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="BAAL">Business Administration - A&L
+		
+
+	
+	
+	
+	
+	
+		<option value="BAEG">Business Administration - EG
+		
+
+	
+	
+	
+	
+	
+		<option value="BASC">Business Administration - SC
+		
+
+	
+	
+	
+	
+	
+		<option value="BAUG">Business Administration - UG
+		
+
+	
+	
+	
+	
+	
+		<option value="CST">Catholic Social Tradition
+		
+
+	
+	
+	
+	
+	
+		<option value="CSC">Center for Social Concerns
+		
+
+	
+	
+	
+	
+	
+		<option value="CBE">Chemical & Biomolecular Engr.
+		
+
+	
+	
+	
+	
+	
+		<option value="CHEM">Chemistry and Biochemistry
+		
+
+	
+	
+	
+	
+	
+		<option value="EALC">Chinese
+		
+
+	
+	
+	
+	
+	
+		<option value="CE">Civil Engineering
+		
+
+	
+	
+	
+	
+	
+		<option value="CLAS">Classics in Translation
+		
+
+	
+	
+	
+	
+	
+		<option value="CSEM">College Seminar
+		
+
+	
+	
+	
+	
+	
+		<option value="CA">Communication Arts
+		
+
+	
+	
+	
+	
+	
+		<option value="COMM">Communications (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="CSD">Communicative Sciences (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="CAPP">Computer Applications
+		
+
+	
+	
+	
+	
+	
+		<option value="CPSC">Computer Science (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="CSE">Computer Science and Engr.
+		
+
+	
+	
+	
+	
+	
+		<option value="CNST">Constitutional Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="DANC">Dance (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="DESN">Design
+		
+
+	
+	
+	
+	
+	
+		<option value="DMA">Doctor of Musical Arts
+		
+
+	
+	
+	
+	
+	
+		<option value="ESTM">EG, SC & Tech Entrepreneurship
+		
+
+	
+	
+	
+	
+	
+		<option value="LLEA">East Asian Lang & Lit
+		
+
+	
+	
+	
+	
+	
+		<option value="ECON">Economics
+		
+
+	
+	
+	
+	
+	
+		<option value="ECOE">Economics and Econometrics
+		
+
+	
+	
+	
+	
+	
+		<option value="EDU">Education
+		
+
+	
+	
+	
+	
+	
+		<option value="EDUC">Education (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="ESS">Education, School and Society
+		
+
+	
+	
+	
+	
+	
+		<option value="EE">Electrical Engineering
+		
+
+	
+	
+	
+	
+	
+		<option value="ENER">Energy Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="ESTS">Eng., Science, Tech. & Society
+		
+
+	
+	
+	
+	
+	
+		<option value="EG">Engineering (Non-Departmental)
+		
+
+	
+	
+	
+	
+	
+		<option value="EGBA">Engineering Business Program
+		
+
+	
+	
+	
+	
+	
+		<option value="EGSC">Engineering Science Program
+		
+
+	
+	
+	
+	
+	
+		<option value="ENGL">English
+		
+
+	
+	
+	
+	
+	
+		<option value="ELS">English Language School (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="ENLT">English Literature (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="ENWR">English Writing (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="ENVG">Environmental Geosciences
+		
+
+	
+	
+	
+	
+	
+		<option value="ENVS">Environmental Studies (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="FTT">Film, Television, and Theatre
+		
+
+	
+	
+	
+	
+	
+		<option value="FIN">Finance
+		
+
+	
+	
+	
+	
+	
+		<option value="FYC">First Year Composition
+		
+
+	
+	
+	
+	
+	
+		<option value="FYS">First Year of Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="ROFR">French
+		
+
+	
+	
+	
+	
+	
+		<option value="GWS">Gender & Women's Studies (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="GSC">Gender Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="GE">German
+		
+
+	
+	
+	
+	
+	
+		<option value="GERO">Gerontology (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="GH">Global Health - Eck Institute
+		
+
+	
+	
+	
+	
+	
+		<option value="GLST">Global Studies (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="GRED">Graduate Education
+		
+
+	
+	
+	
+	
+	
+		<option value="CLGR">Greek Language and Literature
+		
+
+	
+	
+	
+	
+	
+		<option value="MEHE">Hebrew Language and Literature
+		
+
+	
+	
+	
+	
+	
+		<option value="HESB">Hesburgh Prg in Public Service
+		
+
+	
+	
+	
+	
+	
+		<option value="HIST">History
+		
+
+	
+	
+	
+	
+	
+		<option value="HPS">History and Phil. of Science
+		
+
+	
+	
+	
+	
+	
+		<option value="HUST">Humanistic Studies (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="HUM">Humanities Seminar
+		
+
+	
+	
+	
+	
+	
+		<option value="IUSM">Indiana U. Sch of Med. S. Bend
+		
+
+	
+	
+	
+	
+	
+		<option value="IIPS">Inst. for Int'l Peace Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="IBMS">Integrated Biomedical Sciences
+		
+
+	
+	
+	
+	
+	
+		<option value="ICS">Intercultural Studies (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="IDS">Internatnl Development Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="IRLL">Irish Language and Literature
+		
+
+	
+	
+	
+	
+	
+		<option value="IRST">Irish Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="ROIT">Italian
+		
+
+	
+	
+	
+	
+	
+		<option value="EALJ">Japanese
+		
+
+	
+	
+	
+	
+	
+		<option value="JED">Journalism, Ethics & Democracy
+		
+
+	
+	
+	
+	
+	
+		<option value="JUST">Justice Studies (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="EALK">Korean
+		
+
+	
+	
+	
+	
+	
+		<option value="LAST">Latin American Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="CLLA">Latin Language and Literature
+		
+
+	
+	
+	
+	
+	
+		<option value="ILS">Latino Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="LAW">Law
+		
+
+	
+	
+	
+	
+	
+		<option value="LIT">Literature
+		
+
+	
+	
+	
+	
+	
+		<option value="MBCM">MBA Bus Communications
+		
+
+	
+	
+	
+	
+	
+		<option value="MBET">MBA Business Ethics
+		
+
+	
+	
+	
+	
+	
+		<option value="MBLW">MBA Business Law
+		
+
+	
+	
+	
+	
+	
+		<option value="MBAC">MBA Chicago
+		
+
+	
+	
+	
+	
+	
+		<option value="MBAE">MBA Executive Program
+		
+
+	
+	
+	
+	
+	
+		<option value="MBGR">MBA General
+		
+
+	
+	
+	
+	
+	
+		<option value="MBAL">MBA Local
+		
+
+	
+	
+	
+	
+	
+		<option value="MGT">Management
+		
+
+	
+	
+	
+	
+	
+		<option value="MGTC">Management - Consulting
+		
+
+	
+	
+	
+	
+	
+		<option value="MGTE">Management - Entrepreneurship
+		
+
+	
+	
+	
+	
+	
+		<option value="MGTI">Management - IT
+		
+
+	
+	
+	
+	
+	
+		<option value="MARK">Marketing
+		
+
+	
+	
+	
+	
+	
+		<option value="MBA">Master of Business Admin.
+		
+
+	
+	
+	
+	
+	
+		<option value="MNA">Master of Nonprofit Admin.
+		
+
+	
+	
+	
+	
+	
+		<option value="MSM">Master of Sacred Music
+		
+
+	
+	
+	
+	
+	
+		<option value="MSBA">Master of Sc in Bus Analytics
+		
+
+	
+	
+	
+	
+	
+		<option value="MSB">Master of Science Business
+		
+
+	
+	
+	
+	
+	
+		<option value="MSA">Master of Science in Admin.
+		
+
+	
+	
+	
+	
+	
+		<option value="MSF">Master of Science in Finance
+		
+
+	
+	
+	
+	
+	
+		<option value="MSMG">Master of Science in Mgtment
+		
+
+	
+	
+	
+	
+	
+		<option value="MATH">Mathematics
+		
+
+	
+	
+	
+	
+	
+		<option value="MI">Medieval Institute
+		
+
+	
+	
+	
+	
+	
+		<option value="MELC">Middle Eastern Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="MSL">Military Science (Army ROTC)
+		
+
+	
+	
+	
+	
+	
+		<option value="MODL">Modern and Classical Languages
+		
+
+	
+	
+	
+	
+	
+		<option value="MUS">Music
+		
+
+	
+	
+	
+	
+	
+		<option value="NSCI">Naval Science (ROTC)
+		
+
+	
+	
+	
+	
+	
+		<option value="CLST">Near East Lit./Culture in Engl
+		
+
+	
+	
+	
+	
+	
+		<option value="NURS">Nursing (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="PATC">Patent Law
+		
+
+	
+	
+	
+	
+	
+		<option value="PATL">Patent Law Masters
+		
+
+	
+	
+	
+	
+	
+		<option value="PHIL">Philosophy
+		
+
+	
+	
+	
+	
+	
+		<option value="PRL">Philosophy, Religion and Lit
+		
+
+	
+	
+	
+	
+	
+		<option value="PE">Physical Education
+		
+
+	
+	
+	
+	
+	
+		<option value="PHYS">Physics
+		
+
+	
+	
+	
+	
+	
+		<option value="POLS">Political Science
+		
+
+	
+	
+	
+	
+	
+		<option value="POSC">Political Science (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="ROPO">Portuguese
+		
+
+	
+	
+	
+	
+	
+		<option value="PS">Poverty Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="PCSE">Pre-College Summer Experience
+		
+
+	
+	
+	
+	
+	
+		<option value="PLS">Program of Liberal Studies
+		
+
+	
+	
+	
+	
+	
+		<option value="PSY">Psychology
+		
+
+	
+	
+	
+	
+	
+		<option value="PSYC">Psychology (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="REG">Registrar's Office
+		
+
+	
+	
+	
+	
+	
+		<option value="RLT">Religion and Literature
+		
+
+	
+	
+	
+	
+	
+		<option value="RLST">Religious Studies (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="LLRO">Romance Lang & Lit
+		
+
+	
+	
+	
+	
+	
+		<option value="RU">Russian
+		
+
+	
+	
+	
+	
+	
+		<option value="SC">Science (Non-departmental)
+		
+
+	
+	
+	
+	
+	
+		<option value="SCPP">Science Preprofessional
+		
+
+	
+	
+	
+	
+	
+		<option value="STV">Science, Technology and Values
+		
+
+	
+	
+	
+	
+	
+		<option value="SDM">Self Designed Major (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="SBCM">So. Bend Cen for Medical Educ.
+		
+
+	
+	
+	
+	
+	
+		<option value="SW">Social Work (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="SOC">Sociology
+		
+
+	
+	
+	
+	
+	
+		<option value="SPLL">Sophia Program (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="ROSP">Spanish
+		
+
+	
+	
+	
+	
+	
+		<option value="SMC">St. Mary's
+		
+
+	
+	
+	
+	
+	
+		<option value="SUS">Sustainability
+		
+
+	
+	
+	
+	
+	
+		<option value="CLSS">Syriac Language and Literature
+		
+
+	
+	
+	
+	
+	
+		<option value="THTR">Theatre (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="THEO">Theology
+		
+
+	
+	
+	
+	
+	
+		<option value="UB">Upward Bound Program
+		
+
+	
+	
+	
+	
+	
+		<option value="VHNR">VHNR (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="WOST">Women's Studies (SMC)
+		
+
+	
+	
+	
+	
+	
+		<option value="WR">Writing and Rhetoric
+		
+	
+</select>&nbsp; &nbsp; 
+</TD>
+
+
+
+
+<!--  Brandon: Requirement 2 (Search by Attribute) -->
+<TD>
+<table border=0><tr>
+<td>
+
+Attribute: </td><td><SELECT name="ATTR">
+
+
+
+
+	
+	
+	
+		<option value="0ANY"> Any
+	
+
+	
+	
+	
+		<option value="2DCO">2DCO - 2D Studio Core Option
+	
+
+	
+	
+	
+		<option value="3DCO">3DCO - 3D Studio Core Option
+	
+
+	
+	
+	
+		<option value="ACCT">ACCT - M.S. Accountancy
+	
+
+	
+	
+	
+		<option value="ACCY">ACCY - M.S. Accountancy E&Y
+	
+
+	
+	
+	
+		<option value="AERT">AERT - AERO Tech Specializatio
+	
+
+	
+	
+	
+		<option value="AFAL">AFAL - AFST Literature
+	
+
+	
+	
+	
+		<option value="AFHI">AFHI - AFST History
+	
+
+	
+	
+	
+		<option value="AFSS">AFSS - AFST Social Science
+	
+
+	
+	
+	
+		<option value="AHAA">AHAA - ARHI Ancient Art
+	
+
+	
+	
+	
+		<option value="AHGR">AHGR - Grad Level ARHI
+	
+
+	
+	
+	
+		<option value="AHMA">AHMA - ARHI Medieval Art
+	
+
+	
+	
+	
+		<option value="AHMO">AHMO - ARHI Modern Art
+	
+
+	
+	
+	
+		<option value="AHPO">AHPO - ARHI Post-1600 Content
+	
+
+	
+	
+	
+		<option value="AHPR">AHPR - ARHI Pre-1600 Content
+	
+
+	
+	
+	
+		<option value="AHRB">AHRB - ARHI Ren. & Baroque Art
+	
+
+	
+	
+	
+		<option value="ALSS">ALSS - A & L- Social Science
+	
+
+	
+	
+	
+		<option value="AMS1">AMS1 - AMST Category 1
+	
+
+	
+	
+	
+		<option value="AMS2">AMS2 - AMST Category 2
+	
+
+	
+	
+	
+		<option value="AMS3">AMS3 - AMST Category 3
+	
+
+	
+	
+	
+		<option value="ANME">ANME - ANTH Methods
+	
+
+	
+	
+	
+		<option value="ARMH">ARMH - Army ROTC Military Hist
+	
+
+	
+	
+	
+		<option value="ASHI">ASHI -  Asian Studies History
+	
+
+	
+	
+	
+		<option value="ASHU">ASHU -Asian Studies Humanities
+	
+
+	
+	
+	
+		<option value="ASLI">ASLI - Asian Studies Lit/Cultr
+	
+
+	
+	
+	
+		<option value="ASSS">ASSS -  Asian Studies Soc Sci
+	
+
+	
+	
+	
+		<option value="BA02">BA02 - Soph Business Classes
+	
+
+	
+	
+	
+		<option value="BA03">BA03 - Junior Business Classes
+	
+
+	
+	
+	
+		<option value="BAMC">BAMC-Major-lvl business course
+	
+
+	
+	
+	
+		<option value="BEHA">BEHA - Behavioral Science
+	
+
+	
+	
+	
+		<option value="BLAB">BLAB -  Biology Lab
+	
+
+	
+	
+	
+		<option value="CAPA">CAPA - CAPP Applications
+	
+
+	
+	
+	
+		<option value="CAPE">CAPE - CAPP Computer Ethics
+	
+
+	
+	
+	
+		<option value="CAPL">CAPL - CAPP Computer Languages
+	
+
+	
+	
+	
+		<option value="CAPT">CAPT - CAPP Tech & Society
+	
+
+	
+	
+	
+		<option value="CETE">CETE - CE Technical Electives
+	
+
+	
+	
+	
+		<option value="CHEA">CHEA - EALC China or East Asia
+	
+
+	
+	
+	
+		<option value="CHLT">CHLT - EALC Literature
+	
+
+	
+	
+	
+		<option value="CHSE">CHSE - CHEM Science Electives
+	
+
+	
+	
+	
+		<option value="CPEE">CPEE - CPEG Free Elective Seq.
+	
+
+	
+	
+	
+		<option value="CPTE">CPTE - CPEG Technical Elect
+	
+
+	
+	
+	
+		<option value="CSEM">CSEM - College Seminar
+	
+
+	
+	
+	
+		<option value="CSTC">CSTC - CST Colloquium
+	
+
+	
+	
+	
+		<option value="CSTE">CSTE - CST Elective
+	
+
+	
+	
+	
+		<option value="CSTS">CSTS - CST Seminar
+	
+
+	
+	
+	
+		<option value="ECWI">ECWI - ECON Writing Intensive
+	
+
+	
+	
+	
+		<option value="EESE">EESE - EE Science Electives
+	
+
+	
+	
+	
+		<option value="EETE">EETE - EE Technical Electives
+	
+
+	
+	
+	
+		<option value="EINT">EINT - English Intro
+	
+
+	
+	
+	
+		<option value="ELHA">ELHA - ENGL Lit History Area A
+	
+
+	
+	
+	
+		<option value="ELHB">ELHB - ENGL Lit History Area B
+	
+
+	
+	
+	
+		<option value="ELHC">ELHC - ENGL Lit History Area C
+	
+
+	
+	
+	
+		<option value="EN01">EN01 - ENGL Pre-1500
+	
+
+	
+	
+	
+		<option value="EN02">EN02 - ENGL 1500-1700
+	
+
+	
+	
+	
+		<option value="EN03">EN03 - ENGL 1700-1900
+	
+
+	
+	
+	
+		<option value="EN04">EN04 - ENGL Post-1900
+	
+
+	
+	
+	
+		<option value="EN05">EN05 - ENGL British Lit
+	
+
+	
+	
+	
+		<option value="EN06">EN06 - ENGL American Lit
+	
+
+	
+	
+	
+		<option value="EN07">EN07 - ENGL Other or EthnicLit
+	
+
+	
+	
+	
+		<option value="EN08">EN08 - ENGL Poetry
+	
+
+	
+	
+	
+		<option value="EN09">EN09 - ENGL Fiction
+	
+
+	
+	
+	
+		<option value="EN10">EN10 - ENGL Drama or Film
+	
+
+	
+	
+	
+		<option value="EN11">EN11 - ENGL Critical Theory
+	
+
+	
+	
+	
+		<option value="ENNT">ENNT - Enrgy Studies Nontechcl
+	
+
+	
+	
+	
+		<option value="ENTE">ENTE - Enrgy Studies Technical
+	
+
+	
+	
+	
+		<option value="ESED">ESED - MEDS Education-General
+	
+
+	
+	
+	
+		<option value="ESEI">ESEI - MEDS Education-Focused
+	
+
+	
+	
+	
+		<option value="FLIT">FLIT - ROFR French Literature
+	
+
+	
+	
+	
+		<option selected value="FNAR">FNAR -  Univ.Req. Fine Arts
+	
+
+	
+	
+	
+		<option value="FTVT">FTVT - FTT Theory Requirement
+	
+
+	
+	
+	
+		<option value="GEEL">GEEL - GE Electives
+	
+
+	
+	
+	
+		<option value="GSAC">GSAC - GSC Arts & Culture
+	
+
+	
+	
+	
+		<option value="GSCR">GSCR - GSC Core Graduate Semin
+	
+
+	
+	
+	
+		<option value="GSDI">GSDI - GSC Race,Class,Diversit
+	
+
+	
+	
+	
+		<option value="GSEM">GSEM - Gen Studies Senior Sem.
+	
+
+	
+	
+	
+		<option value="GSGS">GSGS - GSC Gender & Society
+	
+
+	
+	
+	
+		<option value="GSRF">GSRF - GSC Religion & Family
+	
+
+	
+	
+	
+		<option value="HCT1">HCT1 -HIST Cat 1:AF/AS/ME
+	
+
+	
+	
+	
+		<option value="HCT2">HCT2 -HIST Cat2:Anc/Med Europe
+	
+
+	
+	
+	
+		<option value="HCT3">HCT3 -HIST Cat 3:Modern Europe
+	
+
+	
+	
+	
+		<option value="HCT4">HCT4 -HIST Cat 4: Latin Amer
+	
+
+	
+	
+	
+		<option value="HCT5">HCT5 - HIST Cat 5: US
+	
+
+	
+	
+	
+		<option value="HCT6">HCT6 -HIST Cat 6: Special
+	
+
+	
+	
+	
+		<option value="HIST">HIST -  Univ.Req. History
+	
+
+	
+	
+	
+		<option value="HPIP">HPIP -Hesburgh Pgm Inst & Proc
+	
+
+	
+	
+	
+		<option value="HPRE">HPRE - HIST: Pre-1500 Courses
+	
+
+	
+	
+	
+		<option value="HPRS">HPRS -Hesburgh Pgm Rsrch Skill
+	
+
+	
+	
+	
+		<option value="HPSE">HPSE -Hesburgh Pgm Rsrch Sem
+	
+
+	
+	
+	
+		<option value="HPVL">HPVL -Hesburgh Pgm Values
+	
+
+	
+	
+	
+		<option value="IBCB">IBCB - IBC Business
+	
+
+	
+	
+	
+		<option value="IBCL">IBCL - IBC Liberal Arts
+	
+
+	
+	
+	
+		<option value="ITLC">ITLC - ROIT Italian Lit & Cult
+	
+
+	
+	
+	
+		<option value="ITLS">ITLS - ROIT Italian Subject
+	
+
+	
+	
+	
+		<option value="JAEA">JAEA - EALJ Japan or E. Asian
+	
+
+	
+	
+	
+		<option value="JAPL">JAPL - EALJ Literature
+	
+
+	
+	
+	
+		<option value="JEDE">JEDE - Journalism Electives
+	
+
+	
+	
+	
+		<option value="LANG">LANG - College Language Req
+	
+
+	
+	
+	
+		<option value="LAST">LAST - Latin Amer. Studies
+	
+
+	
+	
+	
+		<option value="LIT">LIT - Univ.Req. Literature
+	
+
+	
+	
+	
+		<option value="MATH">MATH - Univ.Req. Mathematics
+	
+
+	
+	
+	
+		<option value="MESE">MESE - European Studies Course
+	
+
+	
+	
+	
+		<option value="MET">MET - ME Addt'l Techl Elect
+	
+
+	
+	
+	
+		<option value="MMME">MMME - Mediter/Mid East Elect
+	
+
+	
+	
+	
+		<option value="MPPE">MPPE -Minor in Phil, Pol &Econ
+	
+
+	
+	
+	
+		<option value="MPRL">MPRL -Minor in Phil,Rlgn & Lit
+	
+
+	
+	
+	
+		<option value="MRLE">MRLE - MRLT Electives
+	
+
+	
+	
+	
+		<option value="MSCE">MSCE - MATH Science Elective
+	
+
+	
+	
+	
+		<option value="MUSE">MUSE - MUS Ensemble
+	
+
+	
+	
+	
+		<option value="MUSL">MUSL - MUS Music Lessons
+	
+
+	
+	
+	
+		<option value="NASC">NASC - Univ.Req. Natural Sci
+	
+
+	
+	
+	
+		<option value="NBSE">NBSE - Non-BIOS Science Elect
+	
+
+	
+	
+	
+		<option value="NSMA">NSMA - NROTC Secrty/Miltry Aff
+	
+
+	
+	
+	
+		<option value="NVCA">NVCA - NROTC Culturl Awareness
+	
+
+	
+	
+	
+		<option value="PBLP">PBLP - PSY Biological & Learn.
+	
+
+	
+	
+	
+		<option value="PE">PE - Univ.Req.- Phys Ed
+	
+
+	
+	
+	
+		<option value="PHI2">PHI2 - Univ Req 2nd Philosophy
+	
+
+	
+	
+	
+		<option value="PHIL">PHIL - Univ Req 1st Philosophy
+	
+
+	
+	
+	
+		<option value="PIR">PIR - POLS Inter'l Relations
+	
+
+	
+	
+	
+		<option value="PSAA">PSAA - IIPS Area A
+	
+
+	
+	
+	
+		<option value="PSAB">PSAB - IIPS Area B
+	
+
+	
+	
+	
+		<option value="PSAC">PSAC - IIPS Area C
+	
+
+	
+	
+	
+		<option value="PSCR">PSCR - Peace Studies Core
+	
+
+	
+	
+	
+		<option value="PSDP">PSDP - PSY Social & Devel
+	
+
+	
+	
+	
+		<option value="PSEL">PSEL - IIPS Electives
+	
+
+	
+	
+	
+		<option value="PSGE">PSGE - Peace Studies Grad Elec
+	
+
+	
+	
+	
+		<option value="PSGP">PSGP - PS Global Pol & Human R
+	
+
+	
+	
+	
+		<option value="PSIM">PSIM - Poverty Studies Elect.
+	
+
+	
+	
+	
+		<option value="PSPE">PSPE - PS Pol Econ,Dev&Global
+	
+
+	
+	
+	
+		<option value="PSRC">PSRC - PS Religion,Culture&Soc
+	
+
+	
+	
+	
+		<option value="PSSP">PSSP - Peace Studies Support
+	
+
+	
+	
+	
+		<option value="PWCP">PWCP - MPCT Catholic Philo
+	
+
+	
+	
+	
+		<option value="PWPS">PWPS - MPCT Political Science
+	
+
+	
+	
+	
+		<option value="REES">REES - Russ. & E Euro. Studies
+	
+
+	
+	
+	
+		<option value="SOSC">SOSC - Univ Req Social Science
+	
+
+	
+	
+	
+		<option value="SUS1">SUS1 - Design
+	
+
+	
+	
+	
+		<option value="SUS2">SUS2 - Impacts
+	
+
+	
+	
+	
+		<option value="SUS3">SUS3 - Social Institutions
+	
+
+	
+	
+	
+		<option value="SUS4">SUS4 - Indiv Behavior & Values
+	
+
+	
+	
+	
+		<option value="THE2">THE2 - Univ.Req. Dvlpmnt Theo
+	
+
+	
+	
+	
+		<option value="THEO">THEO - Univ.Req. 1st Theology
+	
+
+	
+	
+	
+		<option value="TVTO">TVTO - FTT Television Topics
+	
+
+	
+	
+	
+		<option value="USEM">USEM - University Seminar
+	
+
+	
+	
+	
+		<option value="WRRH">WRRH-Univ Req Writing&Rhetoric
+	
+
+	
+	
+	
+		<option value="ZCSC">ZCSC-Commnty Engagmnt Course
+	
+
+	
+	
+	
+		<option value="ZDFA">ZDFA: Not approved: Univ. FNAR
+	
+
+	
+	
+	
+		<option value="ZDHI">ZDHI: Not approved: Univ. HIST
+	
+
+	
+	
+	
+		<option value="ZDLI">ZDLI: Not approved: Univ. LIT
+	
+
+	
+	
+	
+		<option value="ZDMA">ZDMA: Not approved: Univ. MATH
+	
+
+	
+	
+	
+		<option value="ZDP1">ZDP1: Not approved: Univ. PHIL
+	
+
+	
+	
+	
+		<option value="ZDP2">ZDP2: Not approved: Univ. PHI2
+	
+
+	
+	
+	
+		<option value="ZDSC">ZDSC: Not approved: Univ. NASC
+	
+
+	
+	
+	
+		<option value="ZDSS">ZDSS: Not approved: Univ. SOSC
+	
+
+	
+	
+	
+		<option value="ZDT1">ZDT1: Not approved: Univ. THEO
+	
+
+	
+	
+	
+		<option value="ZDT2">ZDT2: Not approved: Univ. THE2
+	
+
+	
+	
+	
+		<option value="ZINT">ZINT - Student Intrnshp Course
+	
+
+	
+	
+	
+		<option value="ZNBL">ZNBL - Not Publ in Bull.(Adm)
+	
+
+	
+	
+	
+		<option value="ZNDC">ZNDC - Non-degree Credit (Adm)
+	
+
+	
+	
+	
+		<option value="ZOCP">ZOCP-Chicago Patent Law (CP)
+	
+
+	
+	
+	
+		<option value="ZODS">ZODS - Dakar, Senegal (DS)
+	
+
+	
+	
+	
+		<option value="ZOLW">ZOLW - Washington,DC Law Prgrm
+	
+
+	
+	
+	
+		<option value="ZOPC">ZOPC - Peking Univ - Beijing
+	
+
+	
+	
+	
+		<option value="ZOTB">ZOTB - Tsinghua Univ - Beijing
+	
+
+	
+	
+	
+		<option value="ZOTL">ZOTL - Trinity Law - Dublin
+	
+
+	
+	
+	
+		<option value="ZUG1">ZUG1 - UG Research (Admin)
+	
+
+	
+	
+	
+		<option value="ZUG2">ZUG2-UG Critical Anlysis (Adm)
+	
+
+	
+	
+	
+		<option value="ZUG3">ZUG3-UGCreativeExpression(Adm)
+	
+
+	
+	
+	
+		<option value="ZUG4">ZUG4 - UGIntern/Practicum(Adm)
+	
+
+</SELECT> &nbsp; &nbsp; </td></tr>
+<tr>
+<td>
+Credits: </td><td>
+<SELECT NAME="CREDIT">
+
+
+
+
+
+	
+	
+	
+		<option value="0">0 - 1
+	
+
+	
+	
+	
+		<option value="1">1 - 2
+	
+
+	
+	
+	
+		<option value="2">2 - 3
+	
+
+	
+	
+	
+		<option value="3">3 +
+	
+
+	
+	
+	
+		<option selected value="A">All
+	
+
+	
+	
+	
+		<option value="V">Variable
+	
+
+</SELECT>&nbsp; &nbsp;
+</td></tr></table>
+</TD>
+
+
+<TD> 
+</TD>
+</TR>
+
+<TR>
+<TD COLSPAN="5" ALIGN="center"><INPUT TYPE="submit" VALUE="Search"> </TD>                             
+</TR>
+</TABLE>
+</FORM>
+
+
+	<fieldset>
+		<legend>Enhanced Course Information</legend>
+			Please <a href="SecureClassSearchServlet">login</a> before searching for class details, in order to view the enhanced course information.
+	</fieldset><br>
+
+
+
+
+	 	
+		 
+		
+		(1) Click on a column header to sort by that column.  (2) Click on any Course - Section for additional information. 
+		(3) An * denotes classes that are Department Approval Required
+		<br>
+		<!--  <br><div align="left"> An * denotes classes that are Department Approval Required</div> -->
+		<div align="right"><a href="DownloadSearchServlet">Download to Excel</a></div>
+		<TABLE border="1" CELLSPACING="4" id="resulttable">
+		<THEAD>
+		<TR class="fieldlabeltext">
+			<TH><U>Course - Sec</U></TH>
+			<TH><U>Title</U></TH>
+			<TH><U>Cr</U></TH>
+			<TH><U>St</U></TH>
+			<TH><U>Max</U></TH>
+			<TH><U>Opn</U></TH>
+			<TH><U>Xlst</U></TH>
+			<TH><U>CRN</U></TH>
+			<TH><U>Syl</U></TH>
+			<TH><U>Instructor</U></TH>
+			<TH class="sorttable_nosort">When</TH>
+			<TH><U>Begin</U></TH>
+			<TH><U>End</U></TH>
+			
+				<TH><U>Where</U></TH>
+			
+		</TR>
+		</THEAD>
+		<TBODY>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=16815&TERM=201410&P=937939','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST11100 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=11100&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="2-d foundations">2-D Foundations</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">15</TD>
+			<TD align="right">3</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>16815</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=937939','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Acayo, Penina <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W F  - 12:50P - 2:50P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 301 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=16817&TERM=201410&P=1107425','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST11100 - 02</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=11100&section-1=02" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="2-d foundations">2-D Foundations</TD>
+			<TD>3</TD>
+			<TD>CL</TD>
+			<TD align="right">16</TD>
+			<TD align="right">0</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>16817</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1107425','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Beck, Emily <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 9:30A - 12:15P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 301 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=16816&TERM=201410&P=1107425','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST11100 - 03</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=11100&section-1=03" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="2-d foundations">2-D Foundations</TD>
+			<TD>3</TD>
+			<TD>CL</TD>
+			<TD align="right">15</TD>
+			<TD align="right">0</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>16816</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1107425','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Beck, Emily <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W  - 8:00A - 10:45A
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 301 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=11759&TERM=201410&P=1092858','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST11201 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=11201&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="drawing i">Drawing I</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">16</TD>
+			<TD align="right">2</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>11759</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1092858','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Korte, Lucas <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W F  - 10:30A - 12:25P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 300 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=13346&TERM=201410&P=414561','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST11201 - 02</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=11201&section-1=02" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="drawing i">Drawing I</TD>
+			<TD>3</TD>
+			<TD>CL</TD>
+			<TD align="right">16</TD>
+			<TD align="right">0</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>13346</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=414561','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Welch, Mark <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W F  - 12:50P - 2:50P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 300 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=13770&TERM=201410&P=335197','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST11201 - 03</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=11201&section-1=03" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="drawing i">Drawing I</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">17</TD>
+			<TD align="right">2</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>13770</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=335197','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Nguyen, Martin Lam <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 9:30A - 12:15P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 300 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=14082&TERM=201410&P=937824','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST11601 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=11601&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="3-d foundations - basic sculpt">3-D Foundations - Basic Sculpt</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">12</TD>
+			<TD align="right">2</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>14082</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=937824','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Seprish, Katelyn <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W F  - 8:20A - 10:15A
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 108A 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=11760&TERM=201410&P=1107425','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST11601 - 02</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=11601&section-1=02" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="3-d foundations - basic sculpt">3-D Foundations - Basic Sculpt</TD>
+			<TD>3</TD>
+			<TD>CL</TD>
+			<TD align="right">12</TD>
+			<TD align="right">0</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>11760</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1107425','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Beck, Emily <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 12:30P - 3:15P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 108A 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=19858&TERM=201410&P=937824','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST11601 - 03</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=11601&section-1=03" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="3-d foundations - basic sculpt">3-D Foundations - Basic Sculpt</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">12</TD>
+			<TD align="right">4</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>19858</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=937824','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Seprish, Katelyn <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W F  - 3:30P - 5:30P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 108A 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=12067&TERM=201410&P=311352','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21101 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21101&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="ceramics i">Ceramics I</TD>
+			<TD>3</TD>
+			<TD>CL</TD>
+			<TD align="right">17</TD>
+			<TD align="right">0</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>12067</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=311352','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Kremer, William <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 9:30A - 12:15P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 122 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=11293&TERM=201410&P=937802','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21101 - 02</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21101&section-1=02" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="ceramics i">Ceramics I</TD>
+			<TD>3</TD>
+			<TD>CL</TD>
+			<TD align="right">16</TD>
+			<TD align="right">0</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>11293</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=937802','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Smith, Nathan <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W F  - 10:30A - 12:25P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 122 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=11294&TERM=201410&P=1091660','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21101 - 03</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21101&section-1=03" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="ceramics i">Ceramics I</TD>
+			<TD>3</TD>
+			<TD>CL</TD>
+			<TD align="right">16</TD>
+			<TD align="right">0</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>11294</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1091660','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Aiken, Troy <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W F  - 12:50P - 2:50P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 122 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=12367&TERM=201410&P=1148531','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21101 - 04</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21101&section-1=04" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="ceramics i">Ceramics I</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">16</TD>
+			<TD align="right">6</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>12367</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1148531','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Tate, Zachary <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W F  - 8:20A - 10:15A
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 122 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=14083&TERM=201410&P=335197','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21301 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21301&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="painting i">Painting I</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">16</TD>
+			<TD align="right">7</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>14083</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=335197','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Nguyen, Martin Lam <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 12:30P - 3:15P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 309 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=14084&TERM=201410&P=324723','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21301 - 02</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21301&section-1=02" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="painting i">Painting I</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">16</TD>
+			<TD align="right">4</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>14084</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=324723','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Tomasula, Maria <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 9:30A - 12:15P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 309 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=14085&TERM=201410&P=374793','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21401 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21401&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="photography i">Photography I</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">15</TD>
+			<TD align="right">1</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>14085</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=374793','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Lopez, Martina <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W  - 11:00A - 1:45P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 201 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=12672&TERM=201410&P=1093211','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21401 - 02</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21401&section-1=02" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="photography i">Photography I</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">10</TD>
+			<TD align="right">1</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>12672</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1093211','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Dant, Christopher <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W F  - 8:20A - 10:15A
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 201 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=11711&TERM=201410&P=1042170','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21401 - 03</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21401&section-1=03" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="photography i">Photography I</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">10</TD>
+			<TD align="right">2</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>11711</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1042170','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Evans, Allison <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W F  - 3:30P - 5:30P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 201 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=16273&TERM=201410&P=1036331','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21401 - 04</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21401&section-1=04" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="photography i">Photography I</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">15</TD>
+			<TD align="right">2</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>16273</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1036331','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Bimber, Jayson <br /></a>
+			   		  
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1038782','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Bellucci, James<br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 3:30P - 6:20P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 201 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=11116&TERM=201410&P=1092273','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21501 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21501&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="silkscreen i">Silkscreen I</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">11</TD>
+			<TD align="right">1</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>11116</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1092273','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Stratton, Lauren <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 9:30A - 12:15P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 316 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=14086&TERM=201410&P=304815','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21505 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21505&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="artists' books & papermaking">Artists' Books & Papermaking</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">15</TD>
+			<TD align="right">4</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>14086</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=304815','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Dibble, Jean <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W  - 2:00P - 4:45P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 316 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=14966&TERM=201410&P=868824','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21506 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21506&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="relief printing: studio class">Relief Printing: Studio Class</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">15</TD>
+			<TD align="right">4</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>14966</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=868824','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Barfield, Justin <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 12:30P - 3:15P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 316 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=16274&TERM=201410&P=1058620','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21602 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21602&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="wood sculpture">Wood Sculpture</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">12</TD>
+			<TD align="right">1</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>16274</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1058620','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Robinson, Bryce <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W F  - 10:30A - 12:25P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 108A 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=11219&TERM=201410&P=1016076','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21603 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21603&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="metal foundry">Metal Foundry</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">12</TD>
+			<TD align="right">2</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>11219</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1016076','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Sunderlin, Benjamin <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 3:30P - 6:20P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 108A 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=11613&TERM=201410&P=358141','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21604 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21604&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="metal sculpture i">Metal Sculpture I</TD>
+			<TD>3</TD>
+			<TD>CL</TD>
+			<TD align="right">12</TD>
+			<TD align="right">0</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>11613</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=358141','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Collins, Austin <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 9:30A - 12:15P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 108A 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=16275&TERM=201410&P=1101988','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST21604 - 02</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=21604&section-1=02" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="metal sculpture i">Metal Sculpture I</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">12</TD>
+			<TD align="right">5</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>16275</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=1101988','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Cruz, Joseph <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W F  - 12:50P - 2:50P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 108A 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=11295&TERM=201410&P=311352','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST31102 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=31102&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="ceramics ii">Ceramics II</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">16</TD>
+			<TD align="right">5</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>11295</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=311352','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Kremer, William <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 3:30P - 6:20P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 122 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=13410&TERM=201410&P=680004','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST31315 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=31315&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="scene design">Scene Design</TD>
+			<TD>3</TD>
+			<TD>CL</TD>
+			<TD align="right">4</TD>
+			<TD align="right">0</TD>
+			<TD align="center">Y</TD>
+			<TD>13410</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=680004','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Stephens, Marcus <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 11:00A - 12:15P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			DeBartolo Performing Arts Ctr. B019 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=15617&TERM=201410&P=304815','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST31502 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=31502&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="poster shop">Poster Shop</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">15</TD>
+			<TD align="right">4</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>15617</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=304815','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Dibble, Jean <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W  - 11:00A - 1:45P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 316 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=10140&TERM=201410&P=324723','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST41203 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=41203&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="figure drawing, multilevel">Figure Drawing, Multilevel</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">16</TD>
+			<TD align="right">2</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>10140</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=324723','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Tomasula, Maria <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			T R  - 12:30P - 3:15P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 310 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+		 
+			<TR>
+			 
+			<TD><a href="javascript:windowHandle = window.open('ClassSearchServlet?CRN=10142&TERM=201410&P=568308','detail');windowHandle.focus();" onMouseover="showtip(this,event,'Comments and Restrictions')"
+                    onMouseout="hidetip()">ARST41307 - 01</A>
+                
+                <BR>
+				<A href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=700&term_id-1=201410&div-1=&dept-1=ARST&course-1=41307&section-1=01" target="_blank">View Books</A>
+            </TD>
+            
+			<TD sorttable_customkey="painting, multilevel">Painting, Multilevel</TD>
+			<TD>3</TD>
+			<TD>OP</TD>
+			<TD align="right">16</TD>
+			<TD align="right">7</TD>
+			<TD align="center">&nbsp</TD>
+			<TD>10142</TD>
+			<TD align="center">
+								
+			</TD>
+			
+			   <TD>
+			   
+ 			   
+						<a href="javascript:windowHandle = window.open('InstructorClassesServlet?
+							TERM=201410&
+							P=568308','classes');
+							windowHandle.focus();" onMouseover="showtip(this,event,'Instructor Classes')"
+                    		onMouseout="hidetip()">Lahr, Jason <br /></a>
+			   		  
+			   </TD>
+			   <TD>
+			   
+			   			M W  - 11:00A - 1:45P
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+			   			
+			   			<TD sorttable_customkey="08.26.2014" class="column_width">
+				   		08/26/2014
+			   		
+			   		
+			   	  
+			   </TD>
+			   
+		   				
+			   			<TD sorttable_customkey="12/11/2014" class="column_width">
+			   			12/11/2014
+		   			
+			   		
+			   	  
+			   </TD>
+			   
+			   <TD>
+			   
+				   			Riley Hall 309 
+				   		
+				   		
+				   	
+			   </TD>
+			</TR>
+					
+			</TBODY>
+	 
+ 
+</TABLE>
+</DIV>
+</BODY>
+</HTML>
