@@ -7,6 +7,7 @@ App.DepartmentRoute = Ember.Route.extend({
       console.log(response);
     });
   },
+
   setupController: function(controller, model) {
     console.log(model);
     console.log(model.courses);

@@ -11,9 +11,16 @@ App.Router.map(function() {
       this.resource('course', { path: '/:courseNum' }, function() {
         this.resource('sections', {path: '/sections' });
       });
-
-/*      this.resource('department', { path: '/dept/:id' });
-*/      //this.resource('department')
     });
-  })
+  });
+
+  this.resource('professors', { path: '/professors' }, function() {
+    this.resource('professor', { path: '/:lastName/courses' }, function() {
+      this.resource('professor_course', { path: '/:courseNum' }, function() {
+        //this.resource('sections', {path: '/sections' });
+      });
+    });
+  });
+
+
 });

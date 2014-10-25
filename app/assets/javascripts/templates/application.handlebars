@@ -22,12 +22,10 @@
 
 <div id="main" class="row app">
 <div class="row">
-
-Today's Date: {{currentDate 'LL'}}
-  <span class="view-list">List:
-    <ul class="view-list">
-      <li>Departments</li>
-      <li>Professors</li>
+  <span class="filter-view">Filter By:
+    <ul class="view-list filter">
+      {{link-to 'Departments' 'departments' tagName="li"}}
+      {{link-to 'Professors' 'professors' tagName="li"}}
       <li>Attributes</li>
     </ul>
   </span>

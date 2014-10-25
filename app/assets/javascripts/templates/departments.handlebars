@@ -2,8 +2,11 @@
   <h1>Departments</h1>
   <ul class="common-list dept-list">
     {{#each department in controller}}
-      <li class="dept-item"> <span class="dept-text">{{department.tag}}</span> <br>
-      {{#link-to 'department' department }}{{department.name}}{{/link-to}}</li>
+      {{#link-to 'department' department tagName="li" class="dept-link"}}
+        <span class="dept-text">{{department.tag}}</span> <br>
+
+        <span class="dept-link-text">{{department.name}}</span>
+      {{/link-to}}
     {{/each}}
   </ul>
 </div>

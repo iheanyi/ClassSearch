@@ -5,8 +5,12 @@
 
   <ul class="common-list course-list">
   {{#each course in model.courses}}
-    <li>{{#link-to 'course' course}}{{course.courseNum}} - {{course.title}}
-    {{/link-to}}</li>
+      {{#link-to 'course' course tagName="li" class="course-link"}}
+      <span class="course-number">{{course.courseNum}} ({{course.creditsValue}})</span> <br/>
+        <span class="course-link-text">{{course.title}}</span>
+
+        <span class="label round section-label" style="float:right;">{{course.sectionsCount}}</span>
+      {{/link-to}}
   {{/each}}
   </ul>
 </div>

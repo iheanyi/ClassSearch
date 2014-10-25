@@ -55,9 +55,6 @@ a.small-caps {
   margin: 0;
   padding: 0;
   border-bottom: 1px dashed #e5e5e5;
-  padding: 4px;
-  padding-left: 12px;
-  padding-right: 12px;
   width: 100%;
   cursor: pointer; }
 
@@ -91,20 +88,19 @@ a.small-caps {
 
 .dept-link, .course-link, .prof-link {
   display: inline-block;
-  padding: 16px;
-  padding-left: 0;
-  padding: 0;
+  padding: 8px;
   margin: 0; }
 
 .course-numbers {
   font-variant: small-caps; }
 
 .description-section {
-  border-bottom: 2px #e5e5e5 solid; }
+  border-bottom: 2px #e5e5e5 dashed; }
 
 .description-section, .sections-area {
   height: 50%;
   overflow-y: scroll;
+  max-height: 50%;
   padding: 12px; }
 
 .section-item {
@@ -117,7 +113,8 @@ a.small-caps {
   display: inline-block; }
 
 .seats-text, .prof-text {
-  font-variant: small-caps; }
+  font-variant: small-caps;
+  font-weight: 700; }
 
 .course-number {
   font-weight: 300;
@@ -167,3 +164,40 @@ a.small-caps {
     display: inline-block;
     padding: 0;
     margin: 0; }
+
+.view-list li {
+  cursor: pointer;
+  color: #476579;
+  padding: 6px; }
+  .view-list li.active {
+    background-color: #163850;
+    color: #fff; }
+  .view-list li:hover {
+    background-color: #163850;
+    color: #fff; }
+
+/* .filter {
+  .active {
+    background: black;
+  }
+} */
+.dept-text, .course-number {
+  color: #163850; }
+
+.dept-list .active, .course-list .active, .prof-list .active {
+  color: #fff;
+  background: #476579; }
+
+.dept-link-text, .course-link-text, .prof-link-text {
+  font-weight: 300; }
+
+.dept-item, .course-item {
+  width: 100%; }
+
+.dept-link, .course-link, .prof-link {
+  cursor: pointer;
+  width: 100%;
+  border-bottom: 1px dashed #e5e5e5; }
+  .dept-link:hover, .course-link:hover, .prof-link:hover {
+    background: #476579;
+    color: #fff; }
