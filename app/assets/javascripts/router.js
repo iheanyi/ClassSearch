@@ -6,9 +6,14 @@ App.Router.reopen({
 });
 
 App.Router.map(function() {
+
   this.resource('departments', { path: '/' }, function() {
+    this.resource('courses', {path :'/all/courses'}, function() {
+      this.resource('course', { path: '/:courseNum'});
+    });
+
     this.resource('department', { path: '/:tag/courses' }, function() {
-      this.resource('course', { path: '/:courseNum' }, function() {
+      this.resource('department_course', { path: '/:courseNum' }, function() {
         this.resource('sections', {path: '/sections' });
       });
     });

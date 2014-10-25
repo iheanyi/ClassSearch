@@ -1,6 +1,11 @@
 <div class="large-4 columns department-container" id="departments-section">
   <h1>Departments</h1>
   <ul class="common-list dept-list">
+    {{#link-to 'courses' tagName="li" class="dept-link"}}
+        <span class="dept-text">ALL</span> <br>
+
+        <span class="dept-link-text">All Courses</span>
+    {{/link-to}}
     {{#each department in controller}}
       {{#link-to 'department' department tagName="li" class="dept-link"}}
         <span class="dept-text">{{department.tag}}</span> <br>
