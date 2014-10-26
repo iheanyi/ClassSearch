@@ -2,6 +2,14 @@
 
   <div class="row description-section">
     <h4>{{model.courseNum}} - {{model.title}} ({{model.creditsValue}})</h4>
+    <span>Attributes:
+
+      <span>
+        {{#each attribute in model.cattributes}}
+        {{#link-to 'attribute' attribute}}{{attribute.name}} ({{attribute.tag}}){{/link-to}}        {{/each}}
+      </span>
+    </span>
+
     <p>{{model.courseDescription}}</p>
   </div>
 

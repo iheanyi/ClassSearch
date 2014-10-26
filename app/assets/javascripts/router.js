@@ -27,5 +27,11 @@ App.Router.map(function() {
     });
   });
 
+  this.resource('attributes', {path: '/attributes'}, function() {
+    this.resource('attribute', { path: '/:tag/courses' }, function() {
+      this.resource('attribute_course', { path: '/:courseNum'});
+    })
+  })
+
 
 });

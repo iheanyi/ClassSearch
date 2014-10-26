@@ -2,5 +2,5 @@
 App.Department = DS.Model.extend({
   name: DS.attr('string'),
   tag: DS.attr('string'),
-  courses: DS.hasMany('course', {async: true})
+  courses: DS.hasMany('courses', {async: true})
 });

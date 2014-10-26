@@ -55,9 +55,21 @@ namespace :data do
 
   desc "Fetch Descriptions for each course"
   task fetch_course_description: :environment do
-    Parallel.map(Course.all) do |course|
+    Parallel.map(Course.where(:sections_count != nil)) do |course|
       fetch_course_description(course)
     end
+  end
+
+  desc "Fetch course attributes"
+  task fetch_course_attributes: :environment do
+    #course = Department.all
+    attrs = Attribute.pluck(:name)
+    #puts attrs
+    Parallel.map(Course.where(:sections_count != nil)) do |course|
+      puts course.title
+      fetch_course_attributes(course, attrs)
+    end
+
   end
 
   desc "Fetch every attribute"
@@ -101,36 +113,42 @@ namespace :data do
     puts attrs.length
     puts mapping.length
     #puts depts.product(attrs).collect { |d, a| puts d, a }
-=begin
-    response = @conn.post '', {
-      :TERM => @term_field,
-      :SUBJ => "DESN",
-      #:SUBJ => "ARST",
-      :DIVS => @divs_field,
-      :CAMPUS => @campus_field,
-      :CREDIT => @credit_field,
-      :ATTR => "FNAR"
-    }
-=end
 
-
-  # Call Collect { |x, y| f(x, y) to get results}
+    # Call Collect { |x, y| f(x, y) to get results}
   end
 
-  def fetch_course_attributes(dept, attribute)
-    response = @conn.post '', {
-      :TERM => @term_field,
-      :SUBJ => "DESN",
-      #:SUBJ => "ARST",
-      :DIVS => @divs_field,
-      :CAMPUS => @campus_field,
-      :CREDIT => @credit_field,
-      :ATTR => attribute
-    }
+  def fetch_course_attributes(course, attributes)
+    #course = Course.where(course_num: "ACCT20100").first
 
+    course_section = course.sections.first
+    if course_section != nil
 
+    response = @conn.get '', {:CRN => course_section.crn, :TERM => "201410" }
+    #puts course.title
+    content = response.body.strip
 
+    document = Nokogiri::HTML(content)
+    #test = Attribute.where(:tag => "BA02").first
+    #puts content.include? test.tag
+    #print attributes
+    alt_table = document.xpath('//table[@class="datadisplaytable"]').first
+    document_text = alt_table.xpath('./tr[2]/td/text()').text.strip
+
+      attributes.each do |attribute|
+        #puts content.include? attribute
+        if document_text.include? attribute
+          attribute_model = Attribute.where(:name => attribute).first
+          course_attribute = CourseAttribute.find_or_create_by(:course => course, :cattribute => attribute_model)
+
+          puts  "Found and Saved Attribute #{attribute_model.name} for #{course.title}"
+
+          course_attribute.save()
+        end
+      end
+    end
+    #puts content.include? "BA02"
   end
+
   def fetch_course_description(course)
     course_section = course.sections.first
     if(course_section != nil && course.course_description == nil)

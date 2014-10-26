@@ -26,7 +26,7 @@ $small-caps-color: #163850;
   position: relative;
 }
 
-.department-container {
+.department-container, .attr-container {
   height: 100%;
   overflow-y: scroll;
   background: #fff;
@@ -74,7 +74,7 @@ a.small-caps {
   margin: 0;
 }
 
-.dept-item, .course-item, .prof-item {
+.dept-item, .course-item, .prof-item, .attr-item {
   margin: 0;
   padding: 0;
   border-bottom: 1px dashed #e5e5e5;
@@ -124,7 +124,7 @@ a.small-caps {
   font-variant: small-caps;
   margin-top: 18px;
 }
-.dept-link, .course-link, .prof-link {
+.dept-link, .course-link, .prof-link, .attr-link {
   display: inline-block;
   padding: 8px;
   //padding-left: 0;
@@ -176,12 +176,12 @@ a.small-caps {
   font-weight: 700;
 }
 
-.dept-text {
+.dept-text, .attr-text {
   font-size: 12px;
   font-weight: 700;
 }
 
-.dept-active, .course-active, .prof-active {
+.dept-active, .course-active, .prof-active, .attr-active {
   background-color: #1F2D3C;
   z-index: 5;
 
@@ -258,25 +258,25 @@ a.small-caps {
   }
 } */
 
-.dept-text, .course-number {
+.dept-text, .course-number, .attr-text {
   color: #163850;
 }
 
-.dept-list, .course-list, .prof-list {
+.dept-list, .course-list, .prof-list, .attr-list {
   .active {
     color: #fff;
     background: $highlight-color;
   }
 }
 
-.dept-link-text, .course-link-text, .prof-link-text {
+.dept-link-text, .course-link-text, .prof-link-text, .attr-link-text {
   font-weight: 300;
 }
 .dept-item, .course-item {
   width: 100%;
 }
 
-.dept-link, .course-link, .prof-link {
+.dept-link, .course-link, .prof-link, .attr-link {
   cursor: pointer;
   width: 100%;
   border-bottom: 1px dashed #e5e5e5;

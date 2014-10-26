@@ -18,16 +18,13 @@ Rails.application.routes.draw do
       end
 
 
-
-      resources :professors do
-        resources :courses, shallow: true
-      end
-
       resources :attributes do
         resources :courses, shallow: true
       end
 
-      #resources :sections
+      resources :professors do
+        resources :courses, shallow: true
+      end
 
 
     end

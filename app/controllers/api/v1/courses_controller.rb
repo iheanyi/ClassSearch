@@ -6,13 +6,13 @@ class Api::V1::CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.includes(:sections).find(params[:id])
+    #@course = Course.includes(:sections).find(params[:id])
     render json: course #, serializer: CoursesSerializer
   end
 
   private
     def course
-      Course.includes(:sections).find(params[:id])
+      Course.includes(:sections, :cattributes).find(params[:id])
     end
 
     def course_params

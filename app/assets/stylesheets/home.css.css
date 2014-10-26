@@ -17,7 +17,7 @@
   padding: 0;
   position: relative; }
 
-.department-container {
+.department-container, .attr-container {
   height: 100%;
   overflow-y: scroll;
   background: #fff;
@@ -55,7 +55,7 @@ a.small-caps {
   padding: 0;
   margin: 0; }
 
-.dept-item, .course-item, .prof-item {
+.dept-item, .course-item, .prof-item, .attr-item {
   margin: 0;
   padding: 0;
   border-bottom: 1px dashed #e5e5e5;
@@ -90,7 +90,7 @@ a.small-caps {
   font-variant: small-caps;
   margin-top: 18px; }
 
-.dept-link, .course-link, .prof-link {
+.dept-link, .course-link, .prof-link, .attr-link {
   display: inline-block;
   padding: 8px;
   margin: 0; }
@@ -129,16 +129,16 @@ a.small-caps {
   font-size: 12px;
   font-weight: 700; }
 
-.dept-text {
+.dept-text, .attr-text {
   font-size: 12px;
   font-weight: 700; }
 
-.dept-active, .course-active, .prof-active {
+.dept-active, .course-active, .prof-active, .attr-active {
   background-color: #1F2D3C;
   z-index: 5; }
-  .dept-active span, .course-active span, .prof-active span {
+  .dept-active span, .course-active span, .prof-active span, .attr-active span {
     color: #fff; }
-  .dept-active a, .course-active a, .prof-active a {
+  .dept-active a, .course-active a, .prof-active a, .attr-active a {
     color: #fff; }
 
 .seats-numbers {
@@ -189,23 +189,23 @@ a.small-caps {
     background: black;
   }
 } */
-.dept-text, .course-number {
+.dept-text, .course-number, .attr-text {
   color: #163850; }
 
-.dept-list .active, .course-list .active, .prof-list .active {
+.dept-list .active, .course-list .active, .prof-list .active, .attr-list .active {
   color: #fff;
   background: #476579; }
 
-.dept-link-text, .course-link-text, .prof-link-text {
+.dept-link-text, .course-link-text, .prof-link-text, .attr-link-text {
   font-weight: 300; }
 
 .dept-item, .course-item {
   width: 100%; }
 
-.dept-link, .course-link, .prof-link {
+.dept-link, .course-link, .prof-link, .attr-link {
   cursor: pointer;
   width: 100%;
   border-bottom: 1px dashed #e5e5e5; }
-  .dept-link:hover, .course-link:hover, .prof-link:hover {
+  .dept-link:hover, .course-link:hover, .prof-link:hover, .attr-link:hover {
     background: #476579;
     color: #fff; }

@@ -3,8 +3,8 @@
 App.Professor = DS.Model.extend({
   firstName: DS.attr('string'),
   lastName: DS.attr('string'),
-  sections: DS.hasMany('sections', {async: true}),
-  courses: DS.hasMany('courses', {async: true}),
+  sections: DS.hasMany('section', {async: true}),
+  courses: DS.hasMany('course', {async: true}),
   sectionsCount: DS.attr('number'),
   coursesCount: DS.attr('number'),
   fullName: function() {
