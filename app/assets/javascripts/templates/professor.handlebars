@@ -2,11 +2,10 @@
 
 <div  class="large-4 columns animated fadeInLeft course-container" id="courses-section">
 <h1>Courses</h1>
-{{!--   {{view Ember.TextField value=search placeholder="Filter courses" class="search"}} --}}
 
   <ul class="common-list course-list">
   {{#each course in model.courses}}
-      {{#link-to 'department_course' course tagName="li" class="course-link"}}
+      {{#link-to 'professor_course' course tagName="li" class="course-link"}}
       <span class="course-number">{{course.courseNum}} ({{course.creditsValue}})</span> <br/>
         <span class="course-link-text">{{course.title}}</span>
 

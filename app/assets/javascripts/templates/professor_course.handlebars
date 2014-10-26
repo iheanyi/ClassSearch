@@ -1,0 +1,38 @@
+
+<div class="animated fadeInLeft large-4 columns section-container" id="sections-section">
+
+  <div class="row description-section">
+    <h4>{{model.courseNum}} - {{model.title}} ({{model.creditsValue}})</h4>
+    <p>{{model.courseDescription}}</p>
+  </div>
+
+  <div class="row sections-area">
+    <h5>Course Sections</h5>
+
+     <ul class="common-list section-list">
+
+         {{#each section in model.sections}}
+         <li class='section-item'>
+         <div class="details large-9">
+
+           <span class="details-text">Section {{section.sectionNum}} &middot; {{section.daysOfWeek}} {{section.formatTimeSlot}}</span> <br>
+
+           <span class="details-text"> {{section.professor.firstName}} {{section.professor.lastName}} &middot; {{section.location}}</span> <br>
+
+          </div>
+
+           <div class="seats-bar progress large-3 alert round">
+            <span class="meter" {{bind-attr style=section.widthStyle}}></span>
+             <span class="seats-text"><span class="seats-numbers">{{section.openSeats}} / {{section.maxSeats}}</span> seats left</span>
+           </div>
+         </li>
+
+         {{/each}}
+
+     </ul>
+
+
+    {{outlet}}
+  </div>
+</div>
+

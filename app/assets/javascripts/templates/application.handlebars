@@ -21,16 +21,19 @@
 </nav>
 
 <div id="main" class="row app">
-<div class="row">
-  <span class="filter-view">Filter By:
-    <ul class="view-list filter">
-      {{link-to 'Departments' 'departments' tagName="li"}}
-      {{link-to 'Professors' 'professors' tagName="li"}}
-      {{link-to 'All Courses' 'courses' tagName="li" }}
-      <li>Attributes</li>
-    </ul>
-  </span>
-</div>
+  <div class="row">
+    <div class="large-6 columns">
+      <span class="filter-view">Filter By:
+        <ul class="view-list filter">
+          {{link-to 'Departments' 'departments' tagName="li"}}
+          {{link-to 'Professors' 'professors' tagName="li"}}
+          {{link-to 'All Courses' 'courses' tagName="li" }}
+          <li>Attributes</li>
+        </ul>
+      </span>
+    </div>
+  </div>
+
   <div class="app-container">
   {{outlet}}
   </div>
