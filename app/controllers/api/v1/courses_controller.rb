@@ -2,7 +2,7 @@ class Api::V1::CoursesController < ApplicationController
   respond_to :json
 
   def index
-    render json: Course.includes(:sections).limit(300)
+    render json: Course.includes(:sections).limit(750)
   end
 
   def show

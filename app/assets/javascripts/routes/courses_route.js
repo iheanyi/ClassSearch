@@ -2,7 +2,7 @@
 
 App.CoursesRoute = Ember.Route.extend({
   model: function() {
-    console.log("Course Route called.");
+    console.log("Courses Route called.");
     return this.store.find('course');
   }
 });

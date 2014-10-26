@@ -1,8 +1,7 @@
 // For more information see: http://emberjs.com/guides/routing/
 
-App.DepartmentCourseRoute = Ember.Route.extend({
+App.DepartmentRoute = Ember.Route.extend({
   model: function(params) {
-
     console.log("Department Route called.");
     return this.store.find('department', params.id).then(function(response) {
       console.log("Got a response!");

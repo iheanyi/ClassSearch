@@ -13,15 +13,15 @@
 
          {{#each section in model.sections}}
          <li class='section-item'>
-         <div class="details large-9">
+         <div class="details large-10">
 
            <span class="details-text">Section {{section.sectionNum}} &middot; {{section.daysOfWeek}} {{section.formatTimeSlot}}</span> <br>
 
-           <span class="details-text"> {{section.professor.firstName}} {{section.professor.lastName}} &middot; {{section.location}}</span> <br>
+           <span class="details-text"> {{#link-to 'professor' section.professor}}{{section.professor.firstName}} {{section.professor.lastName}}{{/link-to}} &middot; {{section.location}}</span> <br>
 
           </div>
 
-           <div class="seats-bar progress large-3 alert round">
+           <div class="seats-bar progress large-4 alert round">
             <span class="meter" {{bind-attr style=section.widthStyle}}></span>
              <span class="seats-text"><span class="seats-numbers">{{section.openSeats}} / {{section.maxSeats}}</span> seats left</span>
            </div>
