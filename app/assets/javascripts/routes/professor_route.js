@@ -7,5 +7,12 @@ App.ProfessorRoute = Ember.Route.extend({
 
   setupController: function(controller, model) {
     controller.set("model", model);
+  },
+
+  serialize: function(model) {
+    var first_name = model.get('firstName');
+    var last_name = model.get('lastName');
+    var custom_slug = first_name + '-' + last_name;
+    return { prof_slug: custom_slug }
   }
 });

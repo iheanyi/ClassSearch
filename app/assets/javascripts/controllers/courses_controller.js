@@ -1,7 +1,8 @@
 // for more details see: http://emberjs.com/guides/controllers/
 
 App.CoursesController = Ember.ArrayController.extend({
-  sortProperties: ['course_num', 'course_title'],
+  sortProperties: ['courseNum', 'courseTitle'],
+  model_link: "course",
   courses: function() {
     return this.get('search') ? this.get('filteredContent') : this
   }.property('search', 'filteredContent'),

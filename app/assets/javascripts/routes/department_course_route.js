@@ -2,8 +2,8 @@
 
 App.DepartmentCourseRoute = Ember.Route.extend({
   model: function(params) {
-
-    console.log("Department Route called.");
+    console.log(params);
+    console.log("Department Course Route called.");
     return this.store.find('course', params.id).then(function(c) {
       c.get('attributes');
     });

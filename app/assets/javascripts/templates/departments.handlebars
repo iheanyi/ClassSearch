@@ -8,7 +8,7 @@
         <span class="dept-link-text">All Courses</span>
     {{/link-to}}
     {{#each department in departments}}
-      {{#link-to 'department' department tagName="li" class="dept-link"}}
+      {{#link-to 'department.courses' department tagName="li" class="dept-link"}}
         <span class="dept-text">{{department.tag}}</span> <br>
 
         <span class="dept-link-text">{{department.name}}</span>

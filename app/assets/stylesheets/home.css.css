@@ -1,12 +1,39 @@
 .app {
   padding-top: 20px; }
 
+.loading-container {
+  background-color: #fff; }
+
 .app-container {
   height: 550px;
   overflow: hidden;
   border: 1px dashed #f5f5f5;
   background-color: #e5e5e5;
   margin-top: 12px; }
+
+.load-container {
+  /*   height: 100%;
+    display: table;
+    text-align: center; */
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  background-color: #fff; }
+
+.loading {
+  /*
+    display: table-cell;
+    vertical-align: center;
+    text-align: center; */
+  z-index: 100;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
 
 .search {
   margin: 0 4px;
@@ -150,7 +177,7 @@ a.small-caps {
 .details-text {
   font-size: 14px; }
 
-.loading {
+/* .loading {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -160,8 +187,8 @@ a.small-caps {
   left: 50%;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
-  transform: translateX(-50%); }
-
+  transform: translateX(-50%);
+} */
 .view-list {
   background-color: #fff;
   margin: 0;

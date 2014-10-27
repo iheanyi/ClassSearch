@@ -1,7 +1,7 @@
 class Api::V1::AttributesController < ApplicationController
   respond_to :json
   def index
-    render json: Attribute.includes(:courses).limit(80)
+    render json: Attribute.includes(:courses)
   end
 
   def show

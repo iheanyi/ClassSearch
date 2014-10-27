@@ -6,6 +6,8 @@ App.DepartmentCoursesRoute = Ember.Route.extend({
         console.log(params);
         console.log(params.id);
         console.log(params.tag);
+        console.log("Department Courses Route called.");
+        console.log(this.modelFor('department').get('courses'));
         return this.modelFor('department').get('courses');
   },
 

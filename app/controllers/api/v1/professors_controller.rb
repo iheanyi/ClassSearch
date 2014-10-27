@@ -1,6 +1,6 @@
 class Api::V1::ProfessorsController < ApplicationController
   def index
-    render json: Professor.includes(:courses).limit(50)
+    render json: Professor.includes(:courses).limit(500)
   end
 
   def show
@@ -9,6 +9,6 @@ class Api::V1::ProfessorsController < ApplicationController
 
   private
     def professor
-      return Professor.includes(:sections, :courses).find(params[:id])
+      return Professor.includes(:courses).find(params[:id])
     end
 end
