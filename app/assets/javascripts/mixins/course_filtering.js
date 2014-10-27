@@ -1,8 +1,8 @@
 App.CourseFiltering = Ember.Mixin.create({
     courses: function() {
-      console.log("Course Filtering mixin activated.");
       return this.get('search') ? this.get('filteredContent') : this
     }.property('search', 'filteredContent'),
+
     filteredContent: function() {
       var search = this.get('search').toLowerCase();
       return this.filter(function(course) {
