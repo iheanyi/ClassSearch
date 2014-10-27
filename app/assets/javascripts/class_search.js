@@ -1,4 +1,4 @@
-var apiURL = '/api/v1/departments.json'
+/*var apiURL = '/api/v1/departments.json'
 var courseURL = '/api/v1/departments'
 var baseURL = '/api/v1/'
 
@@ -241,7 +241,7 @@ var app = new Vue({
       xhr.send();
     }
   }
-});
+});*/
 
 $(document).ready(function(){
   $(document).foundation();
