@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/asip/vuejs-rails.git
-  revision: 020dde8ea44aad2a7c1e9525d7cfd4a69d98b70b
-  specs:
-    vuejs-rails (0.10.6)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -327,4 +321,3 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   underscore-rails
   uniform_notifier
-  vuejs-rails!

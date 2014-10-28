@@ -8,7 +8,7 @@ App.Course = DS.Model.extend({
   courseDescription: DS.attr('string'),
   department: DS.belongsTo('department'),
   cattributes: DS.hasMany('attribute', {async: true, key: 'cattribute_ids'}),
-  sections: DS.hasMany('section', {async: true}),
+  sections: DS.hasMany('section', {async: true, embedded: 'always'}),
   creditsValue: function() {
     var credits = this.get('credits');
     return credits >= 0 ? credits : 'V';

@@ -2,6 +2,7 @@
 
 App.ProfessorRoute = Ember.Route.extend({
   model: function(params) {
+    console.log("Professor Route called.");
     return this.find('professor', params.id);
   },
 

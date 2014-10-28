@@ -29,7 +29,7 @@ gem 'redis'
 gem 'foundation-rails'
 gem 'parallel'
 gem 'underscore-rails'
-gem 'vuejs-rails', :git => 'https://github.com/asip/vuejs-rails.git'
+#gem 'vuejs-rails', :git => 'https://github.com/asip/vuejs-rails.git'
 gem "animate-rails"
 gem 'rack-cors', :require => 'rack/cors'
 gem 'momentjs-rails'

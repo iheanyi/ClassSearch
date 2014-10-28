@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require underscore
 //= require foundation
-//= require vue
 //= require moment
 //= require jquery
 //= require handlebars
