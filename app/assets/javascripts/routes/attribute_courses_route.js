@@ -3,7 +3,11 @@
 App.AttributeCoursesRoute = Ember.Route.extend({
   model: function(params) {
     console.log("Attribute Courses Route called.");
-    return this.modelFor('attribute').get('courses');
+    var attribute_model = this.modelFor('attribute');
+    attribute_model.reload().then(function(response) {
+      var courses = attribute_model.get('courses');
+    })
+    return attribute_model.get('courses');
   }
 
 });

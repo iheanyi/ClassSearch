@@ -43,11 +43,10 @@ Rails.application.configure do
     Bullet.alert = true
     Bullet.bullet_logger = true
     Bullet.console = true
+    Bullet.growl = true
     Bullet.rails_logger = true
-    Bullet.bugsnag = true
-    #Bullet.airbrake = true
+    Bullet.bugsnag = false
+    Bullet.airbrake = false
     Bullet.add_footer = true
-    Bullet.unused_eager_loading_enable = true
-    Bullet.add_whitelist :type => :unused_eager_loading, :class_name => "Course", :association => :sections
   end
 end

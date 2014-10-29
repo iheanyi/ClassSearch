@@ -1,10 +1,10 @@
-<div class="animated fadeInLeft large-4 columns section-container" id="sections-section">
+<div class="animated fadeInLeftBig large-4 columns section-container" id="sections-section">
   {{controller}}
   <div class="row description-section">
     <h4>{{model.courseNum}} - {{model.title}} ({{model.creditsValue}})</h4>
     <span>Attributes:
       <span>
-        {{#each attribute in model.cattributes}}
+        {{#each attribute in model.attributes}}
         {{#link-to 'attribute.courses' attribute}}{{attribute.name}} ({{attribute.tag}}){{/link-to}}
         {{else}}
           None
@@ -20,7 +20,7 @@
 
      <ul class="common-list section-list">
 
-         {{#each section in sortedSections}}
+         {{#each section in model.sections}}
          <li class='section-item'>
          <div class="details large-10">
 

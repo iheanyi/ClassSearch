@@ -2,7 +2,7 @@ class Api::V1::CoursesController < ApplicationController
   respond_to :json
 
   def index
-    render json: Course.includes(:sections, :cattributes).limit(750)
+    render json: Course.limit(200), each_serializer: CoursesSerializer
   end
 
   def show

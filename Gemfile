@@ -48,8 +48,7 @@ group :development do
   gem 'hub', :require=>nil
   gem 'rails_layout'
   gem 'bullet'
-  gem 'uniform_notifier'
-
+  gem 'ruby_gntp'
 end
 group :development, :test do
   gem 'pry-rails'

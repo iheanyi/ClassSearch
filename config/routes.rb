@@ -8,22 +8,24 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
 
-      resources :courses do
-        resources :sections, shallow: true
+      resources :courses, shallow: true do
+        resources :attributes
+        resources :sections
       end
 
 
       resources :departments do
-        resources :courses
+        resources :courses, shallow: true
       end
 
 
-      resources :attributes do
+      resources :attributes, shallow: true do
         resources :courses, shallow: true
       end
 
       resources :professors do
         resources :courses, shallow: true
+        resources :sections, shallow: true
       end
 
 

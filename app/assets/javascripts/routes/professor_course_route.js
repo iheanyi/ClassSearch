@@ -7,18 +7,9 @@ App.ProfessorCourseRoute = Ember.Route.extend({
   },
   setupController: function(controller, model) {
     console.log("In setupController of Professor Course");
-    console.log(model);
-    console.log(this.modelFor('professor'));
+    //console.log(model);
+    //console.log(this.modelFor('professor'));
 
-/*    model.reload().then(function(response) {
-      console.log(response);
-      var sections = model.get('sections');
-      console.log(sections);
-      //controller.set("model", model);
-
-    });*/
-    //  this.store.find('model')
-    //
     controller.set("model", model);
 
   }

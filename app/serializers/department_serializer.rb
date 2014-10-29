@@ -1,5 +1,5 @@
 class DepartmentSerializer < ActiveModel::Serializer
   attributes :id, :name, :tag
 
-  has_many :courses, embed: :ids
+  has_many :courses
 end
