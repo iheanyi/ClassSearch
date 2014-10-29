@@ -32,19 +32,6 @@ Rails.application.routes.draw do
     end
   end
 
-  scope "api" do
-    resources :departments do
-      resources :courses
-    end
-
-    #resources :courses do
-    #  resources :sections
-    #end
-
-    resources :professors
-    resources :attributes
-  end
-
   get '*path', to: 'home#alternate'
 
 end
