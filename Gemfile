@@ -15,7 +15,6 @@ gem 'nokogiri'
 gem 'httparty'
 gem 'devise'
 gem 'omniauth'
-gem "omniauth-google-oauth2"
 gem 'guard'
 gem 'guard-rails'
 gem 'guard-livereload'

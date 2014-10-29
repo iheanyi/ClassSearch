@@ -2,8 +2,8 @@ class Api::V1::DepartmentsController < ApplicationController
   respond_to :json
 
   def index
-    @departments = Department.where("courses_count > 0")
-    respond_with @departments, each_serializer: DepartmentsSerializer
+    @departments = Department.includes(:courses).where("courses_count > 0")
+    respond_with @departments#, each_serializer: DepartmentsSerializer
   end
 
   def show

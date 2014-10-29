@@ -8,11 +8,8 @@
         <span class="dept-link-text">All Courses</span>
     {{/link-to}}
     {{#each department in departments}}
-      {{#link-to 'department.courses' department tagName="li" class="dept-link"}}
-        <span class="dept-text">{{department.tag}}</span> <br>
+    {{view App.DepartmentItemView department=department}}
 
-        <span class="dept-link-text">{{department.name}}</span>
-      {{/link-to}}
     {{/each}}
   </ul>
 </div>

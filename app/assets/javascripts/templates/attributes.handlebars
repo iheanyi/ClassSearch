@@ -2,7 +2,7 @@
   <h1>Attributes</h1>
   {{view Ember.TextField value=search placeholder="Filter attributes" class="search"}}
   <ul class="common-list attr-list">
-    {{#each attribute in controller}}
+    {{#each attribute in attributes}}
       {{#link-to 'attribute.courses' attribute tagName="li" class="attr-link"}}
         <span class="attr-text">{{attribute.tag}}</span> <br>
 
