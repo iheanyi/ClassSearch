@@ -1,0 +1,42 @@
+<nav class="top-bar" data-topbar role="navigation">
+  <div class="container">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Notre Dame Class Search</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+    </ul>
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a class="active link-item" href="#">COURSES</a></li>
+    </ul>
+  </section>
+  </div>
+</nav>
+
+<div id="main" class="row app">
+  <div class="row">
+    <div class="large-6 columns">
+      <span class="filter-view">Filter By:
+        <ul class="view-list filter">
+          {{link-to 'All Courses' 'courses' tagName="li" }}
+          {{link-to 'Departments' 'departments' tagName="li"}}
+          {{link-to 'Professors' 'professors' tagName="li"}}
+          {{link-to 'Attributes' 'attributes' tagName="li"}}
+        </ul>
+      </span>
+    </div>
+  </div>
+
+  <div class="app-container">
+  {{outlet}}
+  </div>
+</div>
+
+<footer></footer>

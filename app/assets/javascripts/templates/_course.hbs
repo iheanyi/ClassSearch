@@ -1,0 +1,52 @@
+<div class="animated fadeInLeftBig large-4 columns section-container" id="sections-section">
+  {{controller}}
+  <div class="row description-section">
+    <h4>{{model.courseNum}} - {{model.title}} ({{model.creditsValue}})</h4>
+    <span>Attributes:
+      <span>
+        {{#each attribute in model.attributes}}
+        {{#link-to 'attribute.courses' attribute}}{{attribute.name}} ({{attribute.tag}}){{/link-to}}
+        {{else}}
+          None
+        {{/each}}
+      </span>
+    </span>
+
+    <p>{{model.courseDescription}}</p>
+  </div>
+
+  <div class="row sections-area">
+    <h5>Course Sections</h5>
+
+     <ul class="common-list section-list">
+
+         {{#each section in model.sections}}
+         <li class='section-item'>
+         <div class="details large-10">
+
+           <span class="details-text">Section {{section.sectionNum}} &middot; {{section.daysOfWeek}} {{section.formatTimeSlot}}</span> <br>
+
+           <span class="details-text"> {{#link-to 'professor.courses' section.professor}}{{section.professor.firstName}} {{section.professor.lastName}}{{/link-to}} &middot; {{section.location}}</span> <br>
+
+          <div class="seats-bar progress small-6 alert round">
+           <span class="meter" {{bind-attr style=section.widthStyle}}></span>
+
+           <span class="seats-text"><span class="seats-numbers">{{section.openSeats}} / {{section.maxSeats}}</span> seats left</span>
+          </div>
+
+
+
+          </div>
+
+
+         </li>
+
+         {{/each}}
+
+     </ul>
+
+
+    {{outlet}}
+  </div>
+</div>
+

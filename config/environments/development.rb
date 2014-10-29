@@ -31,6 +31,8 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+  config.ember.variant = :development
+  config.ember.app_name = "App"
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
@@ -41,9 +43,10 @@ Rails.application.configure do
     Bullet.alert = true
     Bullet.bullet_logger = true
     Bullet.console = true
+    Bullet.growl = true
     Bullet.rails_logger = true
-    Bullet.bugsnag = true
-    #Bullet.airbrake = true
+    Bullet.bugsnag = false
+    Bullet.airbrake = false
     Bullet.add_footer = true
   end
 end

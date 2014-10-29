@@ -1,6 +1,9 @@
 .app {
   padding-top: 20px; }
 
+.loading-container {
+  background-color: #fff; }
+
 .app-container {
   height: 550px;
   overflow: hidden;
@@ -8,12 +11,40 @@
   background-color: #e5e5e5;
   margin-top: 12px; }
 
+.load-container {
+  /*   height: 100%;
+    display: table;
+    text-align: center; */
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  background-color: #fff; }
+
+.loading {
+  /*
+    display: table-cell;
+    vertical-align: center;
+    text-align: center; */
+  z-index: 100;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+.search {
+  margin: 0 4px;
+  padding: 4px; }
+
 .common-list {
   margin: 0;
   padding: 0;
   position: relative; }
 
-.department-container {
+.department-container, .attr-container {
   height: 100%;
   overflow-y: scroll;
   background: #fff;
@@ -33,17 +64,13 @@ a.small-caps {
   height: 100%;
   overflow-y: scroll;
   background: #fff;
-  display: none;
   padding: 0;
   margin: 0;
-  z-index: 4;
-  -webkit-animation-duration: 0.5s;
-  animation-duration: 0.5s; }
+  z-index: 4; }
 
 .section-container {
   height: 100%;
   background: #fff;
-  display: none;
   z-index: 3; }
 
 .container {
@@ -55,13 +82,10 @@ a.small-caps {
   padding: 0;
   margin: 0; }
 
-.dept-item, .course-item, .prof-item {
+.dept-item, .course-item, .prof-item, .attr-item {
   margin: 0;
   padding: 0;
   border-bottom: 1px dashed #e5e5e5;
-  padding: 4px;
-  padding-left: 12px;
-  padding-right: 12px;
   width: 100%;
   cursor: pointer; }
 
@@ -93,22 +117,25 @@ a.small-caps {
   font-variant: small-caps;
   margin-top: 18px; }
 
-.dept-link, .course-link, .prof-link {
+.dept-link, .course-link, .prof-link, .attr-link {
   display: inline-block;
-  padding: 16px;
-  padding-left: 0;
-  padding: 0;
+  padding: 8px;
   margin: 0; }
 
 .course-numbers {
   font-variant: small-caps; }
 
 .description-section {
-  border-bottom: 2px #e5e5e5 solid; }
+  border-bottom: 2px #e5e5e5 dashed; }
 
-.description-section, .sections-area {
+.description-section {
   height: 50%;
   overflow-y: scroll;
+  padding: 12px; }
+
+.sections-area {
+  overflow-y: scroll;
+  height: 50%;
   padding: 12px; }
 
 .section-item {
@@ -121,23 +148,24 @@ a.small-caps {
   display: inline-block; }
 
 .seats-text, .prof-text {
-  font-variant: small-caps; }
+  font-variant: small-caps;
+  font-weight: 700; }
 
 .course-number {
   font-weight: 300;
   font-size: 12px;
   font-weight: 700; }
 
-.dept-text {
+.dept-text, .attr-text {
   font-size: 12px;
   font-weight: 700; }
 
-.dept-active, .course-active, .prof-active {
+.dept-active, .course-active, .prof-active, .attr-active {
   background-color: #1F2D3C;
   z-index: 5; }
-  .dept-active span, .course-active span, .prof-active span {
+  .dept-active span, .course-active span, .prof-active span, .attr-active span {
     color: #fff; }
-  .dept-active a, .course-active a, .prof-active a {
+  .dept-active a, .course-active a, .prof-active a, .attr-active a {
     color: #fff; }
 
 .seats-numbers {
@@ -149,7 +177,7 @@ a.small-caps {
 .details-text {
   font-size: 14px; }
 
-.loading {
+/* .loading {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -159,8 +187,8 @@ a.small-caps {
   left: 50%;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
-  transform: translateX(-50%); }
-
+  transform: translateX(-50%);
+} */
 .view-list {
   background-color: #fff;
   margin: 0;
@@ -171,3 +199,40 @@ a.small-caps {
     display: inline-block;
     padding: 0;
     margin: 0; }
+
+.view-list li {
+  cursor: pointer;
+  color: #476579;
+  padding: 6px; }
+  .view-list li.active {
+    background-color: #163850;
+    color: #fff; }
+  .view-list li:hover {
+    background-color: #163850;
+    color: #fff; }
+
+/* .filter {
+  .active {
+    background: black;
+  }
+} */
+.dept-text, .course-number, .attr-text {
+  color: #163850; }
+
+.dept-list .active, .course-list .active, .prof-list .active, .attr-list .active {
+  color: #fff;
+  background: #476579; }
+
+.dept-link-text, .course-link-text, .prof-link-text, .attr-link-text {
+  font-weight: 300; }
+
+.dept-item, .course-item {
+  width: 100%; }
+
+.dept-link, .course-link, .prof-link, .attr-link {
+  cursor: pointer;
+  width: 100%;
+  border-bottom: 1px dashed #e5e5e5; }
+  .dept-link:hover, .course-link:hover, .prof-link:hover, .attr-link:hover {
+    background: #476579;
+    color: #fff; }

@@ -1,34 +1,37 @@
 Rails.application.routes.draw do
-  #resources :attributes
 
-  #resources :sections
 
-  #resources :professors
+  root to: 'home#alternate'
+  #root 'home#index'
 
-  root 'home#index'
 
-  #resources :courses
-  resources :departments do
-    resources :courses
+  namespace :api do
+    namespace :v1 do
+
+      resources :courses, shallow: true do
+        resources :attributes
+        resources :sections
+      end
+
+
+      resources :departments do
+        resources :courses, shallow: true
+      end
+
+
+      resources :attributes, shallow: true do
+        resources :courses, shallow: true
+      end
+
+      resources :professors do
+        resources :courses, shallow: true
+        resources :sections, shallow: true
+      end
+
+
+    end
   end
 
-  scope "api" do
-    resources :departments do
-      resources :courses
-    end
-
-    resources :courses do
-      resources :sections
-    end
-
-    resources :professors
-    resources :attributes
-  end
-
-  get 'home/index'
-  get '/departments/:tag/courses', to: 'departments#courses'
-  get '/courses', to: 'courses#fetch_all'
-
-  #get '/departments', to: 'departments#index'
+  get '*path', to: 'home#alternate'
 
 end

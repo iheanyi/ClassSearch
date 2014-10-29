@@ -2,12 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $row-width: rem-calc(1200);
-
+$highlight-color: #476579;
+$small-caps-color: #163850;
 
 .app {
   padding-top: 20px;
 }
 
+.loading-container {
+  background-color: #fff;
+}
 .app-container {
   height: 550px;
   overflow: hidden;
@@ -15,14 +19,45 @@ $row-width: rem-calc(1200);
   background-color: #e5e5e5;
   margin-top: 12px;
 }
+
+.load-container {
+/*   height: 100%;
+  display: table;
+  text-align: center; */
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  background-color: #fff;
+}
+
+.loading {
+/*
+  display: table-cell;
+  vertical-align: center;
+  text-align: center; */
+
+  z-index: 100;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.search {
+  margin: 0 4px;
+  padding: 4px;
+}
 .common-list {
   margin: 0;
   padding: 0;
   position: relative;
-
 }
 
-.department-container {
+.department-container, .attr-container {
   height: 100%;
   overflow-y: scroll;
   background: #fff;
@@ -40,23 +75,22 @@ a.small-caps {
   font-variant: small-caps;
   border-bottom: 1px dotted;
 }
+
 .course-container {
   height: 100%;
   overflow-y: scroll;
   background: #fff;
-  display: none;
+  //display: none;
   padding: 0;
   margin: 0;
   z-index: 4;
-  -webkit-animation-duration: 0.5s;
-  animation-duration: 0.5s;
 }
 
 .section-container {
   height: 100%;
   //overflow-y: scroll;
   background:#fff;
-  display: none;
+  //display: none;
   z-index: 3;
 }
 
@@ -71,15 +105,18 @@ a.small-caps {
   margin: 0;
 }
 
-.dept-item, .course-item, .prof-item {
+.dept-item, .course-item, .prof-item, .attr-item {
   margin: 0;
   padding: 0;
   border-bottom: 1px dashed #e5e5e5;
-  padding: 4px;
-  padding-left: 12px;
-  padding-right: 12px;
+  //padding: 4px;
+  //padding-left: 12px;
+  //padding-right: 12px;
+
   width: 100%;
   cursor: pointer;
+
+
 }
 
 .dept-filter, .prof-filter {
@@ -118,11 +155,13 @@ a.small-caps {
   font-variant: small-caps;
   margin-top: 18px;
 }
-.dept-link, .course-link, .prof-link {
+.dept-link, .course-link, .prof-link, .attr-link {
   display: inline-block;
-  padding: 16px;
-  padding-left: 0;
-  padding: 0;
+  padding: 8px;
+  //padding-left: 0;
+
+  //padding: 0;
+  //padding-bottom: 0;
   margin: 0;
 }
 
@@ -131,15 +170,21 @@ a.small-caps {
 }
 
 .description-section {
-  border-bottom: 2px #e5e5e5 solid;
+  border-bottom: 2px #e5e5e5 dashed;
 }
 
-.description-section, .sections-area {
+.description-section {
   height: 50%;
   overflow-y: scroll;
+  //max-height: 50%;
   padding: 12px;
 }
-
+.sections-area  {
+  overflow-y:scroll;
+  height: 50%;
+  //min-height: 50%;
+  padding: 12px;
+}
 .section-item {
   height: auto;
   display: block;
@@ -153,6 +198,7 @@ a.small-caps {
 
 .seats-text, .prof-text {
   font-variant: small-caps;
+  font-weight: 700;
 }
 
 .course-number {
@@ -161,12 +207,12 @@ a.small-caps {
   font-weight: 700;
 }
 
-.dept-text {
+.dept-text, .attr-text {
   font-size: 12px;
   font-weight: 700;
 }
 
-.dept-active, .course-active, .prof-active {
+.dept-active, .course-active, .prof-active, .attr-active {
   background-color: #1F2D3C;
   z-index: 5;
 
@@ -190,7 +236,7 @@ a.small-caps {
   font-size: 14px;
 }
 
-.loading {
+/* .loading {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -201,7 +247,7 @@ a.small-caps {
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-}
+} */
 
 .view-list {
   background-color: #fff;
@@ -214,5 +260,60 @@ a.small-caps {
     display: inline-block;
     padding: 0;
     margin: 0;
+  }
+}
+
+.view-list {
+  li {
+    cursor: pointer;
+    color: $highlight-color;
+    //border-bottom: 1px dotted #000;
+    padding: 6px;
+    &.active {
+      background-color: #163850;
+      color: #fff;
+      //border-bottom: 1px dotted #163850;
+      //font-weight: 700;
+      //color: $highlight-color;
+    }
+
+    &:hover {
+      background-color: #163850;
+      color: #fff;
+    }
+  }
+}
+/* .filter {
+  .active {
+    background: black;
+  }
+} */
+
+.dept-text, .course-number, .attr-text {
+  color: #163850;
+}
+
+.dept-list, .course-list, .prof-list, .attr-list {
+  .active {
+    color: #fff;
+    background: $highlight-color;
+  }
+}
+
+.dept-link-text, .course-link-text, .prof-link-text, .attr-link-text {
+  font-weight: 300;
+}
+.dept-item, .course-item {
+  width: 100%;
+}
+
+.dept-link, .course-link, .prof-link, .attr-link {
+  cursor: pointer;
+  width: 100%;
+  border-bottom: 1px dashed #e5e5e5;
+
+  &:hover {
+    background: $highlight-color;
+    color: #fff;
   }
 }

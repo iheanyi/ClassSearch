@@ -1,0 +1,14 @@
+  <li class="prof-item">
+    {{#link-to 'professor.courses' professor tagName="li" class="prof-link"}}
+
+    <span class="prof-link-text">{{professor.firstName}} {{professor.lastName}}</span><br>
+
+    <span class="prof-text">teaching  {{professor.sectionsCount}} sections in {{professor.coursesCount}} courses</span>
+
+
+    {{/link-to}}
+
+
+  </li>
+
+{{outlet}}

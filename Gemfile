@@ -15,7 +15,6 @@ gem 'nokogiri'
 gem 'httparty'
 gem 'devise'
 gem 'omniauth'
-gem "omniauth-google-oauth2"
 gem 'guard'
 gem 'guard-rails'
 gem 'guard-livereload'
@@ -29,7 +28,7 @@ gem 'redis'
 gem 'foundation-rails'
 gem 'parallel'
 gem 'underscore-rails'
-gem 'vuejs-rails', :git => 'https://github.com/asip/vuejs-rails.git'
+#gem 'vuejs-rails', :git => 'https://github.com/asip/vuejs-rails.git'
 gem "animate-rails"
 gem 'rack-cors', :require => 'rack/cors'
 gem 'momentjs-rails'
@@ -48,7 +47,7 @@ group :development do
   gem 'hub', :require=>nil
   gem 'rails_layout'
   gem 'bullet'
-  gem 'did_you_mean'
+  gem 'ruby_gntp'
 end
 group :development, :test do
   gem 'pry-rails'

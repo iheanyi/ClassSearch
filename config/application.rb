@@ -10,6 +10,7 @@ module ClassSearch
   class Application < Rails::Application
     config.assets.paths << "#{Rails.root}/app/assets/templates"
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    config.ember.app_name = "App"
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -27,6 +28,14 @@ module ClassSearch
         origins '*'
         resource '*', :headers => :any, :methods => [:get, :post, :options]
       end
+    end
+
+
+
+    ActiveModel::Serializer.setup do |config|
+      config.embed = :ids
+      config.include_root_in_json = true
+      #config.embed_in_root = true
     end
   end
 end

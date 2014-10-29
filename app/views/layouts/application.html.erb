@@ -6,15 +6,19 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Class Search Notre Dame" %></title>
 
-    <link rel="stylesheet" href="http://css-spinners.com/css/spinner/throbber.css" type="text/css">
+    <link rel="stylesheet" href="http://css-spinners.com/css/spinners.css" type="text/css">
+
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
+
+    <%= javascript_include_tag "application" %>
+
+
     <%= csrf_meta_tags %>
   </head>
 
   <body id="app">
 
     <%= yield %>
-    <%= javascript_include_tag "application" %>
   </body>
 </html>
