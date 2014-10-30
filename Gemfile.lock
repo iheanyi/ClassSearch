@@ -176,6 +176,10 @@ GEM
     rack-test (0.6.2)
       rack (>= 1.0)
     rack-timeout (0.0.4)
+    rack-tracker (0.2.5)
+      activesupport (>= 4.0.0)
+      rack (>= 1.5.2)
+      tilt (~> 1.4.1)
     rails (4.1.5)
       actionmailer (= 4.1.5)
       actionpack (= 4.1.5)
@@ -298,6 +302,7 @@ DEPENDENCIES
   puma
   rack-cors
   rack-timeout
+  rack-tracker
   rails (= 4.1.5)
   rails_12factor
   rails_layout
