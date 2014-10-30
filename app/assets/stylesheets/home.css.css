@@ -7,7 +7,7 @@
 .app-container {
   height: 550px;
   overflow: hidden;
-  border: 1px dashed #f5f5f5;
+  border: 1px dotted #a5a5a5;
   background-color: #e5e5e5;
   margin-top: 12px; }
 
@@ -227,12 +227,14 @@ a.small-caps {
   font-weight: 300; }
 
 .dept-item, .course-item {
-  width: 100%; }
+  width: 100%;
+  padding: 8px; }
 
 .dept-link, .course-link, .prof-link, .attr-link {
   cursor: pointer;
   width: 100%;
-  border-bottom: 1px dashed #e5e5e5; }
+  border-bottom: 1px dashed #e5e5e5;
+  padding: 8px; }
   .dept-link:hover, .course-link:hover, .prof-link:hover, .attr-link:hover {
     background: #476579;
     color: #fff; }
