@@ -39,6 +39,7 @@ gem "rack-timeout"
 gem "excon"
 gem 'ember-rails'
 gem 'ember-source'
+gem 'moment_timezone-rails'
 
 group :development do
   gem 'better_errors'

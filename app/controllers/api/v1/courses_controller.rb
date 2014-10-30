@@ -2,7 +2,7 @@ class Api::V1::CoursesController < ApplicationController
   respond_to :json
 
   def index
-    render json: Course.limit(200), each_serializer: CoursesSerializer
+    render json: Course.limit(750), each_serializer: CoursesSerializer
   end
 
   def show

@@ -37,7 +37,7 @@ App.Section = DS.Model.extend({
     start = this.get('startTime');
     end = this.get('endTime');
     if(this.get('daysOfWeek') != 'TBA') {
-      return moment(start).format("h:mmA") + ' - ' + moment(end).format("h:mmA");
+      return moment(start).add(1, 'hours').format("h:mmA") + ' - ' + moment(end).add(1, 'hours').format("h:mmA");
     } else {
       return " ";
     }
