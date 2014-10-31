@@ -9,6 +9,7 @@ App.Section = DS.Model.extend({
   daysOfWeek: DS.attr('string'),
   location: DS.attr('string'),
   professor: DS.belongsTo('professor', {async: true, embedded: 'always'}),
+  crn: DS.attr('number'),
   professorFullName: function() {
     professor = this.get('professor');
     //console.log(professor);

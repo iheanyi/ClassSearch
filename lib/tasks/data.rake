@@ -15,7 +15,7 @@ namespace :data do
       faraday.adapter :excon
   end
 
-  @term_field = "201410"
+  @term_field = "201420"
   @subj_field = "ACCT"
   @divs_field = "A"
   @campus_field = "M"
@@ -55,7 +55,7 @@ namespace :data do
 
   desc "Fetch Descriptions for each course"
   task fetch_course_description: :environment do
-    Parallel.map(Course.where(:sections_count != nil)) do |course|
+    Parallel.map(Course.where(:sections_count != nil).where(:course_description == nil)) do |course|
       fetch_course_description(course)
     end
   end
@@ -124,7 +124,7 @@ namespace :data do
     course_section = course.sections.first
     if course_section != nil
 
-    response = @conn.get '', {:CRN => course_section.crn, :TERM => "201410" }
+    response = @conn.get '', {:CRN => course_section.crn, :TERM => "201420" }
     #puts course.title
     content = response.body.strip
 
@@ -153,7 +153,7 @@ namespace :data do
   def fetch_course_description(course)
     course_section = course.sections.first
     if(course_section != nil && course.course_description == nil)
-      response = @conn.get '', {:CRN => course_section.crn, :TERM => "201410", }
+      response = @conn.get '', {:CRN => course_section.crn, :TERM => "201420", }
       content = response.body.strip
 
       document = Nokogiri::HTML(content)
@@ -243,7 +243,12 @@ namespace :data do
 
       course_begin = cells[11].text.strip
       course_end = cells[12].text.strip
-      course_location = cells[13].text.strip
+      puts cells.length
+      if cells.length == 14
+          course_location = cells[13].text.strip
+      else
+          course_location = 'TBA'
+      end
 
 
       print course_number, " ",  course_section_number, " ", course_title, " ", course_credits, " ", course_open_seats, " ", course_max_seats, " ",  course_crosslisting, " ",  course_crn, " ", course_instructor, " ",course_timeslot, " ",  course_begin, " ", course_end, " ", course_location, "\n"
