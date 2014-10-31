@@ -13,7 +13,8 @@ class Professor < ActiveRecord::Base
   end
 
   def update_counter_cache
-    self.courses_count = self.courses.count
+    #self.courses_count = self.courses.count
+    Professor.update_counters(self.id, :courses_count => self.courses.count)
     self.save!
   end
   #counter_culture [:course]
