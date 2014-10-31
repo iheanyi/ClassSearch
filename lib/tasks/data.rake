@@ -84,7 +84,7 @@ namespace :data do
     #course = Department.all
     attrs = Attribute.pluck(:name)
     #puts attrs
-    Parallel.map(Course.where(:sections_count != nil)) do |course|
+    Parallel.map(Course.where(:sections_count != nil, :course_description == nil)) do |course|
       puts course.title
       fetch_course_attributes(course, attrs)
     end
