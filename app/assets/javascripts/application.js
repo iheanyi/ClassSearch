@@ -13,17 +13,19 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore
-//= require foundation
 //= require moment
-//= require jquery
 //= require handlebars
 //= require ember
 //= require ember-data
+//= require foundation
 //= require_self
 //= require ./app
 
+$(document).foundation();
 // for more details see: http://emberjs.com/guides/application/
 App = Ember.Application.create({rootElement: '#ember-app'});
 
 //= require_tree .
 
+
+$(function(){ $(document).foundation(); });
