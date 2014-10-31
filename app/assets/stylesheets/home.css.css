@@ -23,6 +23,9 @@
   transform-style: preserve-3d;
   background-color: #fff; }
 
+.small-caps {
+  font-variant: small-caps; }
+
 .loading {
   /*
     display: table-cell;
@@ -43,6 +46,9 @@
   margin: 0;
   padding: 0;
   position: relative; }
+
+.fancy-link {
+  border-bottom: 1px dotted; }
 
 .department-container, .attr-container {
   height: 100%;

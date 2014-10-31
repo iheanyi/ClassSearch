@@ -33,6 +33,9 @@ $small-caps-color: #163850;
   background-color: #fff;
 }
 
+.small-caps {
+  font-variant: small-caps;
+}
 .loading {
 /*
   display: table-cell;
@@ -57,6 +60,9 @@ $small-caps-color: #163850;
   position: relative;
 }
 
+.fancy-link {
+  border-bottom: 1px dotted;
+}
 .department-container, .attr-container {
   height: 100%;
   overflow-y: scroll;
