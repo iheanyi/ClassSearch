@@ -74,7 +74,7 @@ namespace :data do
 
   desc "Fetch Descriptions for each course"
   task fetch_course_description: :environment do
-    Parallel.map(Course.where(:sections_count != nil)) do |course|
+    Parallel.map(Course.where('sections_count is not null AND course_description is null')) do |course|
       fetch_course_description(course)
     end
   end
@@ -84,7 +84,7 @@ namespace :data do
     #course = Department.all
     attrs = Attribute.pluck(:name)
     #puts attrs
-    Parallel.map(Course.where(:sections_count != nil, :course_description == nil)) do |course|
+    Parallel.map(Course.where(:sections_count != nil)) do |course|
       puts course.title
       fetch_course_attributes(course, attrs)
     end
