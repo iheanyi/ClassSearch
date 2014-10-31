@@ -22,6 +22,25 @@ namespace :data do
   @credit_field = "A"
   @attr_field = "0ANY"
 
+  desc "Update counters for every single model."
+  task update_model_counters: :environment do
+    # Start with the Professors.
+    puts "Updating Professor Counters."
+    Professor.all.each do |prof|
+      Professor.reset_counters(prof.id, :sections)
+      prof.update_counter_cache
+    end
+    puts "Professors done."
+
+    puts "Updating Courses Count"
+    Course.all.each do |course|
+      Course.reset_counters(course.id, :sections)
+    end
+    puts "Courses done."
+
+
+
+  end
 
   desc "Fetch all of the departments and update the database."
   task fetch_departments: :environment do
@@ -45,7 +64,7 @@ namespace :data do
   task fetch_courses: :environment do
     #fetch_html_response(Department.where(tag: 'PSY').take)
     Parallel.map(Department.all) do |dept|
-      fetch_html_response(dept)
+      fetch_courses(dept)
     end
   end
 
@@ -177,7 +196,8 @@ namespace :data do
       course.save()
     end
   end
-  def fetch_html_response(dept)
+
+  def fetch_courses(dept)
     response = @conn.post '', {
       :TERM => @term_field,
       :SUBJ => dept.tag,

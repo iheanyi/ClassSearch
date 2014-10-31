@@ -12,7 +12,8 @@ App.Section = DS.Model.extend({
   crn: DS.attr('number'),
   professorFullName: function() {
     professor = this.get('professor');
-    //console.log(professor);
+    console.log("Professor Full Name Helper");
+    console.log(professor);
     if(professor.firstName == "TBA") {
       return "TBA"
     } else {
