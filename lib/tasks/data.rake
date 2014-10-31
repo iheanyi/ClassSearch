@@ -102,7 +102,7 @@ namespace :data do
       end
       attr_model = Attribute.find_or_create_by(:tag => attr_tag, :name => attr_name)
       puts attr_tag + " " + attr_name
-      attr_model.save()
+      attr_model.save!
     end
 
     depts =  Department.pluck(:tag)
