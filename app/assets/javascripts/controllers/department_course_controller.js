@@ -1,10 +1,10 @@
 // for more details see: http://emberjs.com/guides/controllers/
 
-App.DepartmentCourseController = Ember.ObjectController.extend({
+App.DepartmentCourseController = Ember.ObjectController.extend(App.SectionSortable, {
   model_link: function() {
     return "department.course";
   },
   sortedSections: function() {
     return this.get('sections').sortBy('sectionNum')
-  }.property('sections.@each.sectionNum')
+  }.property('sections.@each.sectionNum'),
 });
