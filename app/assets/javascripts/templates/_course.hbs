@@ -25,7 +25,16 @@
 
            <span class="details-text">Section {{section.sectionNum}} &middot; {{section.daysOfWeek}} {{section.formatTimeSlot}}</span> <br>
 
-           <span class="details-text"> {{#link-to 'professor.courses' section.professor}}{{section.professor.firstName}} {{section.professor.lastName}}{{/link-to}} &middot; {{section.location}} &middot; {{section.crn}}</span>  <br>
+           <span class="details-text">
+          {{#if section.professor}}
+           {{#link-to 'professor.courses' section.professor}}
+           {{section.professor.fullName}}
+           {{/link-to}}
+           {{else}}
+            Professor TBD
+           {{/if}}
+
+           &middot; {{section.location}} &middot; {{section.crn}}</span>  <br>
 
           <div class="seats-bar progress small-6 alert round">
            <span class="meter" {{bind-attr style=section.widthStyle}}></span>

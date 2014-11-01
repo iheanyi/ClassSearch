@@ -11,6 +11,12 @@ App.Professor = DS.Model.extend({
     return section.id;
   }),
   fullName: function() {
-    return this.get('firstName') + ' '  + this.get('lastName');
+    console.log("Full name called.");
+    console.log(this.get('firstName'));
+    if(this.get('firstName') != undefined) {
+      return this.get('firstName') + ' '  + this.get('lastName');
+    } else {
+      return "Professor TBD";
+    }
   }.property('firstName', 'lastName'),
 });
