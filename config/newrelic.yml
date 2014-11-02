@@ -16,6 +16,7 @@ common: &default_settings
   # account.  This key binds your Agent's data to your account in the
   # New Relic service.
   license_key: '061fc000802f9dc372fc7f33caebf5692c3d24c9'
+  transaction_tracer.explain_enabled: false
 
   # Agent Enabled (Ruby/Rails Only)
   # Use this setting to force the agent to run or not run.
@@ -26,6 +27,7 @@ common: &default_settings
   # Valid values are true, false and auto.
   #
   # agent_enabled: auto
+  #
 
   # Application Name Set this to be the name of your application as
   # you'd like it show up in New Relic. The service will then auto-map
