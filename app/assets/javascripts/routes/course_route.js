@@ -15,10 +15,10 @@ App.CourseRoute = Ember.Route.extend({
       console.log("Model is reloading or does not need to be reloaded.")
     }
   },
-  setupController: function(controller, model) {
+/*  setupController: function(controller, model) {
     this._super(controller, model);
     //console.log("In SetupController for Course.");
     //console.log(model);
     //controller.set("model", model);
-  },
+  },*/
 });

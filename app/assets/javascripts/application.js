@@ -18,6 +18,7 @@
 //= require ember
 //= require ember-data
 //= require foundation
+//= require nprogress
 //= require_self
 //= require ./app
 

@@ -42,6 +42,8 @@ gem 'ember-source'
 gem 'moment_timezone-rails'
 gem 'rack-tracker'
 gem 'counter_culture', '~> 0.1.23'
+gem 'nprogress-rails'
+
 
 group :development do
   gem 'better_errors'

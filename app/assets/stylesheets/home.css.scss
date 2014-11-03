@@ -36,6 +36,7 @@ $small-caps-color: #163850;
 .small-caps {
   font-variant: small-caps;
 }
+
 .loading {
 /*
   display: table-cell;
@@ -79,7 +80,7 @@ $small-caps-color: #163850;
 
 a.small-caps {
   font-variant: small-caps;
-  border-bottom: 1px dotted;
+  //border-bottom: 1px dotted;
 }
 
 .course-container {
@@ -153,8 +154,8 @@ a.small-caps {
   text-align: center;
 }
 
-.link-item {
-  text-transform: uppercase;
+a.link-item {
+  font-size: 30px;
 }
 
 .footer-text {

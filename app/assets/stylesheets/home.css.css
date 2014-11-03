@@ -63,8 +63,7 @@
   animation-duration: 0.5s; }
 
 a.small-caps {
-  font-variant: small-caps;
-  border-bottom: 1px dotted; }
+  font-variant: small-caps; }
 
 .course-container {
   height: 100%;
@@ -116,8 +115,8 @@ a.small-caps {
 .section-label {
   text-align: center; }
 
-.link-item {
-  text-transform: uppercase; }
+a.link-item {
+  font-size: 30px; }
 
 .footer-text {
   font-variant: small-caps;

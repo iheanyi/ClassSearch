@@ -1,6 +1,6 @@
 class Api::V1::ProfessorsController < ApplicationController
   def index
-    render json: Professor.limit(700), each_serializer: ProfessorsSerializer
+    render json: Professor.all, each_serializer: ProfessorsSerializer
   end
 
   def show
