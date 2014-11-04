@@ -3,9 +3,17 @@
 App.ProfessorRoute = Ember.Route.extend({
   model: function(params) {
     console.log("Professor Route called.");
-    return this.find('professor', params.id);
+    return this.find('professor', params.id).then(function(response) {
+      NProgress.done();
+      return response;
+    });
   },
-
+  actions: {
+    loading: function() {
+      NProgress.start();
+      return true;
+    }
+  }
   setupController: function(controller, model) {
     controller.set("model", model);
   },

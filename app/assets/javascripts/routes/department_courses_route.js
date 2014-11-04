@@ -13,7 +13,15 @@ App.DepartmentCoursesRoute = Ember.Route.extend({
         } else {
           console.log("Model is reloading or does not need to be reloaded.")
         }*/
-        return department_model.get('courses');
+        return department_model.get('courses').then(function(response) {
+          NProgress.done();
+          return response;
+        });
   },
-
+  actions: {
+    loading: function() {
+      NProgress.start();
+      return true;
+    }
+  }
 });

@@ -3,6 +3,17 @@
 App.CoursesRoute = Ember.Route.extend({
   model: function() {
     console.log("Courses Route called.");
-    return this.store.find('course');
+    return this.store.find('course').then(function(response) {
+      NProgress.done();
+      return response;
+    });
+  },
+  actions: {
+    loading: function() {
+      console.log("Loading courses.");
+      NProgress.start();
+
+      return true;
+    }
   }
 });
