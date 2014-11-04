@@ -171,6 +171,8 @@ GEM
       railties (>= 3.1)
     ember-source (1.7.0)
       handlebars-source (~> 1.0)
+    ember_simple_auth-rails (0.7.0)
+      railties (> 3.1)
     erubis (2.7.0)
     eventmachine (1.0.3)
     excon (0.40.0)
@@ -370,6 +372,7 @@ DEPENDENCIES
   dotenv-rails
   ember-rails
   ember-source
+  ember_simple_auth-rails
   excon
   faraday
   foreman
