@@ -2,6 +2,11 @@
 
 App.UsersNewRoute = Ember.Route.extend({
   model: function() {
-    return App.User.createRecord();
+    return this.store.createRecord('user');
+  },
+
+  setupController: function(controller) {
+    controller.set('showError', false);
+    controller.set('errors', {});
   }
 });

@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
 
 
-  devise_for :users, controllers: {sessions: 'sessions'}
+
   root to: 'home#alternate'
   #root 'home#index'
 
 
   namespace :api do
     namespace :v1 do
-
+      devise_for :users, controllers: {sessions: 'api/v1/sessions', registrations: 'api/v1/registrations'}
       resources :courses, shallow: true do
         resources :attributes
         resources :sections
       end
 
-
+      resource :users
       resources :departments do
         resources :courses, shallow: true
       end

@@ -1,5 +1,5 @@
 // for more details see: http://emberjs.com/guides/controllers/
 
-App.LoginController = Ember.Controller.extend({
-
+App.LoginController = Ember.Controller.extend(SimpleAuth.LoginControllerMixin, {
+  authenticator: 'simple-auth-authenticator:devise',
 });

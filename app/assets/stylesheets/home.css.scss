@@ -33,6 +33,12 @@ $small-caps-color: #163850;
   background-color: #fff;
 }
 
+.register-container {
+  height: 100%;
+  width: 100%;
+  background-color: #e5e5e5;
+}
+
 .small-caps {
   font-variant: small-caps;
 }
@@ -55,6 +61,11 @@ $small-caps-color: #163850;
   margin: 0 4px;
   padding: 4px;
 }
+
+.reg-form {
+  background-color: #fff;
+}
+
 .common-list {
   margin: 0;
   padding: 0;

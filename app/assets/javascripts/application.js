@@ -11,8 +11,6 @@
 // about supported directives.
 //
 //
-//= require "ember-simple-auth"
-//= require "ember-simple-auth-devise"
 //= require jquery
 //= require jquery_ujs
 //= require underscore
@@ -20,6 +18,9 @@
 //= require handlebars
 //= require ember
 //= require ember-data
+//= require "ember-simple-auth"
+//= require "ember-simple-auth-devise"
+//= require "ember-easyForm"
 //= require foundation
 //= require nprogress
 //= require_self

@@ -12,6 +12,10 @@ App.Router.map(function() {
   });
 
   this.route('login');
+
+  this.resource('users', {path: '/users'}, function() {
+    this.route('new');
+  })
   this.resource('departments', { path: '/' }, function() {
     this.resource('courses', {path :'/all/courses'}, function() {
       this.resource('course', { path: '/:courseNum'});
