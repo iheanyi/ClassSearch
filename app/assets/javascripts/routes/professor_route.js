@@ -13,7 +13,7 @@ App.ProfessorRoute = Ember.Route.extend({
       NProgress.start();
       return true;
     }
-  }
+  },
   setupController: function(controller, model) {
     controller.set("model", model);
   },
