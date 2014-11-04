@@ -15,6 +15,7 @@ App.ProfessorRoute = Ember.Route.extend({
     }
   },
   setupController: function(controller, model) {
+    NProgress.done();
     controller.set("model", model);
   },
 
