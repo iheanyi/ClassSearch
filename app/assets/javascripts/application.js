@@ -17,6 +17,7 @@
 //= require handlebars
 //= require ember
 //= require ember-data
+//= require ember-responsive
 //= require foundation
 //= require nprogress
 //= require_self
@@ -25,6 +26,7 @@
 $(document).foundation();
 // for more details see: http://emberjs.com/guides/application/
 App = Ember.Application.create({rootElement: '#ember-app'});
+
 
 //= require_tree .
 
