@@ -3,6 +3,5 @@ class CourseSerializer < ActiveModel::Serializer
 
   has_many :sections
   has_many :cattributes, through: :course_attributes, :key => :attribute_ids, :root => :attributes
-  #belongs_to :department
 
 end

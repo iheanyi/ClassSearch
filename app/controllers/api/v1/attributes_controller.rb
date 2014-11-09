@@ -1,16 +1,16 @@
 class Api::V1::AttributesController < ApplicationController
   respond_to :json
   def index
-    #render json: (params[:course_id] ? Course.find(params[:course_id]).attributes : Attribute.all), each_serializer: AttributesSerializer
-    render json: Attribute.where("courses_count > 0"), each_serializer: AttributesSerializer
+    if params[:course_id]
+      render json: Course.find(params[:course_id]).cattributes
+    else
+      render json: Attribute.where("courses_count > 0"), each_serializer: AttributesSerializer
+    end
+
   end
 
   def show
     render json: solo_attribute
-  end
-
-  def course_attributes
-    render json: Attribute.limit(10), each_serializer: AttribetusSerializer
   end
 
   private

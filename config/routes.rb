@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :courses, shallow: true do
         resources :attributes
         resources :sections
+        resources :professors
       end
 
 
@@ -28,7 +29,10 @@ Rails.application.routes.draw do
         resources :sections, shallow: true
       end
 
-
+      resources :sections do
+        resources :professor
+        resources :course
+      end
     end
   end
 

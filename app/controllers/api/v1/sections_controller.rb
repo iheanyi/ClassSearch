@@ -1,19 +1,27 @@
 class Api::V1::SectionsController < ApplicationController
   respond_to :json
+
   def index
+    #render json: Section.includes(:professor).all
     #respond_with params[:course_id] ? Course.find(params[:course_id]).sections : Section.all
+    if params[:course_id]
+      render json: Course.find(params[:course_id]).sections
+    elsif params[:professor_id]
+      puts "FINDING PROFESSOR"
+
+      render json: Professor.find(params[:professor_id]).sections
+    else
+      render json: nil
+    end
   end
 
   def show
     respond_with section
   end
 
-  def course_sections
-
-  end
   private
     def section
-      Section.includes(:professor).find(params[:id])
+      Section.find(params[:id])
     end
 
     def section_params

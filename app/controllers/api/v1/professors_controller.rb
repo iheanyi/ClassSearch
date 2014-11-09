@@ -9,6 +9,6 @@ class Api::V1::ProfessorsController < ApplicationController
 
   private
     def professor
-      return Professor.includes(:courses).find(params[:id])
+      return Professor.includes(courses: [:sections, :cattributes]).find(params[:id])
     end
 end

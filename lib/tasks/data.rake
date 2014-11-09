@@ -251,6 +251,7 @@ namespace :data do
       course_days = course_timeslot[0].strip
       puts course_timeslot.size
       puts course_timeslot
+
       if course_timeslot.length <= 1
         course_days = "TBA"
         course_start_time = nil
@@ -258,6 +259,8 @@ namespace :data do
       else
         course_start_time = Chronic.parse(course_timeslot[1].strip + "M")
         course_end_time = Chronic.parse(course_timeslot[2].strip + "M")
+        puts "TIME!"
+        puts course_start_time, course_end_time
       end
 
       course_begin = cells[11].text.strip
