@@ -7,6 +7,8 @@ App.Router.reopen({
 
 App.Router.map(function() {
 
+  this.route('agenda', {path: '/agenda'});
+
   this.resource('about', {path: '/about'}, function() {
 
   });

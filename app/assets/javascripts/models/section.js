@@ -8,8 +8,47 @@ App.Section = DS.Model.extend({
   maxSeats: DS.attr('number'),
   daysOfWeek: DS.attr('string'),
   location: DS.attr('string'),
-  professor: DS.belongsTo('professor', {async: true, embedded: 'always'}),
+  professor: DS.belongsTo('professor', {async: true}),
+  course: DS.belongsTo('course', {embedded: 'always'}),
   crn: DS.attr('number'),
+  eventFormat: Ember.computed('startTime', 'crn', 'endTime', 'sectionNum', 'course', 'professor', 'daysOfWeek', function() {
+    course = this.get('course');
+    professor = this.get('professor');
+    section = this;
+    events = [];
+    if(this.get('daysOfWeek').indexOf("M") > -1) {
+      new_event =     {
+            title: course.get("title"), start: moment(section.get('startTime')).add(2, 'days'), end: moment(section.get('endTime')).add(2, 'days'), description: course.get('description')}
+      events.push(new_event);
+    }
+
+    if(this.get('daysOfWeek').indexOf("T") > -1) {
+      new_event =     {
+            title: course.get("title"), start: moment(section.get('startTime')).add(3, 'days'), end: moment(section.get('endTime')).add(3, 'days'), description: course.get('description')}
+      events.push(new_event);
+    }
+
+    if(this.get('daysOfWeek').indexOf("W") > -1) {
+      new_event =     {
+            title: course.get("title"), start: moment(section.get('startTime')).add(4, 'days'), end: moment(section.get('endTime')).add(4, 'days'), description: course.get('description')}
+      events.push(new_event);
+    }
+
+    if(this.get('daysOfWeek').indexOf("R") > -1) {
+      new_event =     {
+            title: course.get("title"), start: moment(section.get('startTime')).add(5, 'days'), end: moment(section.get('endTime')).add(5, 'days'), description: course.get('description')}
+      events.push(new_event);
+    }
+
+    if(this.get('daysOfWeek').indexOf("F") > -1) {
+      new_event =     {
+            title: course.get("title"), start: moment(section.get('startTime')).add(6, 'days'), end: moment(section.get('endTime')).add(6, 'days'), description: course.get('description')}
+      events.push(new_event);
+    }
+
+    console.log(events);
+    return events;
+  }),
   professorFullName: function() {
     professor = this.get('professor');
     console.log("Professor Full Name Helper");
@@ -39,7 +78,7 @@ App.Section = DS.Model.extend({
     start = this.get('startTime');
     end = this.get('endTime');
     if(this.get('daysOfWeek') != 'TBA') {
-      return moment(start).add(1, 'hours').format("h:mmA") + ' - ' + moment(end).add(1, 'hours').format("h:mmA");
+      return moment(start).format("h:mmA") + ' - ' + moment(end).format("h:mmA");
     } else {
       return " ";
     }

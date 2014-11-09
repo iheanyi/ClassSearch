@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require moment
+//= require fullcalendar
 //= require handlebars
 //= require ember
 //= require ember-data
