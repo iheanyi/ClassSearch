@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'agenda/show'
+
+  get 'agenda/create'
+
   root to: 'home#alternate'
   #root 'home#index'
 
