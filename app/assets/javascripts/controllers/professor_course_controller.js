@@ -1,6 +1,6 @@
 // for more details see: http://emberjs.com/guides/controllers/
 
-App.ProfessorCourseController = Ember.ObjectController.extend({
+App.ProfessorCourseController = Ember.ObjectController.extend(App.AgendaMixin, {
   needs: ['professor', 'professors'],
   professor: Ember.computed.alias("controllers.professor.content"),
   prof_sections: Ember.computed.alias("controllers.professor.content.section"),

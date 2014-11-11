@@ -4,4 +4,6 @@ App.AgendaController = Ember.ObjectController.extend({
   info: {
     events: []
   },
+
+  sectionIDs: [],
 });
