@@ -9,10 +9,11 @@ App.FullCalendarComponent = Ember.Component.extend({
       weekends: false,
       minTime: "08:00:00",
       maxTime: "21:00:00",
-      allDaySlot: false,
+      allDaySlot: true,
+      allDayText: 'TBA',
       defaultDate: "2000-01-03",
       header: {
-        left: 'title',
+        left: '',
         center: '',
         right: ''
       },
@@ -20,7 +21,11 @@ App.FullCalendarComponent = Ember.Component.extend({
       columnFormat: {
         week: 'dddd'
       },
-      defaultView: 'agendaWeek'
+      defaultView: 'agendaWeek',
+      eventClick: function(event, jsEvent, view) {
+        alert(event);
+        console.log(event);
+      }
     });
   }).on("didInsertElement"),
   actions: {
@@ -28,6 +33,9 @@ App.FullCalendarComponent = Ember.Component.extend({
       var newEvent = {title: this.eventTitle, start: this.newEvent, allDay: false}
       this.theEvents.pushObject(newEvent);
       this.$("#calendar").fullCalendar('renderEvent', newEvent, true);
+    },
+    removeEvent: function() {
+      ag_events = this.theEvents;
     }
   }
 });

@@ -1,5 +1,4 @@
-<div class="animated fadeInLeftBig large-4 columns section-container" id="sections-section">
-  {{this}}
+<div class="animated fadeInLeftBig small-4 columns section-container" id="sections-section">
  <div class="row description-section">
     <h4>{{model.courseNum}} - {{model.title}} ({{model.creditsValue}})</h4>
     <span>Attributes:
@@ -22,7 +21,7 @@
 
          {{#each section in sortedSections}}
          <li class='section-item'>
-         <div class="details large-10">
+         <div class="details small-12">
 
            <span class="details-text">Section {{section.sectionNum}} &middot; {{section.daysOfWeek}} {{section.formatTimeSlot}}</span> <br>
 
@@ -37,10 +36,17 @@
 
            &middot; {{section.location}} &middot; {{section.crn}}</span>  <br>
 
-          <div class="seats-bar progress small-6 alert round">
+          <div class="seats-bar progress small-9 alert round">
            <span class="meter" {{bind-attr style=section.widthStyle}}></span>
 
-           <span class="seats-text"><span class="seats-numbers">{{section.openSeats}} / {{section.maxSeats}}</span> seats left</span> <a {{action 'addSection' section}}>+ Add to Agenda</a>
+           <span class="seats-text"><span class="seats-numbers">{{section.openSeats}} / {{section.maxSeats}}</span> seats left</span>
+
+           {{#if section.inAgenda}}
+           <a class="fancy-link small-caps" {{action 'removeSection' section}}> - remove from agenda</a>
+           {{else}}
+            <a class="fancy-link small-caps" {{action 'addSection' section}}>+ add to agenda</a>
+           {{/if}}
+
           </div>
 
 

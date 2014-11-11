@@ -1,6 +1,27 @@
-  <div class="agenda-container small-8 columns animated fadeInLeftBig">
-    {{full-calendar theEvents=model.events}}
+  <div class="agenda-container animated fadeInLeftBig">
+      <div class="small-9 fc-container columns">
+        {{full-calendar theEvents=model.events}}
+      </div>
 
+      <div class="ag-course-container small-3 columns">
+        <h4>Agenda Courses</h4>
+
+          <ul>
+           {{#each sect in controller.sections_list}}
+            <li>
+            {{sect.sectionNum}} - {{sect.course_title}} <a {{action "removeCourse" sect}}>X</a>
+            </li>
+
+          {{else}}
+            Nothing has been added yet.
+          {{/each}}
+         </ul>
+
+
+
+
+        <h5>Agenda Management Feature Coming Soon!</h5>
+      </div>
   </div>
 
 

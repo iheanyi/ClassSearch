@@ -11,6 +11,20 @@ App.Section = DS.Model.extend({
   professor: DS.belongsTo('professor', {async: true}),
   course: DS.belongsTo('course', {embedded: 'always'}),
   crn: DS.attr('number'),
+  inAgenda: false,
+  courseFormat: Ember.computed('course', 'sectionNum', 'professor', function() {
+    course = this.get('course');
+    professor = this.get('professor');
+    section = this;
+
+    return {
+      course_title: course.get("title"),
+      professor_name: course.get("fullName"),
+      sectionNum: this.get('sectionNum'),
+      sectionID: this.get('id'),
+      sect: this
+    }
+  }),
   eventFormat: Ember.computed('startTime', 'crn', 'endTime', 'sectionNum', 'course', 'professor', 'daysOfWeek', function() {
     course = this.get('course');
     professor = this.get('professor');
@@ -18,31 +32,31 @@ App.Section = DS.Model.extend({
     events = [];
     if(this.get('daysOfWeek').indexOf("M") > -1) {
       new_event =     {
-            title: course.get("title"), start: moment(section.get('startTime')).add(2, 'days'), end: moment(section.get('endTime')).add(2, 'days'), description: course.get('description')}
+            title: course.get("title"), start: moment(section.get('startTime')).add(2, 'days'), end: moment(section.get('endTime')).add(2, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}
       events.push(new_event);
     }
 
     if(this.get('daysOfWeek').indexOf("T") > -1) {
       new_event =     {
-            title: course.get("title"), start: moment(section.get('startTime')).add(3, 'days'), end: moment(section.get('endTime')).add(3, 'days'), description: course.get('description')}
+            title: course.get("title"), start: moment(section.get('startTime')).add(3, 'days'), end: moment(section.get('endTime')).add(3, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}
       events.push(new_event);
     }
 
     if(this.get('daysOfWeek').indexOf("W") > -1) {
       new_event =     {
-            title: course.get("title"), start: moment(section.get('startTime')).add(4, 'days'), end: moment(section.get('endTime')).add(4, 'days'), description: course.get('description')}
+            title: course.get("title"), start: moment(section.get('startTime')).add(4, 'days'), end: moment(section.get('endTime')).add(4, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}
       events.push(new_event);
     }
 
     if(this.get('daysOfWeek').indexOf("R") > -1) {
       new_event =     {
-            title: course.get("title"), start: moment(section.get('startTime')).add(5, 'days'), end: moment(section.get('endTime')).add(5, 'days'), description: course.get('description')}
+            title: course.get("title"), start: moment(section.get('startTime')).add(5, 'days'), end: moment(section.get('endTime')).add(5, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}
       events.push(new_event);
     }
 
     if(this.get('daysOfWeek').indexOf("F") > -1) {
       new_event =     {
-            title: course.get("title"), start: moment(section.get('startTime')).add(6, 'days'), end: moment(section.get('endTime')).add(6, 'days'), description: course.get('description')}
+            title: course.get("title"), start: moment(section.get('startTime')).add(6, 'days'), end: moment(section.get('endTime')).add(6, 'days'), description: course.get('description'), section_id: section.get('id')}
       events.push(new_event);
     }
 

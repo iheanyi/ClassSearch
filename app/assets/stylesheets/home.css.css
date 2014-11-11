@@ -18,9 +18,6 @@
   margin-top: 12px; }
 
 .load-container {
-  /*   height: 100%;
-    display: table;
-    text-align: center; */
   text-align: center;
   height: 100%;
   width: 100%;
@@ -231,10 +228,25 @@ a.link-item {
   color: #163850; }
 
 .agenda-container {
-  width: 100%;
   height: 100%;
-  background-color: #fff;
-  overflow-y: scroll; }
+  background-color: #fff; }
+
+.ag-course-container {
+  background-color: #c5c5c5;
+  height: 100%;
+  text-align: center; }
+  .ag-course-container h4 {
+    color: #000; }
+
+.fc-container {
+  height: 100%; }
+
+.fc-toolbar {
+  margin: 0 !important;
+  display: none; }
+
+.fc-time-grid-event .fc-bg {
+  background: none; }
 
 .search-container {
   height: 100%; }
