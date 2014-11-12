@@ -30,7 +30,8 @@ App.AgendaController = Ember.ObjectController.extend({
       selected.sect.set("inAgenda", false);
       this.set("info.events", new_events);
       this.set("sections_list", new_sects);
-      //$("#calendar").fullCalendar('rerenderEvents');
+      $("#calendar").fullCalendar('rerenderEvents');
+      $("#calendar").fullCalendar('refetchEvents');
       console.log($("#calendar"));
     }
   }

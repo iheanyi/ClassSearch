@@ -3,13 +3,14 @@
 App.FullCalendarComponent = Ember.Component.extend({
   newEvent: "",
   eventTitle: "",
+
   _initializeCalendar: (function() {
     return $("#calendar").fullCalendar({
       events: this.theEvents,
       weekends: false,
       minTime: "08:00:00",
       maxTime: "21:00:00",
-      allDaySlot: true,
+      allDaySlot: false,
       allDayText: 'TBA',
       defaultDate: "2000-01-03",
       header: {

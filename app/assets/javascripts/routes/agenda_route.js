@@ -8,5 +8,8 @@ App.AgendaRoute = Ember.Route.extend({
     return {
       events: Ember.A(this.controllerFor("agenda").get('info.events'))
     }
-    }
+  },
+  actions: {
+
+  }
 });

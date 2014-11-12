@@ -234,12 +234,14 @@ a.link-item {
 .ag-course-container {
   background-color: #c5c5c5;
   height: 100%;
+  float: right;
   text-align: center; }
   .ag-course-container h4 {
     color: #000; }
 
 .fc-container {
-  height: 100%; }
+  height: 100%;
+  overflow-y: scroll; }
 
 .fc-toolbar {
   margin: 0 !important;

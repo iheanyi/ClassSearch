@@ -308,13 +308,15 @@ a.link-item {
 .agenda-container {
   height: 100%;
   background-color: #fff;
- // overflow-y: scroll;
+  //overflow-y: scroll;
 }
 
 .ag-course-container {
   background-color: #c5c5c5;
   height: 100%;
   //color: #ffffff;
+  //position: fixed;
+  float: right;
   text-align: center;
   h4 {
     color: #000;
@@ -323,6 +325,7 @@ a.link-item {
 
 .fc-container {
   height: 100%;
+  overflow-y: scroll;
   //overflow-y: scroll;
 }
 
