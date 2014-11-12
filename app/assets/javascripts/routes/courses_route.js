@@ -6,6 +6,7 @@ App.CoursesRoute = Ember.Route.extend({
     //NProgress.done();
     return this.store.find('course').then(function(response) {
       //NProgress.done();
+      NProgress.done();
       return response;
     });
   },
@@ -13,7 +14,7 @@ App.CoursesRoute = Ember.Route.extend({
     loading: function() {
       console.log("Loading courses.");
       //NProgress.start();
-
+      NProgress.done();
       return true;
     }
   }
