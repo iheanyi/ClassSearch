@@ -24,7 +24,6 @@ App.FullCalendarComponent = Ember.Component.extend({
       },
       defaultView: 'agendaWeek',
       eventClick: function(event, jsEvent, view) {
-        alert(event);
         console.log(event);
       }
     });

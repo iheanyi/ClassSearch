@@ -6,10 +6,10 @@
       <div class="ag-course-container small-3 columns">
         <h4>Agenda Courses</h4>
 
-          <ul>
+          <ul class="agenda-list">
            {{#each sect in controller.sections_list}}
             <li>
-            {{sect.sectionNum}} - {{sect.course_title}} <a {{action "removeCourse" sect}}>X</a>
+            {{sect.sect.course.courseNum}} - {{sect.course_title}}, Section {{sect.sectionNum}} w/ {{sect.sect.professor.fullName}} on {{sect.sect.daysOfWeek}} @ {{sect.sect.formatTimeSlot}}. CRN: {{sect.sect.crn}}  <a class="fancy-link" {{action "removeCourse" sect}}>X</a>
             </li>
 
           {{else}}
@@ -17,10 +17,6 @@
           {{/each}}
          </ul>
 
-
-
-
-        <h5>Agenda Management Feature Coming Soon!</h5>
       </div>
   </div>
 
