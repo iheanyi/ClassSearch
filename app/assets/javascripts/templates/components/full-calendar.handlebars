@@ -1,2 +1,22 @@
-<div id="calendar">
+<div class="small-9 fc-container columns">
+  <div id="calendar">
+  </div>
+</div>
+
+<div class="ag-course-container small-3 columns">
+        <h4>Agenda Courses</h4>
+
+          <ul class="agenda-list">
+           {{#each sect in sectionsList}}
+            <li>
+            {{sect.sect.course.courseNum}} - {{sect.course_title}}, Section {{sect.sectionNum}} w/ {{sect.sect.professor.fullName}} on {{sect.sect.daysOfWeek}} @ {{sect.sect.formatTimeSlot}}. CRN: {{sect.sect.crn}}  <a class="fancy-link" {{action "removeSection" sect}}>X</a>
+            </li>
+
+          {{else}}
+            Nothing has been added yet.
+          {{/each}}
+         </ul>
+
+
+         <p>Agenda Saving Coming Soon!</p>
 </div>

@@ -234,10 +234,13 @@ a.link-item {
   height: 100%;
   background-color: #fff; }
 
+.ag-component {
+  height: 100%; }
+
 .ag-course-container {
   background-color: #c5c5c5;
   height: 100%;
-  float: right;
+  overflow-y: none;
   text-align: center; }
   .ag-course-container h4 {
     color: #000; }

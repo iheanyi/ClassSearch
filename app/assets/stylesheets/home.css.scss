@@ -315,12 +315,17 @@ a.link-item {
   //overflow-y: scroll;
 }
 
+.ag-component {
+  height: 100%;
+}
+
 .ag-course-container {
   background-color: #c5c5c5;
   height: 100%;
   //color: #ffffff;
   //position: fixed;
-  float: right;
+  overflow-y: none;
+  //float: right;
   text-align: center;
   h4 {
     color: #000;
