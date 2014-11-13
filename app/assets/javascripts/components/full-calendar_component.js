@@ -5,11 +5,6 @@ App.FullCalendarComponent = Ember.Component.extend({
   eventTitle: "",
   classNames: ['ag-component'],
   events: [],
-  theEvents: [],
-  eventsChange: function() {
-    console.log("Events changed.");
-    this.rerender();
-  }.observes("theEvents"),
   _initializeCalendar: (function() {
     console.log(this);
     return $("#calendar").fullCalendar({
@@ -66,7 +61,7 @@ App.FullCalendarComponent = Ember.Component.extend({
 
       console.log(this);
       this.$("#calendar").fullCalendar('rerenderEvents');
-      //this.rerender();
+      this.rerender();
       //ag_events = this.theEvents;
     }
   }
