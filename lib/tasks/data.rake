@@ -1,3 +1,4 @@
+
 require 'nokogiri'
 require 'open-uri'
 require 'httparty'
@@ -20,6 +21,12 @@ namespace :data do
   @campus_field = "M"
   @credit_field = "A"
   @attr_field = "0ANY"
+
+  desc "Fetch everything"
+  task :fetch_everything => [:fetch_departments, :fetch_courses, :fetch_course_description, :fetch_attributes, :fetch_course_attributes, :update_model_counters]
+
+  desc "Fetch attributes"
+  task :fetch_attribute_information => [:fetch_attributes, :fetch_course_attributes, :update_model_counters]
 
   desc "Update counters for every single model."
   task update_model_counters: :environment do
@@ -62,9 +69,11 @@ namespace :data do
   desc "Fetch every single course in Notre Dame's class search database and map it to a department"
   task fetch_courses: :environment do
     #fetch_html_response(Department.where(tag: 'PSY').take)
-    Parallel.map(Department.all) do |dept|
+    Parallel.each(Department.all, :in_processes => 8) do |dept|
       fetch_courses(dept)
     end
+
+    Department.connection.reconnect!
   end
 
   desc "TODO"
@@ -73,9 +82,11 @@ namespace :data do
 
   desc "Fetch Descriptions for each course"
   task fetch_course_description: :environment do
-    Parallel.map(Course.where('sections_count is not null AND course_description is null')) do |course|
+    Parallel.each(Course.where('sections_count is not null AND course_description is null'), :in_processes => 8) do |course|
       fetch_course_description(course)
     end
+
+    Course.connection.reconnect!
   end
 
   desc "Fetch course attributes"
@@ -83,11 +94,12 @@ namespace :data do
     #course = Department.all
     attrs = Attribute.pluck(:name)
     #puts attrs
-    Parallel.map(Course.where(:sections_count != nil)) do |course|
+    Parallel.each(Course.where(:sections_count != nil), :in_processes => 8) do |course|
       puts course.title
       fetch_course_attributes(course, attrs)
     end
-
+    Course.connection.reconnect!
+    Attribute.connection.reconnect!
   end
 
   desc "Fetch every attribute"
@@ -263,8 +275,10 @@ namespace :data do
         puts course_start_time, course_end_time
       end
 
-      course_begin = cells[11].text.strip
-      course_end = cells[12].text.strip
+      timeslot_model = Timeslot.find_or_create_by(:days_of_week => course_days, :start_time => course_start_time, :end_time => course_end_time)
+
+      course_begin = Chronic.parse(cells[11].text.strip)
+      course_end = Chronic.parse(cells[12].text.strip)
       puts cells.length
       if cells.length == 14
           course_location = cells[13].text.strip
@@ -298,26 +312,36 @@ namespace :data do
       section = course.sections.where(:crn => course_crn).first_or_initialize
       puts section
 
+
       if section.new_record?
         section.section_num = course_section_number
         section.crn = course_crn
-        section.days_of_week = course_days
-        section.start_time = course_start_time
-        section.end_time = course_end_time
-        section.professor = professor_model
-        section.location = course_location
       else
         section.days_of_week = course_days
         section.start_time = course_start_time
         section.end_time = course_end_time
         section.professor = professor_model
         section.location = course_location
+        section.start_date = course_begin
+        section.end_date = course_end
         puts "Section already in database"
       end
 
+      section.days_of_week = course_days
+      section.start_time = course_start_time
+      section.end_time = course_end_time
+      section.professor = professor_model
+      section.location = course_location
+      section.start_date = course_begin
+      section.end_date = course_end
+      section.timeslot = timeslot_model
       section.open_seats = course_open_seats
       section.max_seats = course_max_seats
+
       if course_location.length > 255 || instructor.length > 255
+        section.location = nil
+        section.save!
+        course.save!
         next
       end
 
