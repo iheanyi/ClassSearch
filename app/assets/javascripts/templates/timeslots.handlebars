@@ -1,0 +1,14 @@
+<div class="small-4 columns department-container animated fadeInLeftBig">
+
+  {{view Ember.TextField value=search placeholder="Search for specific timeslots" class="search"}}
+
+  <ul class="common-list dept-list">
+    {{#each timeslot in timeslots}}
+      {{#link-to 'timeslot.courses' timeslot tagName="li" class="dept-link"}}
+        <span class="dept-link-text">{{timeslot.formatTimeSlot}}</span>
+      {{/link-to}}
+    {{/each}}
+  </ul>
+</div>
+
+{{outlet}}

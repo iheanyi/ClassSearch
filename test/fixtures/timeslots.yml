@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  days_of_week: MyString
+  start_time: 2014-11-13 14:35:42
+  end_time: 2014-11-13 14:35:42
+
+two:
+  days_of_week: MyString
+  start_time: 2014-11-13 14:35:42
+  end_time: 2014-11-13 14:35:42
