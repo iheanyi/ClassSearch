@@ -9,7 +9,7 @@ App.FullCalendarComponent = Ember.Component.extend({
     console.log(this);
     return $("#calendar").fullCalendar({
       events: this.theEvents,
-      weekends: false,
+      weekends: true,
       minTime: "08:00:00",
       maxTime: "21:00:00",
       allDaySlot: false,
@@ -60,7 +60,7 @@ App.FullCalendarComponent = Ember.Component.extend({
       this.sectionsList = new_sects;
 
       console.log(this);
-      this.$("#calendar").fullCalendar('rerenderEvents');
+      //this.$("#calendar").fullCalendar('rerenderEvents');
       this.rerender();
       //ag_events = this.theEvents;
     }

@@ -6,11 +6,11 @@ class Api::V1::TimeslotsController < ApplicationController
   end
 
   def show
-    render json: timeslot
+    render json: timeslot#, include: 'courses,sections'
   end
 
   private
     def timeslot
-      Timeslot.includes(:courses).find(params[:id])
+      Timeslot.find(params[:id])
     end
 end

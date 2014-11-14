@@ -23,10 +23,17 @@
          <li class='section-item'>
          <div class="details small-12">
 
-           <span class="details-text">Section {{section.sectionNum}} &middot; {{section.daysOfWeek}} {{section.formatTimeSlot}}</span> <br>
+           <span class="details-text">Section {{section.sectionNum}} &middot;
 
+           {{#link-to 'timeslot.courses' section.timeslot}}
+           {{section.timeslot.formatTimeSlot}}
+           {{/link-to}} &middot;
+
+
+           </span> <br>
            <span class="details-text">
-          {{#if section.professor}}
+
+            {{#if section.professor}}
            {{#link-to 'professor.courses' section.professor}}
            {{section.professor.fullName}}
            {{/link-to}}

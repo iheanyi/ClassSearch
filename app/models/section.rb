@@ -5,6 +5,7 @@ class Section < ActiveRecord::Base
 
   # Setup Professor Sections Counter
   belongs_to :professor, counter_cache: true
+  belongs_to :timeslot
 
   def after_save
     self.update_counter_cache

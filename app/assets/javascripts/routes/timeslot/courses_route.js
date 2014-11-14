@@ -10,9 +10,9 @@ App.TimeslotCoursesRoute = Ember.Route.extend({
       console.log("Model reloaded!");
       console.log(response);
       console.log(response.get('courses'));
-
+      response.get('courses');
     });
-    console.log(timeslot.get("courses"));
+
     return this.modelFor("timeslot").get('courses');
   }
 });

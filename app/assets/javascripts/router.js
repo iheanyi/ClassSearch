@@ -7,11 +7,13 @@ App.Router.reopen({
 
 App.Router.map(function() {
 
+
   this.resource('agenda', {path: '/agenda'});
 
   this.resource('about', {path: '/about'}, function() {
 
   });
+
   this.resource('departments', { path: '/' }, function() {
     this.resource('courses', {path :'/all/courses'}, function() {
       this.resource('course', { path: '/:courseNum'});
@@ -37,8 +39,17 @@ App.Router.map(function() {
       this.resource('attribute.courses', { path: '/courses'}, function() {
         this.resource('attribute.course', { path: '/:courseNum'});
       });
-    })
-  })
+    });
+  });
+
+  this.resource('timeslots', { path: '/times' }, function() {
+    this.resource('timeslot', {path: '/:id' }, function() {
+      this.resource('timeslot.courses', { path: '/courses' }, function() {
+        this.resource('timeslot.course', {path: '/:courseNum'});
+      });
+    });
+
+  });
 
 
 });

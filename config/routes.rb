@@ -37,6 +37,10 @@ Rails.application.routes.draw do
         resources :professor
         resources :course
       end
+
+      resources :timeslots do
+        resources :courses, shallow: true
+      end
     end
   end
 

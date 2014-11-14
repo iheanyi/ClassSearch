@@ -3,4 +3,5 @@ class SectionSerializer < ActiveModel::Serializer
 
   has_one :professor#, embed_in_root: true
   has_one :course, embed_in_root: true
+  belongs_to :timeslot
 end

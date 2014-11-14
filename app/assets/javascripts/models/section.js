@@ -12,6 +12,7 @@ App.Section = DS.Model.extend({
   course: DS.belongsTo('course', {embedded: 'always'}),
   crn: DS.attr('number'),
   inAgenda: false,
+  timeslot: DS.belongsTo('timeslot', {async: true}),
   courseFormat: Ember.computed('course', 'sectionNum', 'professor', function() {
     course = this.get('course');
     professor = this.get('professor');
