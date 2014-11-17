@@ -388,7 +388,7 @@ DEPENDENCIES
   hub
   jbuilder (~> 2.0)
   jquery-rails
-  moment_timezone-rails
+  moment_timezone-rails (~> 0.2.1)
   momentjs-rails
   newrelic_rpm
   nokogiri

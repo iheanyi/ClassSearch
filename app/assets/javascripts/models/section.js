@@ -31,6 +31,8 @@ App.Section = DS.Model.extend({
     professor = this.get('professor');
     section = this;
     events = [];
+    var zone = "America/New_York";
+
     if(this.get('daysOfWeek').indexOf("M") > -1) {
       new_event =     {
             title: course.get("title"), start: moment(section.get('startTime')).add(2, 'days'), end: moment(section.get('endTime')).add(2, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}

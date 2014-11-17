@@ -40,7 +40,7 @@ gem "rack-timeout"
 gem "excon"
 gem 'ember-rails'
 gem 'ember-source'
-gem 'moment_timezone-rails'
+gem 'moment_timezone-rails', '~> 0.2.1'
 gem 'rack-tracker'
 gem 'counter_culture', '~> 0.1.23'
 gem 'nprogress-rails'

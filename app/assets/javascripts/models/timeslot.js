@@ -9,9 +9,11 @@ App.Timeslot = DS.Model.extend({
     start = this.get('startTime');
     end = this.get('endTime');
     days = this.get('daysOfWeek');
+    var zone = "America/New_York";
+
     if(this.get('daysOfWeek') != 'TBA') {
       if (moment(start).isValid()) {
-        return days + " " + moment(start).format("h:mmA") + ' - ' + moment(end).format("h:mmA");
+        return days + " " + moment.tz(start, zone).format("h:mmA") + ' - ' + moment.tz(end, zone).format("h:mmA");
       } else {
         return days + " " + "Time TBD";
       }

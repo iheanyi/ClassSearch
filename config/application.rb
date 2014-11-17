@@ -20,8 +20,9 @@ module ClassSearch
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     config.time_zone = 'Eastern Time (US & Canada)'
     config.active_record.default_timezone = :local
-
+    #config.active_record.default_timezone = :local
     #config.active_record.default_timezone = 'UTC'
+    #config.active_record.time_zone_aware_attributes = false
 
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
