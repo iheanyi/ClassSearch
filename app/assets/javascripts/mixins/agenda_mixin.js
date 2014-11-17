@@ -4,6 +4,13 @@ App.AgendaMixin = Ember.Mixin.create({
 /*  ag_events: Ember.computed.alias('controllers.agenda.info.events'),*/
   section_ids: Ember.computed.alias('controllers.agenda.sectionIDs'),
   actions: {
+    refreshSections: function(course) {
+      var sections = course.get('sections');
+      console.log("Refresh sections!");
+      sections.reload().then(function(response) {
+        console.log(response);
+      });
+    },
     addSection: function(section) {
       ag_events = this.get('currentAgenda.info.events');
       section_ids = this.get('currentAgenda.sectionIDs');
