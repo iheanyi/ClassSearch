@@ -263,6 +263,7 @@ namespace :data do
       course_days = course_timeslot[0].strip
       puts course_timeslot.size
       puts course_timeslot
+      #Time.zone= "UTC"
       #Time.zone = "Eastern Time (US & Canada)"
       #Chronic.time_class = Time.zone
 
