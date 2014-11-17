@@ -10,7 +10,8 @@ App.CourseItemView = Ember.View.extend({
      // console.log(hovered_course.isReloading);
      //console.log(hovered_course.sections);
       if (sects_length == 0 && !hovered_course.isReloading) {
-
+        console.log("Reloading!");
+        hovered_course.reload();
       }
 
       //console.log(sections_array.length);
