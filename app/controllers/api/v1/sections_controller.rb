@@ -16,7 +16,7 @@ class Api::V1::SectionsController < ApplicationController
   end
 
   def show
-    respond_with section
+    render json: section
   end
 
   private

@@ -3,11 +3,11 @@ class Api::V1::DepartmentsController < ApplicationController
 
   def index
     @departments = Department.includes(:courses).where("courses_count > 0")
-    respond_with @departments#, each_serializer: DepartmentsSerializer
+    render @departments#, each_serializer: DepartmentsSerializer
   end
 
   def show
-    respond_with department
+    render department
   end
 
   private

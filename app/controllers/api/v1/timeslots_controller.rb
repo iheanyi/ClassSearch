@@ -6,7 +6,7 @@ class Api::V1::TimeslotsController < ApplicationController
   end
 
   def show
-    render json: timeslot#, include: 'courses,sections'
+    render json: timeslot #, include: 'courses,sections'
   end
 
   private
