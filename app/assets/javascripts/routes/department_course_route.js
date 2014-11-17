@@ -6,6 +6,7 @@ App.DepartmentCourseRoute = Ember.Route.extend({
     console.log("Department Course Route called.");
     return this.store.find('course', params.id).then(function(c) {
       c.get('attributes');
+      c.get('sections');
       NProgress.done();
       return c;
     });

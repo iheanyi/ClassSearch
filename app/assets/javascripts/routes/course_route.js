@@ -10,7 +10,7 @@ App.CourseRoute = Ember.Route.extend({
     this._super(model);
     console.log("After model entered in Course Route.");
     NProgress.done();
-    if(!model.isReloading && model.get('sections').content.content.length == 0) {
+    if(!model.isReloading || model.get('sections').content.content.length == 0) {
       //NProgress.done();
       return model.reload();
     } else {
