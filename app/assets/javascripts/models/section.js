@@ -35,31 +35,31 @@ App.Section = DS.Model.extend({
 
     if(this.get('daysOfWeek').indexOf("M") > -1) {
       new_event =     {
-            title: course.get("title"), start: moment(section.get('startTime')).add(2, 'days'), end: moment(section.get('endTime')).add(2, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}
+            title: course.get("title"), start: moment.tz(section.get('startTime'), zone).add(2, 'days'), end: moment.tz(section.get('endTime'), zone).add(2, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}
       events.push(new_event);
     }
 
     if(this.get('daysOfWeek').indexOf("T") > -1) {
       new_event =     {
-            title: course.get("title"), start: moment(section.get('startTime')).add(3, 'days'), end: moment(section.get('endTime')).add(3, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}
+            title: course.get("title"), start: moment.tz(section.get('startTime'), zone).add(3, 'days'), end: moment.tz(section.get('endTime'), zone).add(3, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}
       events.push(new_event);
     }
 
     if(this.get('daysOfWeek').indexOf("W") > -1) {
       new_event =     {
-            title: course.get("title"), start: moment(section.get('startTime')).add(4, 'days'), end: moment(section.get('endTime')).add(4, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}
+            title: course.get("title"), start: moment.tz(section.get('startTime'), zone).add(4, 'days'), end: moment.tz(section.get('endTime'), zone).add(4, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}
       events.push(new_event);
     }
 
     if(this.get('daysOfWeek').indexOf("R") > -1) {
       new_event =     {
-            title: course.get("title"), start: moment(section.get('startTime')).add(5, 'days'), end: moment(section.get('endTime')).add(5, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}
+            title: course.get("title"), start: moment.tz(section.get('startTime'), zone).add(5, 'days'), end: moment.tz(section.get('endTime'), zone).add(5, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}
       events.push(new_event);
     }
 
     if(this.get('daysOfWeek').indexOf("F") > -1) {
       new_event =     {
-            title: course.get("title"), start: moment(section.get('startTime')).add(6, 'days'), end: moment(section.get('endTime')).add(6, 'days'), description: course.get('description'), section_id: section.get('id')}
+            title: course.get("title"), start: moment.tz(section.get('startTime'), zone).add(6, 'days'), end: moment.tz(section.get('endTime'), zone).add(6, 'days'), description: course.get('description'), section_id: section.get('id'), sect: section}
       events.push(new_event);
     }
 
