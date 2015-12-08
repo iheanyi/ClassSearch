@@ -346,6 +346,7 @@ namespace :data do
         section.section_num = course_section_number
         section.crn = course_crn
         section.term = term
+        section.course = course
       else
         section.days_of_week = course_days
         section.start_time = course_start_time
@@ -355,6 +356,7 @@ namespace :data do
         section.start_date = course_begin
         section.end_date = course_end
         section.term = term
+        section.course = course
         puts "Section already in database"
       end
 

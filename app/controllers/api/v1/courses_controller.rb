@@ -2,6 +2,8 @@ class Api::V1::CoursesController < ApplicationController
   respond_to :json
 
   def index
+    # Course.where(department_id: Department.where(tag:
+    # 'department_id').pluck(:id))
     if params[:professor_id]
       render json: Professor.includes(:sections).find(params[:professor_id]).courses.to_json(include: :sections)
     elsif params[:department_id]

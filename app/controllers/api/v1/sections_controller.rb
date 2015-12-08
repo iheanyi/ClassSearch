@@ -4,6 +4,7 @@ class Api::V1::SectionsController < ApplicationController
   def index
     #render json: Section.includes(:professor).all
     #respond_with params[:course_id] ? Course.find(params[:course_id]).sections : Section.all
+    # Respond with the following: Section.where(term_id: 1).joins(:course).map(&:course).uniq
     if params[:course_id]
       render json: Course.find(params[:course_id]).sections
     elsif params[:professor_id]
