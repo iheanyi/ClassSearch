@@ -45,6 +45,7 @@ gem 'rack-tracker'
 gem 'counter_culture', '~> 0.1.23'
 gem 'nprogress-rails'
 gem 'fullcalendar-rails'
+gem 'skylight'
 
 group :development do
   gem 'better_errors'
