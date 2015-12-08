@@ -23,7 +23,7 @@ namespace :data do
   @attr_field = "0ANY"
 
   desc "Fetch everything"
-  task :fetch_everything => [:fetch_departments, :fetch_courses, :fetch_course_description, :fetch_attributes, :fetch_course_attributes, :update_model_counters]
+  task :fetch_everything => [:fetch_terms, :fetch_departments, :fetch_courses, :fetch_course_description, :fetch_attributes, :fetch_course_attributes]
 
   desc "Fetch attributes"
   task :fetch_attribute_information => [:fetch_attributes, :fetch_course_attributes, :update_model_counters]
@@ -48,6 +48,23 @@ namespace :data do
 
   end
 
+  desc "Fetch all of the tasks and update the database"
+  task fetch_terms: :environment do 
+    response = HTTParty.get('https://class-search.nd.edu/reg/srch/ClassSearchServlet')
+    content = response.body
+
+    document = Nokogiri::HTML(content)
+    terms_box = document.css('select[@name="TERM"]')
+    terms = terms_box.css('option')
+    # Get the first two search terms in the options box.
+    terms[0..1].each do |term|
+      term_tag = term.attr('value').strip
+      term_name = term.text.strip
+      term_model = Term.find_or_create_by(:tag => term_tag, :name => term_name)
+      puts term_model
+    end
+  end
+
   desc "Fetch all of the departments and update the database."
   task fetch_departments: :environment do
     response = HTTParty.get('https://class-search.nd.edu/reg/srch/ClassSearchServlet')
@@ -69,8 +86,11 @@ namespace :data do
   desc "Fetch every single course in Notre Dame's class search database and map it to a department"
   task fetch_courses: :environment do
     #fetch_html_response(Department.where(tag: 'PSY').take)
+    # Get the last two/first two terms in the array.
     Parallel.each(Department.all, :in_processes => 8) do |dept|
-      fetch_courses(dept)
+      Term.all[0..1].each do |term|
+        fetch_courses(term, dept)
+      end
     end
 
     Department.connection.reconnect!
@@ -119,6 +139,7 @@ namespace :data do
       attr_tag = attribute.attr('value').strip
       if(attribute.text.include? "-")
         attr_split = attribute.text.split("-")
+        puts attr_split
         if(attr_split.length > 2)
           attr_name = attr_split[1].strip + "-" + attr_split[2].strip
         else
@@ -154,7 +175,7 @@ namespace :data do
     course_section = course.sections.first
     if course_section != nil
 
-    response = @conn.get '', {:CRN => course_section.crn, :TERM => "201420" }
+    response = @conn.get '', {:CRN => course_section.crn, :TERM => course_section.term.tag}
     #puts course.title
     content = response.body.strip
 
@@ -183,7 +204,7 @@ namespace :data do
   def fetch_course_description(course)
     course_section = course.sections.first
     if(course_section != nil && course.course_description == nil)
-      response = @conn.get '', {:CRN => course_section.crn, :TERM => "201420", }
+      response = @conn.get '', {:CRN => course_section.crn, :TERM => course-section.term.tag, }
       content = response.body.strip
 
       document = Nokogiri::HTML(content)
@@ -208,9 +229,9 @@ namespace :data do
     end
   end
 
-  def fetch_courses(dept)
+  def fetch_courses(term, dept)
     response = @conn.post '', {
-      :TERM => @term_field,
+      :TERM => term.tag,
       :SUBJ => dept.tag,
       :DIVS => @divs_field,
       :CAMPUS => @campus_field,
@@ -313,12 +334,12 @@ namespace :data do
       end
 
       section = course.sections.where(:crn => course_crn).first_or_initialize
-      puts section
 
 
       if section.new_record?
         section.section_num = course_section_number
         section.crn = course_crn
+        section.term = term
       else
         section.days_of_week = course_days
         section.start_time = course_start_time
@@ -327,6 +348,7 @@ namespace :data do
         section.location = course_location
         section.start_date = course_begin
         section.end_date = course_end
+        section.term = term
         puts "Section already in database"
       end
 
