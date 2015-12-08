@@ -6,6 +6,7 @@ require 'http'
 require 'faraday'
 require 'chronic'
 
+=begin
 namespace :data do
   class_url = "https://class-search.nd.edu/reg/srch/ClassSearchServlet"
   @conn = Faraday.new(:url => class_url) do |faraday|
@@ -354,3 +355,4 @@ namespace :data do
     end
   end
 end
+=end

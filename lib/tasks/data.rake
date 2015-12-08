@@ -125,8 +125,8 @@ namespace :data do
   desc "Fetch every attribute"
   task fetch_attributes: :environment do
     #response = HTTParty.get(class_url)
-    response = @conn.get ''
-    #puts response
+    response = @conn.get 'https://class-search.nd.edu/reg/srch/ClassSearchServlet'
+    puts response
     content = response.body.strip
 
     document = Nokogiri::HTML(content)
@@ -137,6 +137,8 @@ namespace :data do
 
     attributes.each do |attribute|
       attr_tag = attribute.attr('value').strip
+      attr_name = attribute.text.strip
+=begin
       if(attribute.text.include? "-")
         attr_split = attribute.text.split("-")
         puts attr_split
@@ -145,12 +147,16 @@ namespace :data do
         else
           attr_name = attr_split[1].strip
         end
-      else
-        #puts attribute.text, attr_tag
+      elsif(attribute.text.include? ":")
         attr_split = attribute.text.split(":")
         attr_name = attr_split[1].strip + ": " + attr_split[2].strip
         #puts attr_name
+      else
+        puts attribute.text, attr_tag
+        attr_split = attribute.text.split(" ")
+        attr_name = attr_split[0].strip + " - " + attr_split[1..-1].join(" ")
       end
+=end
       attr_model = Attribute.find_or_create_by(:tag => attr_tag, :name => attr_name)
       puts attr_tag + " " + attr_name
       attr_model.save!
@@ -333,7 +339,7 @@ namespace :data do
         professor_model = Professor.where(:last_name => last_name, :first_name => first_name).first_or_create
       end
 
-      section = course.sections.where(:crn => course_crn).first_or_initialize
+      section = term.sections.where(:crn => course_crn).first_or_initialize
 
 
       if section.new_record?
