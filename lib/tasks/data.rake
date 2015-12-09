@@ -210,7 +210,7 @@ namespace :data do
   def fetch_course_description(course)
     course_section = course.sections.first
     if(course_section != nil && course.course_description == nil)
-      response = @conn.get '', {:CRN => course_section.crn, :TERM => course-section.term.tag, }
+      response = @conn.get '', {:CRN => course_section.crn, :TERM => course_section.term.tag, }
       content = response.body.strip
 
       document = Nokogiri::HTML(content)

@@ -46,6 +46,8 @@ gem 'counter_culture', '~> 0.1.23'
 gem 'nprogress-rails'
 gem 'fullcalendar-rails'
 gem 'skylight'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 group :development do
   gem 'better_errors'
